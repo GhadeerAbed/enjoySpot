@@ -1,28 +1,25 @@
-
-import type { Metadata } from "next";
-import "./globals.css";
-import Navbar from "../layouts/page";
-import Footer from "../layouts/Footer";
-
-
-
-export const metadata: Metadata = {
-  title: "ENJOY SPOT",
-  description:
-    "",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
+import Footer from '@/layouts/Footer';
+import Navbar from '@/layouts/page';
+import {NextIntlClientProvider} from 'next-intl';
+import {getLocale, getMessages} from 'next-intl/server';
+ 
+export default async function RootLayout({
+  children
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const locale = await getLocale();
+ 
+  const messages = await getMessages();
+ 
   return (
-    <html>
+    <html lang={locale}>
       <body>
-          <Navbar/>
+        <NextIntlClientProvider messages={messages}>
+        <Navbar />
           <div className="h-screen">{children}</div>
-          <Footer/>
+        <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );
