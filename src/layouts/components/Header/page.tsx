@@ -18,8 +18,8 @@ export const Header = () => {
           <Image
             src="logo.svg"
             alt="Logo"
-            width={150}
-            height={150}
+            width={180}
+            height={160}
             className="object-cover"
           />
         </div>
