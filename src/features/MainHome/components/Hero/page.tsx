@@ -22,14 +22,14 @@ export const Hero = () => {
       />
       {/* remove m-10  */}
       <div className="absolute inset-0 top-16  left-52 z-40 ">
-        <strong className=" md:text-6xl text-lg text-highlight font-Kalnia">
+        <strong className=" lg:text-6xl  sm:text-2xl text-xl text-highlight font-Kalnia">
           Get 20% OFF
         </strong>
 
-        <h1 className="md:text-6xl text-lg  text-white  py-2 font-Kalnia">
+        <h1 className="lg:text-6xl sm:text-2xl text-xl  text-white  py-2 font-Kalnia">
           Prime Week
         </h1>
-        <h1 className="md:text-6xl text-lg  text-white font-Kalnia">
+        <h1 className="lg:text-6xl sm:text-2xl text-xl  text-white font-Kalnia">
           19/9 - 26/9
         </h1>
 

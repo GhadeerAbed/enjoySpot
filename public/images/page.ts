@@ -5,4 +5,11 @@ import Facebook from './face.svg'
 import whatsapp from './whatsapp.svg'
 import hero from './hero.svg'
 import leftArrow from './leftArrow.svg'
-export { USD, AED,whatsapp,Facebook,Instagram , hero ,leftArrow}
+import pepole from './people.svg'
+import location from './location.svg'
+import star from './star.svg'
+import  test from './test.svg' 
+import leftSlide from './leftSlide.svg'
+import rightSlide from './rightSlide.svg'
+
+export { USD, AED,whatsapp,Facebook,Instagram , hero ,leftArrow ,pepole , location , star ,test ,rightSlide ,leftSlide}

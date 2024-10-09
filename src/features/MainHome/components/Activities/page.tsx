@@ -6,6 +6,8 @@
   import Slider from 'react-slick';
   import { activities } from "@/data/layoutData/activite";
   import Card from "@/components/Card/page";
+  import Image from "next/image";
+import { leftSlide, rightSlide } from "../../../../../public/images/page";
 
   // Custom Left Arrow
 // Custom Left Arrow
@@ -13,24 +15,10 @@ const PrevArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-0 transform -translate-y-1/2 left-0 ml-4 z-10 cursor-pointer"
+      className="absolute top-0 transform -translate-y-1/2 left-0  z-10 cursor-pointer"
       onClick={onClick}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="lucide lucide-arrow-left"
-      >
-        <path d="m12 19-7-7 7-7" />
-        <path d="M19 12H5" />
-      </svg>
+      <Image src={leftSlide} alt="leftArrow" width={24} height={24} />
     </div>
   );
 };
@@ -40,24 +28,10 @@ const NextArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-0 transform -translate-y-1/2 right-0 mr-4 z-10 cursor-pointer"
+      className="absolute top-0  transform -translate-y-1/2 right-0  z-10 cursor-pointer"
       onClick={onClick}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="lucide lucide-arrow-right"
-      >
-        <path d="M5 12h14" />
-        <path d="m12 5 7 7-7 7" />
-      </svg>
+    <Image src={rightSlide} alt="leftArrow" width={24} height={24} />
     </div>
   );
 };
@@ -74,16 +48,23 @@ const NextArrow = (props: any) => {
       prevArrow: <PrevArrow />, // Adding custom left arrow
       responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 1200,
           settings: {
-            slidesToShow: 2,
+            slidesToShow: 3,
             slidesToScroll: 1,
             infinite: true,
             dots: true,
           },
         },
         {
-          breakpoint: 640,
+          breakpoint: 840,
+          settings: {
+            slidesToShow: 2,    
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 400,
           settings: {
             slidesToShow: 1,    
             slidesToScroll: 1,
@@ -93,18 +74,16 @@ const NextArrow = (props: any) => {
     };
 
     return (
-      <section className=" ">
-        <h2 className="text-center font-serif text-midFont font-normal uppercase m-10">
-          Explore
-        </h2>
-        <h2 className="text-center font-Sans text-BigFont font-bold text-blue-600 uppercase">
+      <section className="mt-20  mx-20 ">
+        <h1 className= "text-center text-xl uppercase text-secondary py-2 font-Kalnia">Explore</h1>
+        <h2 className="text-center font-Sans text-4xl font-bold text-h1Color ">
           MOST POPULAR ACTIVITIES
         </h2>
 
-        <div className="relative mt-8">
-          <Slider {...settings}>
+        <div className="mt-20 mx-8">
+          <Slider {...settings} >
             {activities.map((activity) => (
-              <div key={activity.id}>
+              <div key={activity.id} className="px-4 py-10">
                 <Card activity={activity} />
               </div>
             ))}

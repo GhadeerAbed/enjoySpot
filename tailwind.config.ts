@@ -13,25 +13,26 @@ const config: Config = {
     extend: {
       colors: {
         primary: "#25466A",
-        secondary:"#25466A",
-        h1Color:"#00ADEE",
-        h6Color:"#757575",
-        highlight:'#FFDE83',
+        secondary: "#25466A",
+        h1Color: "#00ADEE",
+        h6Color: "#757575",
+        highlight: "#FFDE83",
       },
       fontFamily: {
         Sans: ["Sofia Sans", "sans-serif"],
-        decorativeSerif: ['Didot', 'Bodoni', 'serif'],
-        Kalnia:['kalnia', 'sans-serif']
+        decorativeSerif: ["Didot", "Bodoni", "serif"],
+        Kalnia: ["kalnia", "sans-serif"],
       },
       fontSize: {
-        'midFont': '1.25rem',
-        'BigFont': '2.5rem',
+        midFont: "1.25rem",
+        BigFont: "2.5rem",
       },
       boxShadow: {
-        borderShadow:"0px 4px 20px -1px #0000000F",
+        borderShadow: "0px 4px 20px -1px #0000000F",
+        cardShadow: "0px 4px 4px 0px #0000000F",
       },
       backdropBlur: {
-        custom: '20px',
+        custom: "20px",
       },
     },
     screens: {
@@ -45,9 +46,6 @@ const config: Config = {
     },
   },
 
-  plugins: [require("@tailwindcss/forms"),require('tailwindcss-rtl')],
+  plugins: [require("@tailwindcss/forms"), require("tailwindcss-rtl")],
 };
 export default config;
-
-
-
