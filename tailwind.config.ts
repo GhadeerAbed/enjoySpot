@@ -21,6 +21,7 @@ const config: Config = {
       fontFamily: {
         Sans: ["Sofia Sans", "sans-serif"],
         decorativeSerif: ['Didot', 'Bodoni', 'serif'],
+        Kalnia:['kalnia', 'sans-serif']
       },
       fontSize: {
         'midFont': '1.25rem',

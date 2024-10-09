@@ -1,4 +1,9 @@
-import MainHome from '../features/MainHome/page';
+import { MainHome } from "@/features/page";
+
 export default function Home() {
-  return <main className=""><MainHome/></main>;
+  return (
+    <main>
+      <MainHome />
+    </main>
+  );
 }
