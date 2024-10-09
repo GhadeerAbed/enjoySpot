@@ -16,9 +16,15 @@ const config: Config = {
         secondary:"#25466A",
         h1Color:"#00ADEE",
         h6Color:"#757575",
+        highlight:'#FFDE83',
       },
       fontFamily: {
         Sans: ["Sofia Sans", "sans-serif"],
+        decorativeSerif: ['Didot', 'Bodoni', 'serif'],
+      },
+      fontSize: {
+        'midFont': '1.25rem',
+        'BigFont': '2.5rem',
       },
       boxShadow: {
         borderShadow:"0px 4px 20px -1px #0000000F",
