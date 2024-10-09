@@ -18,7 +18,7 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
         <Navbar />
-          <div className="h-screen">{children}</div>
+          {children}
         <Footer />
         </NextIntlClientProvider>
       </body>

@@ -64,3 +64,13 @@ export interface ILookUp {
   _id: string;
   id: number;
 }
+
+export interface Activity {
+  id: number;
+  name: string;
+  price: string;
+  rating: string;
+  imageUrl: string;
+  location: string;
+  people: string;
+}

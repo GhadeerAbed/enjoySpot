@@ -1,3 +1,4 @@
+import MainHome from '../features/MainHome/page';
 export default function Home() {
-  return <main className="max-h-screen w-full ">hello enjoy spot</main>;
+  return <main className=""><MainHome/></main>;
 }
