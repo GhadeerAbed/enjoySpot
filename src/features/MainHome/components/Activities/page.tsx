@@ -37,7 +37,7 @@ const NextArrow = (props: any) => {
 };
 
 
-  const Activities = () => {
+  export const Activities = () => {
     const settings = {
       // dots: true,
       infinite: true,
@@ -83,15 +83,15 @@ const NextArrow = (props: any) => {
         <div className="mt-20 mx-8">
           <Slider {...settings} >
             {activities.map((activity) => (
-              <div key={activity.id} className="px-4 py-10">
+              <div key={activity.id} className="px-4 py-12 ">
                 <Card activity={activity} />
               </div>
             ))}
           </Slider>
         </div>
 
-        <div className="text-center mt-8">
-          <a href="#" className="text-blue-600 font-semibold">
+        <div className="text-center ">
+          <a href="#" className="text-primary underline font-semibold">
             View All
           </a>
         </div>
