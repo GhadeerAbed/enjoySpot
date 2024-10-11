@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import {nextui} from "@nextui-org/react";
 
 const config: Config = {
   content: [
@@ -8,12 +7,10 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,jsx,tsx,ts}",
     "./page.tsx",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
-
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
 
   theme: {
-    
     extend: {
       colors: {
         primary: "#25466A",
@@ -21,9 +18,8 @@ const config: Config = {
         h1Color: "#00ADEE",
         h6Color: "#757575",
         highlight: "#FFDE83",
-         blureColor:"#687986",
-         packageColor:"#e5f6fc",
-        
+        blureColor: "#687986",
+        packageColor: "#e5f6fc",
       },
       fontFamily: {
         Sans: ["Sofia Sans", "sans-serif"],
@@ -53,6 +49,6 @@ const config: Config = {
     },
   },
 
-  plugins: [require("@tailwindcss/forms"),nextui() ,require("tailwindcss-rtl")],
+  plugins: [require("@tailwindcss/forms"), require("tailwindcss-rtl")],
 };
 export default config;

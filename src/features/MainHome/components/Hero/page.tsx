@@ -5,13 +5,6 @@ import { Button } from "@/components/page";
 
 export const Hero = () => {
   return (
-    //no need for use client
-    //remove overflow hidden bg-no-repeat w-[85%] mx-auto relative bg-cover
-    //no need for hero banner component because it static no need any affects
-    // when take an svg be sure you take the specific image
-    // Image component automatic optimize width and height to fit the screen
-    //not font-serif , the font is font-Kalnia
-    // all responsive you add is incorrect
     <section className="mt-10  flex justify-center relative  mx-5 ">
       <Image
         src={hero}

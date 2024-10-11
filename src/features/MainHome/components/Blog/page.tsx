@@ -39,8 +39,8 @@ export const Blog = () => {
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
-        nextArrow: <NextArrow />, // Adding custom right arrow
-        prevArrow: <PrevArrow />, // Adding custom left arrow
+        nextArrow: <NextArrow />, 
+        prevArrow: <PrevArrow />, 
         responsive: [
           {
             breakpoint: 1200,
@@ -77,10 +77,10 @@ export const Blog = () => {
             OUR BLOG
           </h2>
     
-          <div className="mt-20 mx-8">
+          <div className="mt-20 ">
             <Slider {...settings}>
               {activities.map((activity) => (
-                <div key={activity.id} className="px-4 py-10">
+                <div key={activity.id} className="px-3 py-10">
                   <CardBlog activity={activity} />
                 </div>
               ))}

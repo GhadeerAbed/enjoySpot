@@ -3,7 +3,7 @@ import Navbar from '@/layouts/page';
 import {NextIntlClientProvider} from 'next-intl';
 import {getLocale, getMessages} from 'next-intl/server';
 import './globals.css'
-import {NextUIProvider} from '@nextui-org/react'
+
 
  
 export default async function RootLayout({
@@ -18,13 +18,11 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body>
-      <NextUIProvider>
         <NextIntlClientProvider messages={messages}>
         <Navbar />
          <div className='min-h-screen'> {children}</div>
         <Footer />
         </NextIntlClientProvider>
-        </NextUIProvider>
       </body>
     </html>
   );
