@@ -14,7 +14,7 @@ const PrevArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-0 transform -translate-y-1/2 left-0  z-10 cursor-pointer"
+      className="absolute top-0 transform -translate-y-1/2 -left-10  z-10 cursor-pointer"
       onClick={onClick}
     >
       <Image src={leftSlide} alt="leftArrow" width={24} height={24} />
@@ -27,7 +27,7 @@ const NextArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-0  transform -translate-y-1/2 right-0  z-10 cursor-pointer"
+      className="absolute top-0  transform -translate-y-1/2 -right-10  z-10 cursor-pointer"
       onClick={onClick}
     >
       <Image src={rightSlide} alt="leftArrow" width={24} height={24} />
@@ -80,15 +80,17 @@ export const Activities = () => {
         MOST POPULAR ACTIVITIES
       </h2>
 
-      <div className="mt-20 mx-8">
-        <Slider {...settings}>
-          {activities.map((activity) => (
-            <div key={activity.id} className="px-4 py-10">
-              <Card activity={activity} />
-            </div>
-          ))}
-        </Slider>
-      </div>
+
+        <div className="mt-10 m-20">
+          <Slider {...settings} >
+            {activities.map((activity) => (
+              <div key={activity.id} className="px-4 py-12 ">
+                <Card activity={activity} />
+              </div>
+            ))}
+          </Slider>
+        </div>
+
 
       <div className="text-center mt-8">
         <a href="#" className="text-blue-600 font-semibold">
