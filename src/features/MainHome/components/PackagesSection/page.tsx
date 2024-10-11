@@ -1,7 +1,7 @@
 // components/PackagesSection.js
 import React from "react";
-import { PackageCard } from "../page";
 import { Button } from "@/components/page";
+import PackageCard from "../PackageCard/page";
 
 export const PackagesSection = () => {
   // Sample data for packages
