@@ -28,25 +28,7 @@ export const CardBlog = ({ activity }: { activity: Activity }) => {
             height={45}
           />
 
-          {/* Arrow button in the bottom-right corner */}
-          <div className="absolute bottom-3 right-3 bg-primary rounded-full p-3 shadow-md">
-            {" "}
-            {/* Adjust button position and make it circular */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </div>
+         
         </a>
         <div className="flex justify-between mt-3">
           <div className="font-bold font-sans text-xl text-primary">
@@ -55,11 +37,11 @@ export const CardBlog = ({ activity }: { activity: Activity }) => {
         </div>
         <div className="flex items-center ">
           <div className="flex items-center    border-h6Color">
-            <span className="text-h6Color text-xs ">2days ago,5min read </span>
+            <span className="text-h6Color text-[9px] ">2days ago,5min read </span>
           </div>
 
           <div className="flex items-center ">
-            <span className="bg-gray-100 border text-xs rounded-full ml-5 p-1">
+            <span className="bg-gray-100 border text-xs rounded-full ml-2 p-1">
               Category{" "}
             </span>
           </div>
