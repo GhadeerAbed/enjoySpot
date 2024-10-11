@@ -1,15 +1,13 @@
 import React from 'react'
-import { Activities, Blog, Hero, Packages } from './components/page'
+import { Hero } from './components/page'
+import Activities from './components/Activities/page'
 
 export const MainHome = () => {
   return (
     <div>
       <Hero/>
       <Activities/>
-      <Packages />
-      <Blog/>
-      </div>
-    
+    </div>
   )
 }
 
