@@ -15,7 +15,7 @@ const PrevArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-0 transform -translate-y-1/2 left-0  z-10 cursor-pointer"
+      className="absolute top-0 transform -translate-y-1/2 -left-10  z-10 cursor-pointer"
       onClick={onClick}
     >
       <Image src={leftSlide} alt="leftArrow" width={24} height={24} />
@@ -28,7 +28,7 @@ const NextArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-0  transform -translate-y-1/2 right-0  z-10 cursor-pointer"
+      className="absolute top-0  transform -translate-y-1/2 -right-10  z-10 cursor-pointer"
       onClick={onClick}
     >
     <Image src={rightSlide} alt="leftArrow" width={24} height={24} />
@@ -80,7 +80,7 @@ const NextArrow = (props: any) => {
           MOST POPULAR ACTIVITIES
         </h2>
 
-        <div className="mt-20 mx-8">
+        <div className="mt-10 m-20">
           <Slider {...settings} >
             {activities.map((activity) => (
               <div key={activity.id} className="px-4 py-12 ">

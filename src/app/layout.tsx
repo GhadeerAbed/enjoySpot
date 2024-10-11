@@ -18,7 +18,7 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
         <Navbar />
-          {children}
+         <div className='min-h-screen'> {children}</div>
         <Footer />
         </NextIntlClientProvider>
       </body>
