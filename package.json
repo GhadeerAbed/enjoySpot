@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:digitalocean": "npm install --include=dev && npm run build && npm ci"
   },
   "dependencies": {
     "@headlessui/react": "^2.0.4",
