@@ -12,12 +12,12 @@ export const ExpoloreMore = () => {
         <div className=" border-r px-4">Explore Topic</div>
         <div className=" border-r px-4">Explore Topic</div>
         <div className=" border-r px-4">Explore Topic</div>
-        <div className=" border-r px-4">Explore Topic</div>
+        {/* <div className=" border-r px-4">Explore Topic</div> */}
         <div className=" border-r px-4">Explore Topic</div>
         
       </div>
       <div className="flex flex-wrap text-h6Color py-2 ">
-        <div className=" border-r pr-4 ">Explore Topic</div>
+        {/* <div className=" border-r pr-4 ">Explore Topic</div> */}
         <div className=" border-r px-4">Explore Topic</div>
         <div className=" border-r px-4">Explore Topic</div>
         <div className=" border-r px-4">Explore Topic</div>

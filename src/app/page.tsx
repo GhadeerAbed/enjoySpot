@@ -1,9 +1,10 @@
-import { MainHome } from "@/features/page";
+import { MainHome, SubCategory } from "@/features/page";
 
 export default function Home() {
   return (
     <main>
-      <MainHome />
+      {/* <MainHome /> */}
+      <SubCategory/>
     </main>
   );
 }

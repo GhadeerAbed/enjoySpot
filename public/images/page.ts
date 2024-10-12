@@ -17,5 +17,18 @@ import arrowBlue from './arrowBlue.svg'
 import Hero2 from './Hero2.svg'
 import hero3 from './hero3.svg'
 import test2 from './test2.svg'
+import bestDeal from './bestDeals.svg'
+import arrowDown from './arrowDown.svg'
+import Guest from './Guest.svg'
+import dataTime from './dataTime.svg'
+import activity from './activity.svg'
+import sort from './sort.svg'
+import toggleMenu from './toggleMenu.svg'
+import timer from './timer.svg'
+import convert from './convert.svg'
+import seats from './seats.svg'
+import test3 from './test3.svg'
+import stars from './stars.svg'
 
-export {test2,rightArrow,hero3 ,arrowBlue ,Hero2,USD,arrowUpR, AED,whatsapp,Facebook,Instagram , hero ,leftArrow ,pepole , location , star ,test ,rightSlide ,leftSlide}
+
+export {test2,toggleMenu,sort,activity,dataTime,arrowDown,Guest ,bestDeal,rightArrow,hero3 ,arrowBlue ,Hero2,USD,arrowUpR,seats ,test3,convert,stars,timer,AED,whatsapp,Facebook,Instagram , hero ,leftArrow ,pepole , location , star ,test ,rightSlide ,leftSlide}

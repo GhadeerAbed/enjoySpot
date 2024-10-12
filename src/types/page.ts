@@ -74,3 +74,16 @@ export interface Activity {
   location: string;
   people: string;
 }
+
+
+export interface  BestDeal{
+  id: number;
+  name: string;
+  priceBefore: string;
+  priceAfter: string;
+  rating: string;
+  imageUrl: string;
+  seats:string;
+  durations: string;
+  
+}
