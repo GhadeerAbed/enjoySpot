@@ -26,6 +26,7 @@ export const ExpoloreMore = () => {
         <div className=" border-r px-4">Explore Topic</div>
         <div className=" border-r px-4">Explore Topic</div>
         <div className=" border-r px-4">Explore Topic</div>
+        <div></div>
         
       </div>
     </div>
