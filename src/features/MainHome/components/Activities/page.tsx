@@ -81,7 +81,7 @@ export const Activities = () => {
       </h2>
 
 
-        <div className="mt-10 m-20">
+        <div className=" mx-20 mt-20">
           <Slider {...settings} >
             {activities.map((activity) => (
               <div key={activity.id} className="px-4 py-12 ">
@@ -92,8 +92,8 @@ export const Activities = () => {
         </div>
 
 
-      <div className="text-center mt-8">
-        <a href="#" className="text-blue-600 font-semibold">
+      <div className="text-center -mt-3 ">
+        <a href="#" className="text-primary font-semibold underline">
           View All
         </a>
       </div>
