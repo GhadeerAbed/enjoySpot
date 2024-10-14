@@ -96,3 +96,12 @@ export interface reviews{
   review:string;
   imageUrl:string;
 }
+
+export interface ExclusiveType{
+  id:number;
+  name:string;
+  priceAfter:number;
+  priceBefore:number;
+  deals:string;
+  imageUrl:string;
+}
