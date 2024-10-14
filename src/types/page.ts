@@ -87,3 +87,12 @@ export interface  BestDeal{
   durations: string;
   
 }
+
+
+export interface reviews{
+  id:number;
+  name:string;
+  rating:number;
+  review:string;
+  imageUrl:string;
+}

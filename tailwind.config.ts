@@ -20,6 +20,7 @@ const config: Config = {
         highlight: "#FFDE83",
         blureColor: "#687986",
         packageColor: "#e5f6fc",
+        cyanColor:"#e5f7fd",
       },
       fontFamily: {
         Sans: ["Sofia Sans", "sans-serif"],
