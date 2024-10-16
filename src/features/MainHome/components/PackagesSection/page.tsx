@@ -33,11 +33,11 @@ export const PackagesSection = () => {
   ];
 
   return (
-    <section className="my-[150px] bg-blue-50 flex justify-around items-center  h-[350px] px-10">
+    <section className="my-[150px] bg-blue-50 flex flex-row max-custom2:flex-col justify-around items-center   custom2:h-[350px] px-10 py-2">
       {/* Header section */}
       <div>
         <h1 className="uppercase text-xl font-Sans text-primary">Our packages</h1>
-        <h2 className="text-5xl font-medium font-Kalnia text-primary w-[400px] py-1">CHOOSE WHAT YOU ENJOY MOST</h2>
+        <h2 className="text-5xl  font-medium font-Kalnia text-primary w-[400px] py-1">CHOOSE WHAT YOU ENJOY MOST</h2>
         <p className="text-primary w-[400px]">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -48,7 +48,7 @@ export const PackagesSection = () => {
       </div>
 
       {/* Grid of packages */}
-      <div className="grid grid-cols-3 gap-4 w-[700px]">
+  <div className="grid grid-cols-3 gap-4 w-[700px] max-custom2:mt-10">
 
   <div className="col-span-1">
     <PackageCard

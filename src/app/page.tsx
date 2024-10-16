@@ -1,10 +1,11 @@
-import { MainHome, SubCategory } from "@/features/page";
+import { MainHome } from "@/features/page";
+import NotFound from "./not-found";
 
 export default function Home() {
   return (
     <main>
       {/* <MainHome /> */}
-      <SubCategory/>
+      <NotFound/>
     </main>
   );
 }

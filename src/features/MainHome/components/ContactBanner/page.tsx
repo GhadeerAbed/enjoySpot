@@ -4,7 +4,7 @@ import { Hero2, hero3, leftArrow } from "../../../../../public/images/page";
 import { Button } from "@/components/page";
 export const ContactBanner = () => {
   return (
-    <section className="my-20  flex items-center mx-32  relative  ">
+    <section className="my-20  flex items-center sm:mx-32 mx-5  relative  ">
       <Image
         src={Hero2}
         alt="hero"

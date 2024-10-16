@@ -1,7 +1,7 @@
 
 export const ExpoloreMore = () => {
   return (
-    <div className="py-5 mx-32">
+    <div className="py-5 sm:mx-32 mx-10">
       <h2 className=" font-bold text-2xl text-primary py-5">Explore More</h2>
       <div className="flex flex-wrap text-h6Color py-2">
         <div className=" border-r pr-4 ">Explore Topic</div>
