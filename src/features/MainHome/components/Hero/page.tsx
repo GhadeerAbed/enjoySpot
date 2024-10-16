@@ -7,7 +7,7 @@ import { hero, leftArrow } from "../../../../../public/images/page";
 
 export const Hero = () => {
   return (
-    <section className="mt-10 flex justify-center relative lg:mx-5 mx-10">
+    <section className="mt-10 flex justify-center relative lg:mx-20 mx-10">
       {/* Hero Image */}
       <Image
         src={hero}

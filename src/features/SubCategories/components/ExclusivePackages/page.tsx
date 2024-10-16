@@ -13,53 +13,37 @@ import { exclusivDatas } from "@/data/layoutData/exclusive";
 
 export const ExculsivePackages = () => {
   return (
-    <section className="mt-10">
-
-        {/* --------------------Banner-------------- */}
-      <div className="flex justify-center ">
+    <section className="mt-10 ">
+      {/* --------------------Banner-------------- */}
+      <div className="flex justify-center  ">
         <Image src={exclusiveBanner} alt="exclusiveBanner" />
       </div>
 
+      {/* --------------------Buttons-------------- */}
 
-
-        {/* --------------------Buttons-------------- */}
-
-      <div className="flex relative text-center justify-center">
-        <div className=" flex  space-x-10 mt-10 ">
-          <div className="border rounded-full text-primary font-Sans p-1 bg-white">
+      <div className="flex relative text-center justify-center my-5">
+        <div className=" flex  space-x-10 mt-10 text-primary font-Sans">
+          <div className="border rounded-full  p-1 px-5 bg-white">
             City Name
           </div>
-          <div className="border rounded-full text-primary font-Sans p-1 bg-white">
-            City Name
-          </div>
-          <div className="border rounded-full text-primary font-Sans p-1 bg-white">
-            City Name
-          </div>
-          <div className="border rounded-full text-primary font-Sans p-1 bg-white">
-            City Name
-          </div>
-          <div className="border rounded-full text-primary font-Sans p-1 bg-white">
-            City Name
-          </div>
-          <div className="border rounded-full text-primary font-Sans p-1 bg-white">
-            City Name
-          </div>
-          <div className="border rounded-full text-primary font-Sans p-1 bg-white">
-            City Name
-          </div>
+          <div className="border rounded-full p-1 px-5 bg-white">City Name</div>
+          <div className="border rounded-full p-1 px-5 bg-white">City Name</div>
+          <div className="border rounded-full p-1 px-5 bg-white">City Name</div>
+          <div className="border rounded-full p-1 px-5 bg-white">City Name</div>
+          <div className="border rounded-full p-1 px-5 bg-white">City Name</div>
+          <div className="border rounded-full p-1 px-5 bg-white">City Name</div>
         </div>
         <div className="absolute right-7 bottom-0 mr-10">
           <Image src={sort} alt="sorButton" className="" />
         </div>
       </div>
 
-
-                            {/* --------------------Cards-------------- */}
+      {/* --------------------Cards-------------- */}
 
       {exclusivDatas.map((offer, id) => {
         return (
           <div className="" key={id}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 justify-center my-10 border rounded-lg mx-16 relative">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 justify-center my-10 border rounded-lg mx-14 relative">
               <div className="bg-white shadow-md overflow-hidden rounded-l-lg">
                 <Image
                   src={yachtExclusive}
@@ -84,15 +68,19 @@ export const ExculsivePackages = () => {
 
               <div className="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-85"></div>
 
-              <div className="absolute bottom-5 left-3 space-y-2">
-                <h1 className="font-bold font-Sans text-white">{offer.name}</h1>
-                <p className="font-Sans text-gray-200 text-xs">{offer.deals}</p>
+              <div className="absolute bottom-5 left-3 space-y-2 mx-5">
+                <h1 className="font-bold font-Sans   text-white">
+                  {offer.name}
+                </h1>
+                <p className="font-Sans text-gray-200 text-xs max-w-[600px] ">
+                  {offer.deals}
+                </p>
               </div>
 
               <div className="absolute bottom-5 right-3">
-                <div className="flex bg-gray-400 opacity-75 rounded-full px-3 space-x-5 ">
+                <div className="flex bg-white bg-opacity-50 rounded-full px-3 space-x-5 ">
                   <div className="flex space-x-1">
-                    <h1 className="font-bold font-Sans text-white">
+                    <h1 className="font-bold font-Sans text-white ">
                       {offer.priceAfter}
                     </h1>
                     <span className="text-xs mt-2 text-white font-bold z-40 font-Sans">

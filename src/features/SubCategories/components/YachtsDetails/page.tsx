@@ -33,6 +33,7 @@ import {
   zoom,
 } from "../../../../../public/images/page";
 import { review } from "@/data/layoutData/reviews";
+import { ExpoloreMore } from "@/features/MainHome/components/page";
 
 export const YachtsDetails = () => {
   const [activeTab, setActiveTab] = useState("details"); // remove on static
@@ -43,7 +44,7 @@ export const YachtsDetails = () => {
   );
 
   return (
-    <section className="mx-7">
+    <section className="mx-10">
       {/* Banner Yachts Details */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
         {/* Large image on the left */}
@@ -89,7 +90,7 @@ export const YachtsDetails = () => {
           <h2 className="text-2xl font-bold text-primary mb-0">
             Yachts Name 0.1
           </h2>
-          <h2 className="text-xs text-gray-500">4/5 [128 Reviews]</h2>
+          <h2 className="text-xs text-h6Color">4/5 [128 Reviews]</h2>
           <div className="flex items-center">
             <Image src={stars} alt="Rating stars" className="h-4" />
           </div>
@@ -100,34 +101,43 @@ export const YachtsDetails = () => {
 
         <div className="flex flex-wrap items-center gap-4 my-3">
           <h2 className="text-xl font-bold text-primary">
-            2500<span className="text-xs text-gray-600 px-1">AED/H</span>
+            2500<span className="text-xs text-primary px-1">AED/H</span>
           </h2>
-          <h2 className="text-primary bg-cyanColor border rounded-lg px-1 text-xs">
+          <h2 className="text-primary bg-cyanColor border rounded-full px-2 py-1 text-xs">
             Minimum Rental hours: 2 hours
           </h2>
         </div>
 
-        <div className="flex flex-wrap items-center gap-6 py-2">
+        <div className="flex flex-wrap items-center  gap-6 py-2">
           {[
             { icon: harbor, text: "Mars Al Arab", alt: "Harbor icon" },
             { icon: user, text: "12 Guests", alt: "Guests icon" },
             { icon: dashboard, text: "3 Cabins", alt: "Dashboard icon" },
             { icon: table, text: "75 ft", alt: "Table icon" },
           ].map((item, index) => (
-            <h2 className="flex items-center text-gray-600" key={index}>
+            <h2
+              className="flex items-center text-gray-600 border-r"
+              key={index}
+            >
               <Image src={item.icon} alt={item.alt} width={24} height={24} />
-              <span className="ml-2 text-xs text-gray-600">{item.text}</span>
+              <span className="ml-2 text-xs text-gray-600 mr-3">
+                {item.text}
+              </span>
             </h2>
           ))}
         </div>
 
         <div className="my-10">
           <h2 className="text-xl font-bold text-primary">Overview</h2>
-          <p>
+          <p className="text-h6Color text-xs py-3">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa
-            dolorem cumque blanditiis libero perspiciatis saepe iure, beatae
-            recusandae aut! Quibusdam quisquam repudiandae saepe illum
-            voluptates ad ipsum magni cupiditate iusto.
+            dolorem cumque blanditiis libero perspiciatis saepe iure,Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Sed odio mollitia
+            perferendis rerum nemo non sit laboriosam nisi, optio voluptatum
+            itaque placeat exercitationem. Odio minima laboriosam debitis!
+            Repellendus, consequuntur tempora! beatae recusandae aut! Quibusdam
+            quisquam repudiandae saepe illum voluptates ad ipsum magni
+            cupiditate iusto.
           </p>
         </div>
       </div>
@@ -200,7 +210,7 @@ export const YachtsDetails = () => {
       </div> */}
       {/* Dynamic Amenities Tab */} {/* remove in static */}
       <div>
-        <div className="text-xl font-bold flex  font-Sans">
+        <div className="text-xl  flex  font-sans">
           {[
             { name: "details", label: "Details" },
             { name: "amenities", label: "Amenities" },
@@ -233,7 +243,7 @@ export const YachtsDetails = () => {
           {activeTab === "amenities" && (
             <div className="gap-4 my-3 mx-4 w-1/2 point ">
               <h1 className="font-bold text-primary">Interior Amenities</h1>
-              <div className="grid grid-cols-5 lg:grid-cols-5 gap-4 my-4 justify-items-center ">
+              <div className="grid grid-cols-5 lg:grid-cols-5 gap-4 my-4 justify-items-center font-custom">
                 {[
                   { icon: coach, label: "Lounge Area" },
                   { icon: bed, label: "Master Suite" },
@@ -261,7 +271,7 @@ export const YachtsDetails = () => {
               </div>
 
               <h1 className="font-bold text-primary">Exterior Amenities</h1>
-              <div className="grid grid-cols-5 gap-4 my-4 justify-items-center">
+              <div className="grid grid-cols-5 gap-4 my-4 justify-items-center font-custom">
                 {[
                   { icon: umbarla, label: "Sun Deck" },
                   { icon: chair, label: "Outdoor Dining" },
@@ -307,19 +317,19 @@ export const YachtsDetails = () => {
       </div>
       {/* ----------------------Route Detail-------------------- */}
       <div className="w-1/2 flex  my-10 py-10 font-Sans">
-        <div className="w-1/2 mx-5">
-          <h1 className="font-bold text-primary text-xl font-Sans">
+        <div className="w-1/2 mx-5 text-h6Color">
+          <h1 className="font-bold text-primary text-xl font-Sans ">
             Route Details
           </h1>
-          <h2 className="text-gray-500 my-3">
+          <h2 className=" my-5 text-xs">
             <span className="font-bold">2 Hour trip:</span> Marina-JBR-Atlantics
           </h2>
-          <h2 className="text-gray-500 my-3">
+          <h2 className=" my-5  text-xs">
             <span className="font-bold">3 Hour trip:</span> JBR-Marina
             Mall-marina Yachts club-Dubai Eye -Jumeirah Beach-Atlantics Hotel
           </h2>
 
-          <h2 className="text-gray-500 my-3">
+          <h2 className=" my-5  text-xs">
             <span className="font-bold">4 Hour trip:</span>{" "}
             JBR-Marina-JBR-Atlantics-Burj Al Arab
           </h2>
@@ -348,21 +358,21 @@ export const YachtsDetails = () => {
         </div>
       </div>
       {/* ----------------Policey---------- */}
-      <div className=" w-1/2 mx-4 font-Sans">
+      <div className=" w-1/2 mx-4 font-Sans  text-h6Color">
         <h1 className="text-primary font-bold text-xl py-1">Policy :</h1>
-        <p className="text-gray-500 font-Sans mt-3">
+        <p className="text-xs  mt-3">
           1- Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         </p>
-        <p className="text-gray-500 font-Sans my-3 ">
+        <p className="text-xs   my-5 ">
           2- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur
           quas iure esse eos cupiditate harum id, facere ipsum iste porro
           eligendi blanditiis, vero beatae? Cum!
         </p>
-        <p className="text-gray-500 font-Sans ">
+        <p className="text-xs  ">
           3- Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
           rem dolores aut consequuntur vero quasi.
         </p>
-        <p className="text-gray-500 font-Sans my-3  ">
+        <p className="text-xs   my-5 ">
           4- Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
           totam sapiente temporibus ex iusto quas, corporis dolores nam
           doloribus sit expedita nostrum, eaque exercitationem. Ipsum.{" "}
@@ -377,7 +387,7 @@ export const YachtsDetails = () => {
             <div className="text-primary font-bold text-5xl text-center">
               4/5
             </div>
-            <h1 className="text-gray-500 text-center">(128 reviews)</h1>
+            <h1 className="text-h6Color text-center">(128 reviews)</h1>
           </div>
 
           {/* Right side: Star ratings breakdown */}
@@ -390,7 +400,7 @@ export const YachtsDetails = () => {
                     <Image src={stars} alt="star" className="m-1" key={i} />
                   ))}
                 </div>
-                <span className="ml-2 text-gray-600">89/128 Reviews</span>
+                <span className="ml-2 text-h6Color">89/128 Reviews</span>
               </div>
 
               {/* 4 stars */}
@@ -408,7 +418,7 @@ export const YachtsDetails = () => {
                     />
                   ))}
                 </div>
-                <span className="ml-2 text-gray-600">27/128 Reviews</span>
+                <span className="ml-2 text-h6Color">27/128 Reviews</span>
               </div>
 
               {/* 3 stars */}
@@ -426,7 +436,7 @@ export const YachtsDetails = () => {
                     />
                   ))}
                 </div>
-                <span className="ml-2 text-gray-600">3/128 Reviews</span>
+                <span className="ml-2 text-h6Color">3/128 Reviews</span>
               </div>
 
               {/* 2 stars */}
@@ -444,7 +454,7 @@ export const YachtsDetails = () => {
                     />
                   ))}
                 </div>
-                <span className="ml-2 text-gray-600">0/128 Reviews</span>
+                <span className="ml-2 text-h6Color">0/128 Reviews</span>
               </div>
             </div>
           </div>
@@ -456,7 +466,7 @@ export const YachtsDetails = () => {
           {review.map((review) => (
             <div
               key={review.id}
-              className="bg-gray-300 rounded-lg p-4 shadow-md flex  "
+              className="bg-gray-200 rounded-lg p-4 shadow-md flex   "
             >
               <div className="w-1/5">
                 <Image
@@ -464,10 +474,10 @@ export const YachtsDetails = () => {
                   src={faceUser} // Replace with actual image path
                   alt={review.name}
                 />
-                <h4 className="font-bold mt-2 ">{review.name}</h4>
+                <h4 className="font-bold mt-2 text-primary">{review.name}</h4>
               </div>
 
-              <p className="w-3/5 mt-3">{review.review}</p>
+              <p className="w-3/5 mt-5 text-xs ">{review.review}</p>
 
               <div className="w-1/5 flex flex-col items-center justify-center">
                 {/* Rating */}
@@ -492,21 +502,23 @@ export const YachtsDetails = () => {
         </div>
       </div>
       {/* Explore More Section */}
-      <div className="mt-10 w-3/4 mb-5 font-San">
-        <h3 className="text-lg text-primary font-semibold mb-4">
+      {/* <div className="mt-10 w-3/4 mb-5 font-San"> */}
+        {/* <h3 className="text-lg text-primary font-semibold mb-4">
           Explore more
-        </h3>
-        <div className="grid grid-cols-7 gap-4 ">
+        </h3> */}
+        {/* <div className="grid grid-cols-7 gap-4 ">
           {exploreTopics.map((topic, index) => (
             <button
               key={index}
-              className=" hover:bg-gray-200 hover:rounded-lg border-r"
+              className=" hover:bg-h6Color hover:rounded-lg border-r"
             >
               {topic}
             </button>
           ))}
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
+      <div className=" mx-5"><ExpoloreMore/></div>
+        
     </section>
   );
 };

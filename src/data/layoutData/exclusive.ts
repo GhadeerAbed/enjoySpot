@@ -5,7 +5,7 @@ export const exclusivDatas:ExclusiveType[] = [
 
     {
         id:1,
-        name:"Free HelicoptarRide + jet Ski+water slider with 74ft Yachts Cruise",
+        name:" Free Helicoptar Ride + jet Ski+ water slider with 74 ft Yachts Cruise",
         priceBefore:18000,
         priceAfter:15400,
         imageUrl:"banner",
@@ -15,7 +15,7 @@ export const exclusivDatas:ExclusiveType[] = [
     ,
     {
         id:2,
-        name:"Free HelicoptarRide + jet Ski+water slider with 74ft Yachts Cruise",
+        name:" Free Helicoptar Ride + jet Ski + water slider with 74 ft Yachts Cruise",
         priceBefore:18000,
         priceAfter:15400,
         imageUrl:"banner",
@@ -25,7 +25,7 @@ export const exclusivDatas:ExclusiveType[] = [
     ,
     {
         id:3,
-        name:"Free HelicoptarRide + jet Ski+water slider with 74ft Yachts Cruise",
+        name:" Free Helicoptar Ride + jet Ski + water slider with 74 ft Yachts Cruise",
         priceBefore:18000,
         priceAfter:15400,
         imageUrl:"banner",
@@ -35,7 +35,7 @@ export const exclusivDatas:ExclusiveType[] = [
     ,
     {
         id:4,
-        name:"Free HelicoptarRide + jet Ski+water slider with 74ft Yachts Cruise",
+        name:" Free Helicoptar Ride + jet Ski + water slider with 74 ft Yachts Cruise",
         priceBefore:18000,
         priceAfter:15400,
         imageUrl:"banner",

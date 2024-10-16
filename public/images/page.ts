@@ -63,6 +63,8 @@ import exclusiveBanner from './exclusiveBanner.svg'
 import birds from './birds.svg'
 import linearGrd from './linearGrd.svg'
 import pana from './pana.svg'
-export {flag,birds,pana,test2,linearGrd,emptyStars,dining,yachtExclusive,helicoptarExclusive,fastYachts,exclusiveBanner,maps,coach,bathroom,bed,zoom,harbor,dashboard,user,table,yacht1,toggleMenu,sort,activity,dataTime,arrowDown,Guest,room1,roof3,roof2,roof ,bestDeal,rightArrow,hero3 ,arrowBlue ,Hero2,USD,arrowUpR,seats ,test3,convert,faceUser,stars,timer,AED,ladder,grill,chair,umbarla,whatsapp,Facebook,Instagram ,EmFlag,frFlag,indFlag,usFlag,trFlag, hero ,leftArrow ,pepole , location , star ,test ,rightSlide ,leftSlide}
+import mosPopular from './mosPopular.svg'
+import gradBlue from './gradBlue.svg'
+export {flag,birds,gradBlue,mosPopular,pana,test2,linearGrd,emptyStars,dining,yachtExclusive,helicoptarExclusive,fastYachts,exclusiveBanner,maps,coach,bathroom,bed,zoom,harbor,dashboard,user,table,yacht1,toggleMenu,sort,activity,dataTime,arrowDown,Guest,room1,roof3,roof2,roof ,bestDeal,rightArrow,hero3 ,arrowBlue ,Hero2,USD,arrowUpR,seats ,test3,convert,faceUser,stars,timer,AED,ladder,grill,chair,umbarla,whatsapp,Facebook,Instagram ,EmFlag,frFlag,indFlag,usFlag,trFlag, hero ,leftArrow ,pepole , location , star ,test ,rightSlide ,leftSlide}
 
 

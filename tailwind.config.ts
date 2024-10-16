@@ -26,6 +26,7 @@ const config: Config = {
         Sans: ["Sofia Sans", "sans-serif"],
         decorativeSerif: ["Didot", "Bodoni", "serif"],
         Kalnia: ["kalnia", "sans-serif"],
+        custom: ['Roboto'],
       },
       fontSize: {
         midFont: "1.25rem",

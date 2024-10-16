@@ -10,10 +10,10 @@ export const SubCategory = () => {
   return (
     <div>
        {/* <Category/> */}
-       {/* <BestDeals/> */}
+       {/* <BestDeals/>  */}
        {/* <Details/> */}
-       {/* <ExculsivePackages/> */}
-       <DubaiBirds/>
+       <ExculsivePackages/>
+       {/* <DubaiBirds/> */}
     </div>
   )
 }
