@@ -21,7 +21,8 @@ import { activities } from "@/data/layoutData/activite";
 import CardVistor from "@/components/CardVistor/page";
 import { relatedCard } from "@/data/layoutData/relatedCard";
 import CardRelated from "@/components/CardRelated/page";
-import { ExpoloreMore } from "@/features/MainHome/components/page";
+import { ExpoloreMore } from '@/features/MainHome/components/page';
+
 
 const PrevArrow = (props: any) => {
   const { onClick } = props;
