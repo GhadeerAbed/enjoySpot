@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import { useState } from "react";
 
 import {
   birds,
@@ -20,6 +19,9 @@ import { Button } from "@/components/page";
 import Slider from "react-slick";
 import { activities } from "@/data/layoutData/activite";
 import CardVistor from "@/components/CardVistor/page";
+import { relatedCard } from "@/data/layoutData/relatedCard";
+import CardRelated from "@/components/CardRelated/page";
+import { ExpoloreMore } from "@/features/MainHome/components/page";
 
 const PrevArrow = (props: any) => {
   const { onClick } = props;
@@ -64,6 +66,40 @@ const DubaiBirds = () => {
           slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  const related = {
+    // dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          // infinite: true,
         },
       },
       {
@@ -288,7 +324,7 @@ const DubaiBirds = () => {
 
         <div className=" w-[700px]">
           <div className="mt-10 ">
-            <Slider {...settings}>
+            <Slider {...related}>
               {activities.map((activity) => (
                 <div key={activity.id} className=" mx-2 py-10">
                   <CardVistor activity={activity} />
@@ -348,7 +384,7 @@ const DubaiBirds = () => {
       {/* ------------------------------------- */}
 
       <div className=" w-2/3">
-        <form className="bg-white rounded-md shadow-sm">
+        <form className="bg-white rounded-md ">
           <h3 className="text-lg font-semibold mb-4">Leave a comment:</h3>
           <textarea
             className="w-full p-2 border border-h6Color rounded-md mb-4"
@@ -357,21 +393,37 @@ const DubaiBirds = () => {
             required
           ></textarea>
 
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <input
-              type="text"
-              className="w-full p-2 border-b border-h6Color rounded-md"
-              placeholder="Name"
-              value=""
-              required
-            />
-            <input
-              type="email"
-              className="w-full p-2 border-b border-h6Color rounded-md "
-              placeholder="E-mail"
-              value=""
-              required
-            />
+          <div className="grid grid-cols-2 gap-4 mb-4 ">
+            <label
+              htmlFor="UserEmail"
+              className="relative block overflow-hidden border-b border-h6Color bg-transparent pt-3 focus-within:border-blue-600"
+            >
+              <input
+                type="email"
+                id="UserEmail"
+                placeholder="Email"
+                className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+              />
+
+              <span className="absolute start-0 top-2 -translate-y-1/2 text-xs text-h6Color text-h6color transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
+                Email
+              </span>
+            </label>
+            <label
+              htmlFor="UserName"
+              className="relative block overflow-hidden border-b border-h6Color bg-transparent pt-3 focus-within:border-blue-600"
+            >
+              <input
+                type="text"
+                id="UserName"
+                placeholder="Name"
+                className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+              />
+
+              <span className="absolute start-0 top-2 -translate-y-1/2 text-xs text-h6Color transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
+                UserName
+              </span>
+            </label>
           </div>
 
           <div className="flex justify-end">
@@ -406,6 +458,25 @@ const DubaiBirds = () => {
           </div>
         </div>
       </div>
+
+      <div className="w-2/3">
+        <div className="mt-20 ">
+          <div className=" font-bold  text-primary my-3">Related Articles</div>
+          <Slider {...related}>
+            {relatedCard.map((activity) => (
+              <div key={activity.id} className="px-3 py-10 font-abel">
+                <CardRelated activity={activity} />
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </div>
+
+      <div className="w-2/3 ">
+        <ExpoloreMore />
+      </div>
+
+      
     </section>
   );
 };

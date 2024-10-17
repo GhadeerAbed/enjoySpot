@@ -10,13 +10,29 @@ import {
 } from "../../../../../public/images/page";
 import { Button } from "@/components/page";
 import { exclusivDatas } from "@/data/layoutData/exclusive";
+import { ExpoloreMore } from "@/features/MainHome/components/page";
 
 export const ExculsivePackages = () => {
   return (
-    <section className="mt-10 ">
+    <section className="mt-10 mx-[80px]">
       {/* --------------------Banner-------------- */}
-      <div className="flex justify-center  ">
+      <div className="flex justify-center relative ">
         <Image src={exclusiveBanner} alt="exclusiveBanner" />
+          
+        <div className="absolute top-1/4  bottom-3/4 z-40 text-center  ">
+          <h1 className=" text-white font-abel pb-5 opacity-75">
+            tailord Experiences For Ever Advanture 
+          </h1>
+          <h1 className=" lg:text-5xl  font-bold  sm:text-2xl  text-xl text-highlight font-Kalnia pb-5">
+            Discover Our ,
+          </h1>
+          <h1 className=" lg:text-5xl font-bold sm:text-2xl text-xl text-highlight font-Kalnia">
+            Exclusive Packages ,
+          </h1>
+
+
+          {/* Ensure High Z-Index and Cursor Pointer for Button */}
+        </div>
       </div>
 
       {/* --------------------Buttons-------------- */}
@@ -43,7 +59,7 @@ export const ExculsivePackages = () => {
       {exclusivDatas.map((offer, id) => {
         return (
           <div className="" key={id}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 justify-center my-10 border rounded-lg mx-14 relative">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 justify-center my-10 border rounded-lg  relative">
               <div className="bg-white shadow-md overflow-hidden rounded-l-lg">
                 <Image
                   src={yachtExclusive}
@@ -106,6 +122,10 @@ export const ExculsivePackages = () => {
           </div>
         );
       })}
+
+      <div className="">
+        <ExpoloreMore />
+      </div>
     </section>
   );
 };

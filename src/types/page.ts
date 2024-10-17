@@ -75,6 +75,14 @@ export interface Activity {
   people: string;
 }
 
+export interface Article{
+  id: number;
+  name: string;
+  category: string;
+  activated: string;
+
+}
+
 
 export interface  BestDeal{
   id: number;

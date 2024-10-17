@@ -517,7 +517,7 @@ export const YachtsDetails = () => {
           ))}
         </div> */}
       {/* </div> */}
-      <div className=" mx-5"><ExpoloreMore/></div>
+      <div className=" w-2/3"><ExpoloreMore/></div>
         
     </section>
   );
