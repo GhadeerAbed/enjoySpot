@@ -12,8 +12,8 @@ export const SubCategory = () => {
        {/* <Category/> */}
        {/* <BestDeals/>  */}
        {/* <Details/> */}
-       <ExculsivePackages/>
-       {/* <DubaiBirds/> */}
+       {/* <ExculsivePackages/> */}
+       <DubaiBirds/>
     </div>
   )
 }

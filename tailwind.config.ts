@@ -27,6 +27,8 @@ const config: Config = {
         decorativeSerif: ["Didot", "Bodoni", "serif"],
         Kalnia: ["kalnia", "sans-serif"],
         custom: ['Roboto'],
+        abel: ['Abel'], // Abel font
+        asap: ['Asap'], // Asap font
       },
       fontSize: {
         midFont: "1.25rem",

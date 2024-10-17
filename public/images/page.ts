@@ -32,6 +32,7 @@ import stars from './stars.svg'
 import roof from './roof.svg'
 import roof2 from './roof2.svg'
 import roof3 from './roof3.svg'
+import vistor from './vistor.svg'
 import room1 from './room1.svg'
 import yacht1 from './yacht1.svg'
 import zoom from './zoom.svg'
@@ -65,6 +66,14 @@ import linearGrd from './linearGrd.svg'
 import pana from './pana.svg'
 import mosPopular from './mosPopular.svg'
 import gradBlue from './gradBlue.svg'
-export {flag,birds,gradBlue,mosPopular,pana,test2,linearGrd,emptyStars,dining,yachtExclusive,helicoptarExclusive,fastYachts,exclusiveBanner,maps,coach,bathroom,bed,zoom,harbor,dashboard,user,table,yacht1,toggleMenu,sort,activity,dataTime,arrowDown,Guest,room1,roof3,roof2,roof ,bestDeal,rightArrow,hero3 ,arrowBlue ,Hero2,USD,arrowUpR,seats ,test3,convert,faceUser,stars,timer,AED,ladder,grill,chair,umbarla,whatsapp,Facebook,Instagram ,EmFlag,frFlag,indFlag,usFlag,trFlag, hero ,leftArrow ,pepole , location , star ,test ,rightSlide ,leftSlide}
+import owelCover from './owelCover.svg'
+import bird from './bird.svg'
+import like from './like.svg'
+import dislike from './dislike.svg'
+import facebook1 from './facebook1.svg'
+import insta from './insta.svg'
+import whatsapp1 from './whatsapp1.svg'
+
+export {flag,birds,whatsapp1,insta,facebook1,dislike,like,vistor,bird,gradBlue,mosPopular,pana,owelCover,test2,linearGrd,emptyStars,dining,yachtExclusive,helicoptarExclusive,fastYachts,exclusiveBanner,maps,coach,bathroom,bed,zoom,harbor,dashboard,user,table,yacht1,toggleMenu,sort,activity,dataTime,arrowDown,Guest,room1,roof3,roof2,roof ,bestDeal,rightArrow,hero3 ,arrowBlue ,Hero2,USD,arrowUpR,seats ,test3,convert,faceUser,stars,timer,AED,ladder,grill,chair,umbarla,whatsapp,Facebook,Instagram ,EmFlag,frFlag,indFlag,usFlag,trFlag, hero ,leftArrow ,pepole , location , star ,test ,rightSlide ,leftSlide}
 
 
