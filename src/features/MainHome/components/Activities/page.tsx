@@ -51,7 +51,7 @@ export const Activities = () => {
           slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          
         },
       },
       {

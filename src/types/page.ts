@@ -74,3 +74,56 @@ export interface Activity {
   location: string;
   people: string;
 }
+
+export interface Article{
+  id: number;
+  name: string;
+  category: string;
+  activated: string;
+
+}
+
+
+export interface  BestDeal{
+  id: number;
+  name: string;
+  priceBefore: string;
+  priceAfter: string;
+  rating: string;
+  imageUrl: string;
+  seats:string;
+  durations: string;
+  
+}
+
+
+export interface reviews{
+  id:number;
+  name:string;
+  rating:number;
+  review:string;
+  imageUrl:string;
+}
+
+export interface ExclusiveType{
+  id:number;
+  name:string;
+  priceAfter:number;
+  priceBefore:number;
+  deals:string;
+  imageUrl:string;
+}
+
+
+export interface  Booking{
+  id: number;
+  name: string;
+  price: string;
+  day: string;
+  date: string;
+  code: string;
+  status:string;
+  location: string;
+  duration: string;
+  time: string;
+}
