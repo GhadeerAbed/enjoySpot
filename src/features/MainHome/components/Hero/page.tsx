@@ -7,7 +7,7 @@ import { hero, leftArrow } from "../../../../../public/images/page";
 
 export const Hero = () => {
   return (
-    <section className="mt-10 flex justify-center relative lg:mx-5 mx-10">
+    <section className="mt-10 flex justify-center relative lg:mx-20 mx-10">
       {/* Hero Image */}
       <Image
         src={hero}
@@ -19,7 +19,7 @@ export const Hero = () => {
       />
 
       {/* Overlay Content */}
-      <div className="absolute inset-0 top-3 sm:top-6 lg:top-16 left-10 lg:left-40  z-40">
+      <div className="absolute inset-0 top-3 sm:top-6 lg:top-16 left-10 lg:left-40  z-40 ">
         <strong className="lg:text-6xl md:text-3xl sm:text-2xl text-xl text-highlight font-Kalnia">
           Get 20% OFF
         </strong>
