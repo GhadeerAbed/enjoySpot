@@ -33,8 +33,8 @@ export const CardBlog = ({ activity }: { activity: Activity }) => {
 
         {/* Date and Time */}
         <div className="flex  mt-2 max-sm:flex-col">
-          <span className="text-h6Color text-sm">2 days ago, 5 min read</span>
-          <span className="bg-gray-100 text-xs rounded-full px-2 py-1 sm:ml-8 w-20 max-sm:mt-2">
+          <span className="text-h6Color text-sm">2 days ago, 5 min</span>
+          <span className="bg-gray-100 text-xs rounded-full px-2 text-center  sm:mx-1 w-20 ">
             Category 1
           </span>
         </div>
