@@ -73,7 +73,13 @@ import dislike from './dislike.svg'
 import facebook1 from './facebook1.svg'
 import insta from './insta.svg'
 import whatsapp1 from './whatsapp1.svg'
+import pen from './pen.svg'
+import hour from './hour.svg'
+import duration from './duration.svg'
+import masterCard from './masterCard.svg'
+import visa from './visa.svg'
+import menu from './menu.svg'
 
-export {flag,birds,whatsapp1,insta,facebook1,dislike,like,vistor,bird,gradBlue,mosPopular,pana,owelCover,test2,linearGrd,emptyStars,dining,yachtExclusive,helicoptarExclusive,fastYachts,exclusiveBanner,maps,coach,bathroom,bed,zoom,harbor,dashboard,user,table,yacht1,toggleMenu,sort,activity,dataTime,arrowDown,Guest,room1,roof3,roof2,roof ,bestDeal,rightArrow,hero3 ,arrowBlue ,Hero2,USD,arrowUpR,seats ,test3,convert,faceUser,stars,timer,AED,ladder,grill,chair,umbarla,whatsapp,Facebook,Instagram ,EmFlag,frFlag,indFlag,usFlag,trFlag, hero ,leftArrow ,pepole , location , star ,test ,rightSlide ,leftSlide}
+export {flag,birds,duration,menu,masterCard,visa,whatsapp1,hour,pen,insta,facebook1,dislike,like,vistor,bird,gradBlue,mosPopular,pana,owelCover,test2,linearGrd,emptyStars,dining,yachtExclusive,helicoptarExclusive,fastYachts,exclusiveBanner,maps,coach,bathroom,bed,zoom,harbor,dashboard,user,table,yacht1,toggleMenu,sort,activity,dataTime,arrowDown,Guest,room1,roof3,roof2,roof ,bestDeal,rightArrow,hero3 ,arrowBlue ,Hero2,USD,arrowUpR,seats ,test3,convert,faceUser,stars,timer,AED,ladder,grill,chair,umbarla,whatsapp,Facebook,Instagram ,EmFlag,frFlag,indFlag,usFlag,trFlag, hero ,leftArrow ,pepole , location , star ,test ,rightSlide ,leftSlide}
 
 

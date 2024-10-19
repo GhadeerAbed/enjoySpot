@@ -113,3 +113,17 @@ export interface ExclusiveType{
   deals:string;
   imageUrl:string;
 }
+
+
+export interface  Booking{
+  id: number;
+  name: string;
+  price: string;
+  day: string;
+  date: string;
+  code: string;
+  status:string;
+  location: string;
+  duration: string;
+  time: string;
+}

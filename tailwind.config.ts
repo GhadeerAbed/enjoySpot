@@ -21,6 +21,8 @@ const config: Config = {
         blureColor: "#687986",
         packageColor: "#e5f6fc",
         cyanColor:"#e5f7fd",
+        h5Color:"#f9f9f9"
+
       },
       fontFamily: {
         Sans: ["Sofia Sans", "sans-serif"],
