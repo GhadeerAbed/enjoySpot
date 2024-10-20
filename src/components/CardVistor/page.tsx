@@ -18,7 +18,7 @@ export const CardVistor = ({ activity }: { activity: Activity }) => {
           <Image
             alt="Activity Image"
             src={vistor}
-            className="h-48 w-full  object-cover rounded-lg" 
+            className="h-48 w-full  object-cover rounded-[20px]" 
             width={500}
             height={400}
           />

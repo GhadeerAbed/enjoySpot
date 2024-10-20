@@ -17,7 +17,7 @@ import { ExpoloreMore } from "@/features/MainHome/components/page";
 
 const BestDeals = () => {
   return (
-    <section className="mx-[80px]">
+    <section className="mx-[100px]">
       {/* -------------  {Banner}------------------------ */}
       <section className="mt-10  flex justify-center relative  ">
         <Image
@@ -25,7 +25,8 @@ const BestDeals = () => {
           alt="bestDeal"
           width={1240}
           height={393}
-          className="rounded-xl "
+          className="rounded-xl w-full"
+          
         />
         {/* remove m-10  */}
         <div className="absolute inset-0 top-6  left-20 z-40  ">
@@ -50,7 +51,7 @@ const BestDeals = () => {
       <section className="flex justify-center items-center py-6 mt-5 mb-2">
         <div className="flex gap-8 items-center">
           {/* City Dropdown */}
-          <div className="relative px-5">
+          <div className="relative ">
             <details className="group [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center gap-2 border-r border-gray-200 pb-1 text-h6Color transition hover:border-h6Color">
                 <Image src={location} width={18} height={18} alt="location" />
@@ -67,7 +68,7 @@ const BestDeals = () => {
               </summary>
 
               <div className="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2">
-                <div className="w-96 rounded border border-gray-200 bg-white p-4">
+                <div className="w-96 rounded border border-h6Color bg-white p-4">
                   <input
                     type="text"
                     className="w-full border p-2 rounded-md"
@@ -178,24 +179,24 @@ const BestDeals = () => {
       <div className="w-full border-b bg-h6Color "></div>
 
       {/* ------------------------Icons----------------  */}
-      <section className="flex justify-end  mt-5   ">
+      <section className="flex justify-end  mt-5 space-x-1  ">
         <Image
           src={toggleMenu}
           alt=""
           width={34}
           height={34}
-          className="mr-3 cursor-pointer "
+          className="cursor-pointer "
         />
         <Image
           src={sort}
           alt=""
           width={34}
           height={34}
-          className="mr-3 cursor-pointer "
+          className=" cursor-pointer  "
         />
       </section>
       {/* ---------------- {Deals}-------------- */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3   py-12">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-7   py-12">
         {bestDeals.map((deal) => (
           <CardDeals key={deal.id} deal={deal} />
         ))}

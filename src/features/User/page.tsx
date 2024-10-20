@@ -5,7 +5,7 @@ const User = () => {
   return (
     <div>
     {/* <Profile/> */}
-    <MangeBooking/>
+    {/* <MangeBooking/> */}
 
     </div>
   )

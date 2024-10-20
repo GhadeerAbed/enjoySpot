@@ -21,14 +21,13 @@ import { activities } from "@/data/layoutData/activite";
 import CardVistor from "@/components/CardVistor/page";
 import { relatedCard } from "@/data/layoutData/relatedCard";
 import CardRelated from "@/components/CardRelated/page";
-import { ExpoloreMore } from '@/features/MainHome/components/page';
-
+import { ExpoloreMore } from "@/features/MainHome/components/page";
 
 const PrevArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-0 left-0  z-10 cursor-pointer "
+      className="absolute left-[-40px] z-10 cursor-pointer top-1/2 transform -translate-y-1/2"
       onClick={onClick}
     >
       <Image src={leftSlide} alt="leftArrow" width={24} height={24} />
@@ -41,10 +40,10 @@ const NextArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-0   right-0  z-10 cursor-pointer"
+      className="absolute right-[-40px] z-10 cursor-pointer top-1/2 transform -translate-y-1/2"
       onClick={onClick}
     >
-      <Image src={rightSlide} alt="leftArrow" width={24} height={24} />
+      <Image src={rightSlide} alt="rightArrow" width={24} height={24} />
     </div>
   );
 };
@@ -120,44 +119,48 @@ const DubaiBirds = () => {
     ],
   };
   return (
-    <section className="mx-[80px]">
+    <section className="mx-[100px]">
       {/* -------------  {Banner}------------------------ */}
-      <div className=" mt-10 mb-10  ">
-        <div className=" relative ">
-          <div className="relative">
-            <div className="flex justify-center text-center">
-              <Image src={birds} alt="birdsDubai" className="rounded-lg" />
-            </div>
-
-            <div className="absolute inset-0 bg-gradient-to-r from-primary to-transparent opacity-85 rounded-lg"></div>
+      <div className="mt-10 mb-10">
+        <div className="relative">
+          <div className="flex justify-center text-center relative">
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary to-transparent z-10 rounded-lg"></div>
+            {/* Image */}
+            <Image
+              src={birds}
+              alt="birdsDubai"
+              className="rounded-lg relative z-0 w-full object-cover"
+            />
           </div>
-
-          <div className="absolute top-10  left-20  space-y-5  z-40 ">
-            <div className=" lg:text-5xl  sm:text-2xl text-xl text-highlight font-Kalnia font-bold ">
+          {/* Text and details */}
+          <div className="absolute top-10 left-10 sm:left-20 space-y-5 z-40 max-w-md sm:max-w-lg">
+            <div className="lg:text-5xl sm:text-3xl text-xl text-highlight font-Kalnia font-bold">
               The rarest species of
             </div>
-            <div className=" lg:text-5xl  sm:text-2xl text-xl text-highlight font-Kalnia font-bold ">
+            <div className="lg:text-5xl sm:text-3xl text-xl text-highlight font-Kalnia font-bold">
               birds in the Dubai
             </div>
-            <div className=" lg:text-5xl  sm:text-2xl text-xl text-highlight font-Kalnia font-bold ">
+            <div className="lg:text-5xl sm:text-3xl text-xl text-highlight font-Kalnia font-bold">
               Dubai desert
             </div>
-
             <div className="space-x-5 my-5">
               <span className="font-Sans text-white text-xs">
                 2days ago. 5min read
               </span>
-              <span className="font-Sans text-primary bg-white rounded-full p-2 text-xs ">
+              <span className="font-Sans text-primary bg-white rounded-full p-2 text-xs">
                 Category 1
               </span>
             </div>
           </div>
         </div>
       </div>
+
       {/* ------------------------------ArticleButton------------------------------ */}
-      <div className="flex  relative h-[1000px] mb-20">
+
+      <div className="flex  relative  ">
         {/* //leftside */}
-        <div className="w-2/3 h-[570px] relative">
+        <div className="w-2/3  relative">
           <div className="  mx-20 ">
             <div className="text-h1Color">
               <span className="text-5xl">.</span>Related article 1
@@ -172,15 +175,49 @@ const DubaiBirds = () => {
               <span className="text-5xl my-5">.</span>Related article 1
             </div>
           </div>
+
+          <div className="mt-20 mb-8 w-[718px]">
+            <h1 className="font-Sans text-primary text-lg font-bold space-y-3">
+              Lorem Ipsum{" "}
+            </h1>
+            <p className=" text-h6Color font-asap my-3  ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.amet a
+              Molestiaeaa aspernatur. Deleniti natus possimus, praesentium
+              excepturi eaque nequeasa iusto corporis architecto eveniet amet
+              perferendis iure iste voluptas modi ullam ipsa repudiandae
+              voluptatibus impedit ipsaum sed amet, consequuntur laborum. Neque
+              qui, enim nostrum ratione cupiditate, harum delectus quam placeat
+              odio perspiciatis totam vel.harum delectus quam placeat ahemd
+            </p>
+            <p className=" text-h6Color font-asap my-3 ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.amet a
+              Molestiaeaa aspernatur. Deleniti natus possimus, praesentium
+              excepturi eaque nequeasa iusto corporis architecto eveniet amet
+              perferendis iure iste voluptas modi ullam ipsa repudiandae
+              voluptatibus impedit ipsaum sed amet, consequuntur laborum. Neque
+              qui, enim nostrum ratione cupiditate, harum delectus quam placeat
+              odio perspiciatis totam vel.harum delectus quam placeat ahemd
+            </p>
+            <p className=" text-h6Color font-asap my-3 ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.amet a
+              Molestiaeaa aspernatur. Deleniti natus possimus, praesentium
+              excepturi eaque nequeasa iusto corporis architecto eveniet amet
+              perferendis iure iste voluptas modi ullam ipsa repudiandae
+              voluptatibus impedit ipsaum sed amet, consequuntur laborum. Neque
+              qui, enim nostrum ratione cupiditate, harum delectus quam placeat
+              odio perspiciatis totam vel.harum delectus quam placeat ahemd
+            </p>
+          </div>
         </div>
+
         {/* //rightside */}
 
-        <div className="flex flex-col items-center space-y-3 mx-3 relative">
-          <div className="absolute left-0 top-0 font-Sans font-bold text-primary  ">
+        <div className="flex flex-col items-center space-y-3  relative w-1/3 ml-10">
+          <div className="absolute left-5 top-0 font-Sans font-bold text-primary  ">
             Most Pouplur
           </div>
           <div
-            className="w-full max-w-sm font-abel rounded-lg shadow-borderShadow flex justify-between h-[95px] items-center "
+            className="w-full max-w-sm font-abel  rounded-lg shadow-borderShadow flex justify-between h-[95px] items-center "
             style={{ marginTop: 50 }}
           >
             <Image src={mosPopular} alt="Most Popular" className="w-1/4" />
@@ -188,7 +225,7 @@ const DubaiBirds = () => {
               <div className=" text-primary mt-3">
                 The best 10 things to do on yours in next trip.
               </div>
-              <div className="flex mt-3 justify-between">
+              <div className="flex mt-3 justify-between my-2">
                 <div className=" text-h6Color text-xs py-2">
                   2 days ago, 5 min read .
                 </div>
@@ -247,90 +284,63 @@ const DubaiBirds = () => {
                   Category 1
                 </span>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className="absolute left-0 bottom-36 w-3/2 h-[600px]   ">
-          <h1 className="font-Sans text-primary text-lg font-bold space-y-3">
-            Lorem Ipsum{" "}
-          </h1>
-          <p className=" text-h6Color font-asap my-3 max-w-[680px]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-            tenetur nisi sequi, quos laborum laboriosam dolorem totam quibusdam
-            natus ratione nesciunt at provident dignissimos aliquids tenetur
-            nisi sequi, quos laborum laboriosam dolorem tota tenetur nisi sequi,
-            quos laborum laboriosam dolorem tota tenetur nisi sequi, quos
-            laborum laboriosam dolorem tota tenetur nisi sequi, quos laborum
-            laboriosam dolorem tota exercitationem esse voluptas hic.nisi sequi
-          </p>
-          <p className=" text-h6Color font-asap my-3 max-w-[680px]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-            tenetur nisi sequi, quos laborum laboriosam dolorem totam quibusdam
-            natus ratione nesciunt at provident dignissimos aliquids tenetur
-            nisi sequi, quos laborum laboriosam dolorem tota tenetur nisi sequi,
-            quos laborum laboriosam dolorem tota tenetur nisi sequi, quos
-            laborum laboriosam dolorem tota tenetur nisi sequi, quos laborum
-            laboriosam dolorem tota exercitationem esse voluptas hic.nisi sequi
-          </p>
-          <p className="max-w-[680px] text-h6Color font-asap my-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-            tenetur nisi sequi, quos laborum laboriosam dolorem totam quibusdam
-            natus ratione nesciunt at provident dignissimos aliquids tenetur
-            nisi sequi, quos laborum laboriosam dolorem tota tenetur nisi sequi,
-            quos laborum laboriosam dolorem tota tenetur nisi sequi, quos
-            laborum laboriosam dolorem tota tenetur nisi sequi, quos laborum
-            laboriosam dolorem tota exercitationem esse voluptas hic.nisi sequi
-          </p>
-          <div className="">
-            <Image src={owelCover} alt="owelCover" />
-            <div className="justify-center text-center text-h6Color">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id,
-              perferendis?
             </div>
           </div>
         </div>
       </div>
-      {/* ----------------------------Carsoul------------------------------- */}
-      <div className=" w-2/3   my-[40px]  ">
-        <h1 className="font-Sans text-primary text-lg font-bold space-y-3">
-          Lorem Ipsum{" "}
-        </h1>
-        <p className=" text-h6Color font-asap my-3 max-w-[680px]">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias tenetur
-          nisi sequi, quos laborum laboriosam dolorem totam quibusdam natus
-          ratione nesciunt at provident dignissimos aliquids tenetur nisi sequi,
-          quos laborum laboriosam dolorem tota tenetur nisi sequi, quos laborum
-          laboriosam dolorem tota tenetur nisi sequi, quos laborum laboriosam
-          dolorem tota tenetur nisi sequi, quos laborum laboriosam dolorem tota
-          exercitationem esse voluptas hic.nisi sequi
-        </p>
-        <p className=" text-h6Color font-asap my-3 max-w-[680px]">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias tenetur
-          nisi sequi, quos laborum laboriosam dolorem totam quibusdam natus
-          ratione nesciunt at provident dignissimos aliquids tenetur nisi sequi,
-          quos laborum laboriosam dolorem tota tenetur nisi sequi, quos laborum
-          laboriosam dolorem tota tenetur nisi sequi, quos laborum laboriosam
-          dolorem tota tenetur nisi sequi, quos laborum laboriosam dolorem tota
-          exercitationem esse voluptas hic.nisi sequi
-        </p>
-        <p className="max-w-[680px] text-h6Color font-asap my-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias tenetur
-          nisi sequi, quos laborum laboriosam dolorem totam quibusdam natus
-          ratione nesciunt at provident dignissimos aliquids tenetur nisi sequi,
-          quos laborum laboriosam dolorem tota tenetur nisi sequi, quos laborum
-          laboriosam dolorem tota tenetur nisi sequi, quos laborum laboriosam
-          dolorem tota tenetur nisi sequi, quos laborum laboriosam dolorem tota
-          exercitationem esse voluptas hic.nisi sequi
-        </p>
 
-        <div className=" w-[700px]">
-          <div className="mt-10 ">
-            <Slider {...related}>
+      <div className="w-2/3">
+        <Image src={owelCover} alt="owelCover" className="object-cover" />
+        <div className=" text-h6Color ml-20">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id,
+          perferendis?
+        </div>
+      </div>
+      <div className=" w-2/3    ">
+        <div className="mt-10 mb-8 w-[718px]">
+          <h1 className="font-Sans text-primary text-lg font-bold space-y-3">
+            Lorem Ipsum{" "}
+          </h1>
+          <p className=" text-h6Color font-asap my-3  ">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.amet a
+            Molestiaeaa aspernatur. Deleniti natus possimus, praesentium
+            excepturi eaque nequeasa iusto corporis architecto eveniet amet
+            perferendis iure iste voluptas modi ullam ipsa repudiandae
+            voluptatibus impedit ipsaum sed amet, consequuntur laborum. Neque
+            qui, enim nostrum ratione cupiditate, harum delectus quam placeat
+            odio perspiciatis totam vel.harum delectus quam placeat ahemd
+          </p>
+          <p className=" text-h6Color font-asap my-3 ">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.amet a
+            Molestiaeaa aspernatur. Deleniti natus possimus, praesentium
+            excepturi eaque nequeasa iusto corporis architecto eveniet amet
+            perferendis iure iste voluptas modi ullam ipsa repudiandae
+            voluptatibus impedit ipsaum sed amet, consequuntur laborum. Neque
+            qui, enim nostrum ratione cupiditate, harum delectus quam placeat
+            odio perspiciatis totam vel.harum delectus quam placeat ahemd
+          </p>
+          <p className=" text-h6Color font-asap my-3 ">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.amet a
+            Molestiaeaa aspernatur. Deleniti natus possimus, praesentium
+            excepturi eaque nequeasa iusto corporis architecto eveniet amet
+            perferendis iure iste voluptas modi ullam ipsa repudiandae
+            voluptatibus impedit ipsaum sed amet, consequuntur laborum. Neque
+            qui, enim nostrum ratione cupiditate, harum delectus quam placeat
+            odio perspiciatis totam vel.harum delectus quam placeat ahemd
+          </p>
+        </div>
+
+        <div className=" w-[750px]  ">
+          <div className="mt-5 mb-10 mx-10">
+            <h1 className="font-Sans text-primary  font-bold">Also visit</h1>
+            <Slider {...settings}>
+              {/* <div class  Name=""> */}
               {activities.map((activity) => (
-                <div key={activity.id} className=" mx-2 py-10">
+                <div key={activity.id} className=" mx-2 px-1">
                   <CardVistor activity={activity} />
                 </div>
               ))}
+              {/* </div> */}
             </Slider>
           </div>
         </div>
@@ -361,8 +371,8 @@ const DubaiBirds = () => {
       </div>
 
       {/* ---------------------------Social Icons------------------ */}
-      <div className="flex w-2/3 justify-between">
-        <div className="flex py-10 items-center font-Sans w-1/2">
+      <div className="flex w-[750px] justify-between">
+        <div className="flex py-10 items-center font-Sans ">
           <div className="font-bold text-primary ">
             Was The article helpful:
           </div>
@@ -372,7 +382,7 @@ const DubaiBirds = () => {
           </div>
         </div>
 
-        <div className="flex py-10 items-center font-Sans w-[330px] ">
+        <div className="flex py-10 items-center font-Sans ml-10">
           <div className="font-bold text-primary mr-1">Share:</div>
           <div className="flex text-center justify-center">
             <Image src={whatsapp1} alt="" className="mx-1" />
@@ -384,11 +394,13 @@ const DubaiBirds = () => {
 
       {/* ------------------------------------- */}
 
-      <div className=" w-2/3">
+      <div className=" w-[750px] my-10  ">
         <form className="bg-white rounded-md ">
-          <h3 className="text-lg font-semibold mb-4">Leave a comment:</h3>
+          <h3 className="text-lg font-semibold mb-4 text-primary">
+            Leave a comment:
+          </h3>
           <textarea
-            className="w-full p-2 border border-h6Color rounded-md mb-4"
+            className="w-full p-2 border border-h4Color rounded-md mb-4"
             placeholder="Write your comment"
             value=""
             required
@@ -397,7 +409,7 @@ const DubaiBirds = () => {
           <div className="grid grid-cols-2 gap-4 mb-4 ">
             <label
               htmlFor="UserEmail"
-              className="relative block overflow-hidden border-b border-h6Color bg-transparent pt-3 focus-within:border-blue-600"
+              className="relative block overflow-hidden border-b border-h4Color bg-transparent pt-3 focus-within:border-blue-600"
             >
               <input
                 type="email"
@@ -406,13 +418,13 @@ const DubaiBirds = () => {
                 className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
               />
 
-              <span className="absolute start-0 top-2 -translate-y-1/2 text-xs text-h6Color text-h6color transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
+              <span className="absolute start-0 top-2 -translate-y-1/2 text-xs text-h4Color text-h6color transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
                 Email
               </span>
             </label>
             <label
               htmlFor="UserName"
-              className="relative block overflow-hidden border-b border-h6Color bg-transparent pt-3 focus-within:border-blue-600"
+              className="relative block overflow-hidden border-b border-h4Color bg-transparent pt-3 focus-within:border-blue-600"
             >
               <input
                 type="text"
@@ -421,7 +433,7 @@ const DubaiBirds = () => {
                 className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
               />
 
-              <span className="absolute start-0 top-2 -translate-y-1/2 text-xs text-h6Color transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
+              <span className="absolute start-0 top-2 -translate-y-1/2 text-xs text-h4Color transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
                 UserName
               </span>
             </label>
@@ -433,8 +445,10 @@ const DubaiBirds = () => {
             </Button>
           </div>
         </form>
-        <div className="mt-8">
-          <div className="text-lg font-semibold mb-4">Comments:</div>
+        <div className="mt-10 font-Sans">
+          <div className="text-lg font-semibold mb-4 text-primary">
+            Comments:
+          </div>
           <div className="">
             <div className="font-bold text-primary">
               Name Name . <span className="text-h6Color">2 Hours</span>
@@ -460,7 +474,7 @@ const DubaiBirds = () => {
         </div>
       </div>
 
-      <div className="w-2/3">
+      <div className="w-[750px]">
         <div className="mt-20 ">
           <div className=" font-bold  text-primary my-3">Related Articles</div>
           <Slider {...related}>
@@ -473,11 +487,9 @@ const DubaiBirds = () => {
         </div>
       </div>
 
-      <div className="w-2/3 ">
+      <div className="w-2/3">
         <ExpoloreMore />
       </div>
-
-      
     </section>
   );
 };
