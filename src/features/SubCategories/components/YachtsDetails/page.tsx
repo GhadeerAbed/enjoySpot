@@ -18,7 +18,11 @@ import {
   harbor,
   indFlag,
   ladder,
+  lefttSide,
+  lefttSideG,
   maps,
+  rightSide,
+  rightSideG,
   roof,
   roof2,
   roof3,
@@ -38,20 +42,46 @@ import { ExpoloreMore } from "@/features/MainHome/components/page";
 export const YachtsDetails = () => {
   const [activeTab, setActiveTab] = useState("details"); // remove on static
 
-  const exploreTopics = Array.from(
-    { length: 25 },
-    (_, index) => `Explore Topic `
-  );
-
   return (
-    <section className="mx-[100px]">
+    <section className="lg:mx-[100px] xs:mx-[30px] ">
       {/* Banner Yachts Details */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
         {/* Large image on the left */}
-        <div className="relative w-full h-96 md:h-full col-span-1">
+        <div className="relative w-full h-96 md:h-full col-span-1 xs:mb-[10%]">
           <div className="absolute right-2 top-2 z-50">
             <Image src={zoom} alt="Zoom icon" width={39} height={38} />
           </div>
+
+          {/* Visible on all screens except on extra small (xs) screens */}
+          <div className="absolute bottom-3 left-[42%] z-50 xs:hidden sm:flex bg-white bg-opacity-50 rounded-full">
+            <Image src={lefttSide} alt="Zoom icon" width={39} height={38} />
+            <div className="flex text-center mx-5 justify-center items-center font-bold text-primary">
+              1/12
+            </div>
+            <Image src={rightSide} alt="Zoom icon" width={39} height={38} />
+          </div>
+
+          {/* Visible only on extra small (xs) screens */}
+          <div className="absolute bottom-[-15%] text-h6Color left-[40%] lg:hidden md:hidden sm:hidden flex bg-white bg-opacity-50 rounded-full">
+            <Image
+              src={lefttSideG}
+              alt="Zoom icon"
+              width={30}
+              height={25}
+              className="text-h6Color"
+            />
+            <div className="flex text-center mx-5 text-h6Color justify-center items-center font-bold">
+              1/12
+            </div>
+            <Image
+              src={rightSideG}
+              alt="Zoom icon"
+              width={30}
+              height={25}
+              className=""
+            />
+          </div>
+
           <Image
             src={yacht1}
             alt="Yacht main image"
@@ -210,7 +240,7 @@ export const YachtsDetails = () => {
       </div> */}
       {/* Dynamic Amenities Tab */} {/* remove in static */}
       <div>
-        <div className="text-xl  flex  font-sans w-2/3">
+        <div className="text-xl  flex  font-sans lg:w-2/3 ">
           {[
             { name: "details", label: "Details" },
             { name: "amenities", label: "Amenities" },
@@ -222,7 +252,7 @@ export const YachtsDetails = () => {
               className={`text-sm md:text-lg font-bold border-r px-4 md:px-10 cursor-pointer font-Sans ${
                 activeTab === tab.name
                   ? "text-primary"
-                  : "text-gray-500 hover:text-primary"
+                  : "text-h6Color hover:text-primary"
               }`}
               onClick={() => setActiveTab(tab.name)}
             >
@@ -241,11 +271,17 @@ export const YachtsDetails = () => {
           )}
 
           {activeTab === "amenities" && (
-            <div className="gap-4 my-5 mx-4 w-1/2 point ">
-              <h1 className="font-bold text-primary my-7">
-                Interior Amenities
-              </h1>
-              <div className="grid grid-cols-5 lg:grid-cols-5 gap-10 my-4 justify-items-center font-custom">
+            <div className="gap-4 my-5 mx-5 lg:w-2/3  ">
+              <div className=" flex justify-between">
+                <h1 className="font-bold text-primary my-7 ">
+                  Interior Amenities
+                </h1>
+                <a className=" lg:hidden md:hidden   underline rounded-lg text-center flex justify-center items-center  h-[80px] w-[100px] text-primary font-bold hover:text-h1Color">
+                  View More
+                </a>
+              </div>
+
+              <div className="grid  xs:grid-cols-2 ss:grid-cols-2 custom:grid-cols-3 custom2:grid-cols-4   lg:grid-cols-5 md:grid-cols-5  gap-3 my-4 justify-items-center font-custom">
                 {[
                   { icon: coach, label: "Lounge Area" },
                   { icon: bed, label: "Master Suite" },
@@ -254,7 +290,7 @@ export const YachtsDetails = () => {
                 ].map((amenity, index) => (
                   <div
                     key={index}
-                    className="border rounded-lg bg-gray-200 text-center w-[133px] h-[80px] flex flex-col justify-center items-center hover:bg-gray-300  transition duration-200"
+                    className="border rounded-lg bg-h4Color text-center lg:w-[133px] lg:h-[80px] xs:w-[162px] flex flex-col  justify-center items-center hover:bg-h5Color  transition duration-200"
                   >
                     <Image
                       src={amenity.icon}
@@ -267,15 +303,21 @@ export const YachtsDetails = () => {
                     </p>
                   </div>
                 ))}
-                <a className="underline rounded-lg text-center flex justify-center items-center px-2 h-[80px] w-[100px] text-primary font-bold hover:text-blue-800">
+                <a className="xs:hidden md:flex   underline rounded-lg text-center flex justify-center items-center  h-[80px] w-[100px] text-primary font-bold hover:text-h1Color">
                   View More
                 </a>
               </div>
 
-              <h1 className="font-bold text-primary my-7">
-                Exterior Amenities
-              </h1>
-              <div className="grid grid-cols-5 gap-10 my-5 justify-items-center  font-custom">
+              <div className=" flex justify-between">
+                <h1 className="font-bold text-primary my-7">
+                  Exterior Amenities
+                </h1>
+
+                <a className=" lg:hidden md:hidden   underline rounded-lg text-center flex justify-center items-center  h-[80px] w-[100px] text-primary font-bold hover:text-h1Color">
+                  View More
+                </a>
+              </div>
+              <div className="grid  xs:grid-cols-2 ss:grid-cols-2  custom:grid-cols-3 custom2:grid-cols-4   lg:grid-cols-5 md:grid-cols-5   gap-3 my-4 justify-items-center font-custom">
                 {[
                   { icon: umbarla, label: "Sun Deck" },
                   { icon: chair, label: "Outdoor Dining" },
@@ -284,7 +326,7 @@ export const YachtsDetails = () => {
                 ].map((amenity, index) => (
                   <div
                     key={index}
-                    className="border rounded-lg bg-gray-200 text-center  w-[133px] h-[80px] flex flex-col justify-center items-center hover:bg-gray-300  transition duration-200 "
+                    className="border rounded-lg bg-h4Color text-center lg:w-[133px] lg:h-[80px] xs:w-[162px] flex flex-col  justify-center items-center hover:bg-h5Color  transition duration-200 "
                   >
                     <Image
                       src={amenity.icon}
@@ -297,7 +339,7 @@ export const YachtsDetails = () => {
                     </p>
                   </div>
                 ))}
-                <a className="underline text-center flex justify-center items-center px-2 h-[80px] w-[100px] text-primary font-bold hover:text-blue-800">
+                <a className="xs:hidden md:flex   underline rounded-lg text-center flex justify-center items-center  h-[80px] w-[100px] text-primary font-bold hover:text-h1Color">
                   View More
                 </a>
               </div>
@@ -320,35 +362,47 @@ export const YachtsDetails = () => {
         </div>
       </div>
       {/* ----------------------Route Detail-------------------- */}
-      <div className="w-1/2 flex  mt-20 my-5 font-Sans">
-        <div className="w-1/2 mx-5 text-h6Color">
-          <h1 className="font-bold text-primary text-xl font-Sans ">
+      <div className="flex flex-col xs:flex-col sm:flex-row lg:w-[735px] sm:w-full xs:w-full mt-10 my-5 font-Sans justify-between  ">
+        {/* Left Side: Route Details */}
+        <div className="w-full sm:w-[324px] text-h6Color mb-5 sm:mb-0">
+          <h1 className="font-bold text-primary text-xl xs:text-lg sm:text-xl font-Sans">
             Route Details
           </h1>
-          <h2 className=" my-5">
-            <span className="font-bold">2 Hour trip:</span> Marina - JBR -
-            Atlantics
-          </h2>
-          <h2 className=" my-5  ">
-            <span className="font-bold">3 Hour trip:</span> JBR-Marina Mall-
-            marina Yachts club - Dubai Eye - Jumeirah Beach - Atlantics Hotel
-          </h2>
 
-          <h2 className=" my-5  ">
-            <span className="font-bold">4 Hour trip:</span> JBR - Marina - JBR -
-            Atlantics- Burj Al Arab
-          </h2>
+          {/* Visible only on extra-small (xs) screens */}
+          <div className="w-full sm:w-[338px] relative lg:hidden md:hidden custom:hidden custom2:hidden xs:my-10 ">
+            <div className="absolute right-2 top-2 z-50">
+              <Image src={zoom} alt="Zoom icon" width={39} height={38} />
+            </div>
+            <Image src={flag} alt="Map Location" className="w-full" />
+          </div>
+
+          <div className="">
+            <h2 className="my-3 xs:my-2 sm:my-5">
+              <span className="font-bold">2 Hour trip:</span> Marina - JBR -
+              Atlantics
+            </h2>
+            <h2 className="my-3 xs:my-2 sm:my-5">
+              <span className="font-bold">3 Hour trip:</span> JBR-Marina Mall-
+              marina Yachts club - Dubai Eye - Jumeirah Beach - Atlantics Hotel
+            </h2>
+            <h2 className="my-3 xs:my-2 sm:my-5">
+              <span className="font-bold">4 Hour trip:</span> JBR - Marina - JBR
+              - Atlantics- Burj Al Arab
+            </h2>
+          </div>
         </div>
-        <div className="w-1/2 relative">
+
+        {/* Visible on screens larger than xs */}
+        <div className="w-full sm:w-[338px] relative hidden custom:flex">
           <div className="absolute right-2 top-2 z-50">
             <Image src={zoom} alt="Zoom icon" width={39} height={38} />
           </div>
-
-          <Image src={flag} alt="Map Location" />
+          <Image src={flag} alt="Map Location" className="w-full" />
         </div>
       </div>
       {/* -------------------Maps-------------- */}
-      <div className="w-1/2 mx-4 ">
+      <div className="lg:w-[735px] xs:w-full  ">
         <Image src={maps} alt="mapLocation" />
       </div>
       {/* ------------------OurCrew-------------- */}
@@ -363,7 +417,7 @@ export const YachtsDetails = () => {
         </div>
       </div>
       {/* ----------------Policey---------- */}
-      <div className=" w-1/2 mx-4 font-Sans  text-h6Color">
+      <div className=" lg:w-[718px] mx-4 font-Sans  text-h6Color xs:w-full">
         <h1 className="text-primary font-bold text-xl py-1">Policy :</h1>
         <p className="text-xs  mt-3">
           1- Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -384,32 +438,36 @@ export const YachtsDetails = () => {
         </p>
       </div>
       {/* -------------------Reviews--------------------------- */}
-      <div className="mx-4 py-10 w-1/2 font-Sans">
+      <div className="mx-4 py-10 lg:w-1/2 font-Sans">
         <h1 className="text-primary font-bold text-xl mb-5">Reviews:</h1>
-        <div className="flex ">
+        <div className="flex  sm:flex-row">
           {/* Left side: Average rating */}
-          <div className="w-1/2 my-5">
-            <div className="text-primary font-bold text-5xl text-center">
+          <div className="w-full xs:w-1/2 my-5 sm:my-0 sm:text-center">
+            <div className="text-primary font-bold text-5xl text-left sm:text-center">
               4/5
             </div>
-            <h1 className="text-h6Color text-center">(128 reviews)</h1>
+            <h1 className="text-h6Color text-left sm:text-center">
+              (128 reviews)
+            </h1>
           </div>
 
           {/* Right side: Star ratings breakdown */}
-          <div className="w-1/2">
+          <div className="w-full sm:w-1/2">
             <div className="flex flex-col gap-1">
               {/* 5 stars */}
-              <div className="flex items-center">
+              <div className="flex justify-between sm:justify-start items-center">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
                     <Image src={stars} alt="star" className="m-1" key={i} />
                   ))}
                 </div>
-                <span className="ml-2 text-h6Color">89/128 Reviews</span>
+                <span className="ml-2 text-h6Color">
+                  89/128 <span className="hidden ss:inline">Reviews</span>
+                </span>
               </div>
 
               {/* 4 stars */}
-              <div className="flex items-center">
+              <div className="flex justify-between sm:justify-start items-center">
                 <div className="flex">
                   {[...Array(4)].map((_, i) => (
                     <Image src={stars} alt="star" className="m-1" key={i} />
@@ -423,11 +481,11 @@ export const YachtsDetails = () => {
                     />
                   ))}
                 </div>
-                <span className="ml-2 text-h6Color">27/128 Reviews</span>
+                <span className="ml-1 text-h6Color">27/128 <span className="hidden ss:inline">Reviews</span></span>
               </div>
 
               {/* 3 stars */}
-              <div className="flex items-center">
+              <div className="flex justify-between sm:justify-start items-center">
                 <div className="flex">
                   {[...Array(3)].map((_, i) => (
                     <Image src={stars} alt="star" className="m-1" key={i} />
@@ -441,11 +499,11 @@ export const YachtsDetails = () => {
                     />
                   ))}
                 </div>
-                <span className="ml-2 text-h6Color">3/128 Reviews</span>
+                <span className="ml-2 text-h6Color">3/128 <span className="hidden ss:inline">Reviews</span></span>
               </div>
 
               {/* 2 stars */}
-              <div className="flex items-center">
+              <div className="flex justify-between sm:justify-start items-center">
                 <div className="flex">
                   {[...Array(2)].map((_, i) => (
                     <Image src={stars} alt="star" className="m-1" key={i} />
@@ -459,14 +517,14 @@ export const YachtsDetails = () => {
                     />
                   ))}
                 </div>
-                <span className="ml-2 text-h6Color">0/128 Reviews</span>
+                <span className="ml-2 text-h6Color">0/128 <span className="hidden ss:inline">Reviews</span></span>
               </div>
             </div>
           </div>
         </div>
       </div>
       {/* --------------------USER Reviews--------------- */}
-      <div className=" mx-4 w-1/2 font-Sans">
+      <div className="  lg:w-[735px] font-Sans mb-20" >
         <div className=" space-y-3">
           {review.map((review) => (
             <div
@@ -479,7 +537,7 @@ export const YachtsDetails = () => {
                   src={faceUser} // Replace with actual image path
                   alt={review.name}
                 />
-                <h4 className="font-bold mt-2 text-primary">{review.name}</h4>
+                <h4 className="font-bold mt-2 text-primary lg:text-lg xs:text-xs">{review.name}</h4>
               </div>
 
               <p className="w-3/5 mt-5 text-xs ">{review.review}</p>
@@ -522,7 +580,7 @@ export const YachtsDetails = () => {
           ))}
         </div> */}
       {/* </div> */}
-      <div className=" w-2/3">
+      <div className=" lg:w-2/3 xs:w-full hidden ss:inline">
         <ExpoloreMore />
       </div>
     </section>
