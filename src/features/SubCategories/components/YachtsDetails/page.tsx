@@ -580,7 +580,7 @@ export const YachtsDetails = () => {
           ))}
         </div> */}
       {/* </div> */}
-      <div className=" lg:w-2/3 xs:w-full hidden ss:inline">
+      <div className=" lg:w-2/3 xs:w-full hidden xs:inline">
         <ExpoloreMore />
       </div>
     </section>
