@@ -2,12 +2,14 @@
 import { useState } from "react"; //remove in static
 import Image from "next/image";
 import {
+  arrowDown,
   bathroom,
   bed,
   chair,
   coach,
   convert,
   dashboard,
+  dataTime,
   dining,
   EmFlag,
   emptyStars,
@@ -38,6 +40,7 @@ import {
 } from "../../../../../public/images/page";
 import { review } from "@/data/layoutData/reviews";
 import { ExpoloreMore } from "@/features/MainHome/components/page";
+import { Button } from "@/components/page";
 
 export const YachtsDetails = () => {
   const [activeTab, setActiveTab] = useState("details"); // remove on static
@@ -115,7 +118,7 @@ export const YachtsDetails = () => {
         </div>
       </div>
       {/* Yacht details */}
-      <div className="w-full md:w-1/2 mx-4 font-Sans">
+      <div className="w-full md:w-1/2  mx-4 font-Sans">
         <div className="flex flex-wrap items-center gap-4 relative">
           <h2 className="text-2xl font-bold text-primary mb-0">
             Yachts Name 0.1
@@ -156,9 +159,18 @@ export const YachtsDetails = () => {
             </h2>
           ))}
         </div>
-
+        <div className="flex lg:hidden md:hidden custom:hidden custom2:hidden ss:hidden    w-full justify-center space-x-10 my-5  "> 
+          <Button className="bg-white flex w-[60%]  text-primary space-x-3  justify-center items-center border rounded-[15px]  font-Sans pr-3  font-bold ">
+            <Image src={dataTime} alt="Arrow right" width={24} height={24} />
+            <span>Data&Time</span>
+            <Image src={arrowDown} alt="Arrow right" width={24} height={24} />
+          </Button>
+          <Button className="bg-primary text-white w-[35%]  justify-center items-center  font-Sans pr-3 border rounded-[15px]  font-bold ">
+            <span>Book Now</span>
+          </Button>
+        </div>
         <div className="my-10">
-          <h2 className="text-xl font-bold text-primary">Overview</h2>
+          <h2 className="text-xl font-bold text-primary hidden ss:inline">Overview</h2>
           <p className="text-h6Color text-xs py-3">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa
             dolorem cumque blanditiis libero perspiciatis saepe iure,Lorem ipsum
@@ -481,7 +493,9 @@ export const YachtsDetails = () => {
                     />
                   ))}
                 </div>
-                <span className="ml-1 text-h6Color">27/128 <span className="hidden ss:inline">Reviews</span></span>
+                <span className="ml-1 text-h6Color">
+                  27/128 <span className="hidden ss:inline">Reviews</span>
+                </span>
               </div>
 
               {/* 3 stars */}
@@ -499,7 +513,9 @@ export const YachtsDetails = () => {
                     />
                   ))}
                 </div>
-                <span className="ml-2 text-h6Color">3/128 <span className="hidden ss:inline">Reviews</span></span>
+                <span className="ml-2 text-h6Color">
+                  3/128 <span className="hidden ss:inline">Reviews</span>
+                </span>
               </div>
 
               {/* 2 stars */}
@@ -517,14 +533,16 @@ export const YachtsDetails = () => {
                     />
                   ))}
                 </div>
-                <span className="ml-2 text-h6Color">0/128 <span className="hidden ss:inline">Reviews</span></span>
+                <span className="ml-2 text-h6Color">
+                  0/128 <span className="hidden ss:inline">Reviews</span>
+                </span>
               </div>
             </div>
           </div>
         </div>
       </div>
       {/* --------------------USER Reviews--------------- */}
-      <div className="  lg:w-[735px] font-Sans mb-20" >
+      <div className="  lg:w-[735px] font-Sans mb-20">
         <div className=" space-y-3">
           {review.map((review) => (
             <div
@@ -537,7 +555,9 @@ export const YachtsDetails = () => {
                   src={faceUser} // Replace with actual image path
                   alt={review.name}
                 />
-                <h4 className="font-bold mt-2 text-primary lg:text-lg xs:text-xs">{review.name}</h4>
+                <h4 className="font-bold mt-2 text-primary lg:text-lg xs:text-xs">
+                  {review.name}
+                </h4>
               </div>
 
               <p className="w-3/5 mt-5 text-xs ">{review.review}</p>
