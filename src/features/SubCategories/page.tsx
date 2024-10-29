@@ -12,7 +12,7 @@ export const SubCategory = () => {
        {/* <Category/> */}
        {/* <BestDeals/>  */}
        {/* <Details/> */}
-       {/* <ExculsivePackages/> */}
+       <ExculsivePackages/>
        {/* <DubaiBirds/> */}
     </div>
   )

@@ -21,7 +21,8 @@ const config: Config = {
         blureColor: "#687986",
         packageColor: "#e5f6fc",
         cyanColor:"#e5f7fd",
-        h5Color:"#f9f9f9"
+        h5Color:"#f9f9f9",
+        h4Color:"#d6dce4"
 
       },
       fontFamily: {

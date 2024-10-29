@@ -79,7 +79,10 @@ import duration from './duration.svg'
 import masterCard from './masterCard.svg'
 import visa from './visa.svg'
 import menu from './menu.svg'
-
-export {flag,birds,duration,menu,masterCard,visa,whatsapp1,hour,pen,insta,facebook1,dislike,like,vistor,bird,gradBlue,mosPopular,pana,owelCover,test2,linearGrd,emptyStars,dining,yachtExclusive,helicoptarExclusive,fastYachts,exclusiveBanner,maps,coach,bathroom,bed,zoom,harbor,dashboard,user,table,yacht1,toggleMenu,sort,activity,dataTime,arrowDown,Guest,room1,roof3,roof2,roof ,bestDeal,rightArrow,hero3 ,arrowBlue ,Hero2,USD,arrowUpR,seats ,test3,convert,faceUser,stars,timer,AED,ladder,grill,chair,umbarla,whatsapp,Facebook,Instagram ,EmFlag,frFlag,indFlag,usFlag,trFlag, hero ,leftArrow ,pepole , location , star ,test ,rightSlide ,leftSlide}
+import rightSide from './rightSide.svg'
+import rightSideG from './rightSideG.svg'
+import lefttSideG from './leftSideG.svg'
+import lefttSide from './leftSide.svg'
+export {flag,birds,rightSide,lefttSide,rightSideG,lefttSideG,duration,menu,masterCard,visa,whatsapp1,hour,pen,insta,facebook1,dislike,like,vistor,bird,gradBlue,mosPopular,pana,owelCover,test2,linearGrd,emptyStars,dining,yachtExclusive,helicoptarExclusive,fastYachts,exclusiveBanner,maps,coach,bathroom,bed,zoom,harbor,dashboard,user,table,yacht1,toggleMenu,sort,activity,dataTime,arrowDown,Guest,room1,roof3,roof2,roof ,bestDeal,rightArrow,hero3 ,arrowBlue ,Hero2,USD,arrowUpR,seats ,test3,convert,faceUser,stars,timer,AED,ladder,grill,chair,umbarla,whatsapp,Facebook,Instagram ,EmFlag,frFlag,indFlag,usFlag,trFlag, hero ,leftArrow ,pepole , location , star ,test ,rightSlide ,leftSlide}
 
 

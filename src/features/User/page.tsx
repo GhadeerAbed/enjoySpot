@@ -4,8 +4,8 @@ import { MangeBooking, Profile } from './components/page'
 const User = () => {
   return (
     <div>
-    <Profile/>
-    {/* <MangeBooking/> */}
+    {/* <Profile/> */}
+    <MangeBooking/>
 
     </div>
   )

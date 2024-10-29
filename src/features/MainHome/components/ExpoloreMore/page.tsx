@@ -18,7 +18,11 @@ export const ExpoloreMore = () => {
 export default ExpoloreMore;
 
 
-
+  // const exploreTopics = Array.from(
+  //   { length: 25 },
+  //   (_, index) => `Explore Topic `
+  // );
+  
 // export const ExpoloreMore = () => {
 //   return (
 //     <>

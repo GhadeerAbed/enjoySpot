@@ -15,7 +15,7 @@ export const CardRelated = ({ activity }: { activity: Article }) => {
           <Image
             alt="Activity Image"
             src={test2}
-            className="h-48 w-full  object-cover rounded-lg"
+            className="h-48 w-full  object-cover rounded-[20px]"
             width={500}
             height={400}
           />
