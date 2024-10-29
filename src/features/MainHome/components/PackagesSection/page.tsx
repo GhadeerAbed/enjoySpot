@@ -48,6 +48,7 @@ export const PackagesSection = () => {
       </div>
 
       {/* Grid of packages */}
+       {/* Grid of packages */}
   <div className="grid grid-cols-3 gap-4 lg:w-[700px] xs:w-[500px] max-custom2:mt-10">
 
   <div className="col-span-1">
