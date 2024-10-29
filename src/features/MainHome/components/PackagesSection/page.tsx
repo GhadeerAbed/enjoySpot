@@ -48,7 +48,8 @@ export const PackagesSection = () => {
       </div>
 
       {/* Grid of packages */}
-  <div className="grid grid-cols-3 gap-4 w-[700px] max-custom2:mt-10">
+       {/* Grid of packages */}
+  <div className="grid grid-cols-3 gap-4 lg:w-[700px] xs:w-[500px] max-custom2:mt-10">
 
   <div className="col-span-1">
     <PackageCard

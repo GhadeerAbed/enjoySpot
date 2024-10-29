@@ -72,7 +72,7 @@ export const Activities = () => {
   };
 
   return (
-    <section className="mt-20  lg:mx-20 mx-5">
+    <section className="mt-20  lg:mx-[100px] mx-5">
       <h1 className="text-center text-xl uppercase text-secondary py-2 font-Kalnia">
         Explore
       </h1>

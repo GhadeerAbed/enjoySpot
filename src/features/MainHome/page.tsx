@@ -10,7 +10,7 @@ export const MainHome = () => {
       <PackagesSection/>
       <Blog/>
       <ContactBanner/>
-      <div className="mx-20"><ExpoloreMore/></div>
+     <div className="lg:mx-[100px] mb-10"><ExpoloreMore/></div>
       
     </div>
   )

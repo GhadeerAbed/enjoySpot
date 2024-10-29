@@ -4,13 +4,13 @@ import { Hero2, hero3, leftArrow } from "../../../../../public/images/page";
 import { Button } from "@/components/page";
 export const ContactBanner = () => {
   return (
-    <section className="my-20  flex items-center sm:mx-32 mx-5  relative  ">
+    <section className="my-20  flex items-center w-full   relative  ">
       <Image
         src={Hero2}
         alt="hero"
         width={1260}
         height={1260}
-        className="rounded-xl "
+        className=" w-full "
       />
       <div className="absolute inset-0 ">
         <Image
@@ -18,7 +18,7 @@ export const ContactBanner = () => {
           alt="hero"
           width={1260}
           height={1260}
-          className="rounded-xl "
+          className="w-full "
         />
       </div>
 
