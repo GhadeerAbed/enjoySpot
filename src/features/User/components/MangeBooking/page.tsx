@@ -18,8 +18,8 @@ export const MangeBooking = () => {
         MANAGE BOOKING
       </h2>
 
-      {booking.map((booking, id) => (
-        <div className="border rounded-lg w-full bg-h5Color h-[100px] my-8 flex">
+      {booking.map((booking, index) => (
+        <div className="border rounded-lg w-full bg-h5Color h-[100px] my-8 flex" key={index}>
           {/* ---------------------SECTION1------------ */}
           <div className="w-1/7 text-center border-r flex flex-col justify-center items-center px-10 my-2">
             <h1 className="text-3xl font-bold text-h1Color">{booking.day}</h1>
