@@ -47,7 +47,6 @@ export const Blog = () => {
           slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
-          
         },
       },
       {
@@ -68,7 +67,7 @@ export const Blog = () => {
   };
 
   return (
-    <section className="mt-20  lg:mx-20  mx-5">
+    <section className="mt-20  lg:mx-[100px]  mx-5">
       <h1 className="text-center text-xl uppercase  py-2 font-Kalnia">
         DISCOVER MORE
       </h1>
