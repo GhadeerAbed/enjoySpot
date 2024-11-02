@@ -6,9 +6,8 @@ export default function Home() {
   return (
     <main>
       {/* <MainHome /> */}
-      <NotFound/>
+      {/* <NotFound/> */}
       {/* <SubCategory/> */}
-      {/* <User/> */}
     </main>
   );
 }

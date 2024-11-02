@@ -8,7 +8,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "EnjoySpot: Book Yachts, Desert Safaris & Watersports in the UAE",
   description:
-    " Discover and book top-rated activities in the UAE, from luxury yacht rentals and desert safaris to thrilling watersports. Explore exclusive packages, deals, and adventure experiences at EnjoySpot.",
+    "Discover and book top-rated activities in the UAE, from luxury yacht rentals and desert safaris to thrilling watersports. Explore exclusive packages, deals, and adventure experiences at EnjoySpot.",
 };
 
 export default async function RootLayout({

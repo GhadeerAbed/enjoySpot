@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import { pana} from "../../public/images/page";
 export default function NotFound() {
   return (
