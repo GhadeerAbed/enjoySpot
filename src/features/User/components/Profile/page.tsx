@@ -4,6 +4,7 @@ import Image from "next/image";
 
 export const Profile = () => {
   return (
+    // ------------------------------------comment------------------------
     <section className="flex justify-center items-center flex-col mt-10 font-Sans max-md:mx-5">
       <form className="bg-h5Color rounded-lg p-3 w-full max-w-5xl ">
         <h3 className="text-lg font-semibold text-secondary pl-5 py-5">Profile</h3>
