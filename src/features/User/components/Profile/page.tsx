@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { pen } from "../../../../../public/images/page";
 import Image from "next/image";
 
