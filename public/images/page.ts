@@ -83,6 +83,19 @@ import rightSide from './rightSide.svg'
 import rightSideG from './rightSideG.svg'
 import lefttSideG from './leftSideG.svg'
 import lefttSide from './leftSide.svg'
-export {flag,birds,rightSide,lefttSide,rightSideG,lefttSideG,duration,menu,masterCard,visa,whatsapp1,hour,pen,insta,facebook1,dislike,like,vistor,bird,gradBlue,mosPopular,pana,owelCover,test2,linearGrd,emptyStars,dining,yachtExclusive,helicoptarExclusive,fastYachts,exclusiveBanner,maps,coach,bathroom,bed,zoom,harbor,dashboard,user,table,yacht1,toggleMenu,sort,activity,dataTime,arrowDown,Guest,room1,roof3,roof2,roof ,bestDeal,rightArrow,hero3 ,arrowBlue ,Hero2,USD,arrowUpR,seats ,test3,convert,faceUser,stars,timer,AED,ladder,grill,chair,umbarla,whatsapp,Facebook,Instagram ,EmFlag,frFlag,indFlag,usFlag,trFlag, hero ,leftArrow ,pepole , location , star ,test ,rightSlide ,leftSlide}
+import ships from './ships.svg'
+import smallEma from './smallEma.svg'
+import check from './check.svg'
+import checkBlack from './checkBlack.svg'
+import jetski from './jetski.svg'
+import jetCar from './jetCar.svg'
+import packages from './packages.svg'
+import parasilling from './parasilling.svg'
+import bananaBoat from './bananaBoat.svg'
+import donutBoat from './donutBoat.svg'
+import extra from './extra.svg'
+import flyBorad from './flyBorad.svg'
+
+export {flag,birds,check,rightSide,checkBlack,lefttSide,smallEma,rightSideG,lefttSideG,duration,menu,masterCard,visa,whatsapp1,hour,pen,insta,facebook1,dislike,like,vistor,bird,gradBlue,mosPopular,pana,owelCover,test2,linearGrd,emptyStars,dining,yachtExclusive,helicoptarExclusive,fastYachts,exclusiveBanner,maps,coach,bathroom,bed,zoom,harbor,dashboard,user,table,yacht1,toggleMenu,sort,activity,dataTime,arrowDown,Guest,room1,roof3,roof2,roof ,bestDeal,rightArrow,hero3 ,arrowBlue ,Hero2,USD,arrowUpR,seats ,test3,convert,faceUser,stars,timer,AED,ladder,grill,chair,umbarla,whatsapp,Facebook,Instagram ,EmFlag,frFlag,indFlag,usFlag,trFlag, hero ,leftArrow ,pepole , location , star ,test ,rightSlide ,leftSlide,ships,jetski,jetCar,packages,parasilling,bananaBoat,donutBoat,extra,flyBorad}
 
 
