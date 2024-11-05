@@ -14,18 +14,22 @@ import {
   packages,
   bananaBoat,
   donutBoat,
+  leftArrow,
+  leftSlide,
+  rightArrow,
 } from "../../../../../public/images/page";
 
 export const PaymentMethod = () => {
   return (
-    <div className=" container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 text-primary">Reservation Details</h1>
+    <div className="  lg:pl-[167px] lg:pr-[100px] xs:px-[20px] py-8 w-full  ">
+      <h1 className="text-3xl font-bold mb-6 text-primary">
+        Reservation Details
+      </h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full">
+      <div className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 gap-10 ">
         {/* Booking Form */}
-
-        <div className="w-full lg:max-w-[500px]">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div className="lg:w-3/4 xs:w-full  ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 my-7">
             <label
               htmlFor="firstname"
               className="relative block overflow-hidden border-b border-h4Color bg-transparent pt-3 focus-within:border-blue-600"
@@ -56,7 +60,7 @@ export const PaymentMethod = () => {
               </span>
             </label>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 mb-4">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 my-7">
             <label
               htmlFor="email"
               className="relative block overflow-hidden border-b border-h4Color bg-transparent pt-3 focus-within:border-blue-600"
@@ -72,7 +76,7 @@ export const PaymentMethod = () => {
               </span>
             </label>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 mb-4">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 my-7">
             <label
               htmlFor="phone"
               className="relative block overflow-hidden border-b border-h4Color bg-transparent pt-3 focus-within:border-blue-600"
@@ -103,8 +107,8 @@ export const PaymentMethod = () => {
               </span>
             </label>
           </div>
-          <div className="border-b border-h6Color my-16"></div>{" "}
-          <h1 className="text-primary text-xl font-bold">
+          <div className="border-b border-h6Color my-20"></div>{" "}
+          <h1 className="text-primary text-xl font-bold my-7">
             Additional Services
           </h1>
           <div className="border rounded-lg p-4 mt-4 border-h1Color flex items-center justify-between">
@@ -173,18 +177,32 @@ export const PaymentMethod = () => {
               <Image src={arrowDown} alt="Arrow" className="text-primary" />
             </div>
           </div>
-          <div className=" my-4 flex justify-between ">
-            <button className="bg-white text-primary px-4 py-2 rounded-lg w-[140px] border">
+          <div className="my-7 flex justify-between font-bold gap-4">
+            <button className="bg-white text-primary px-4 py-2 rounded-lg w-[140px] border flex items-center justify-center gap-2">
+              <Image
+                src={leftSlide}
+                alt="Arrow"
+                className="text-primary w-4 h-4"
+              />
               Back
             </button>
-            <button className="bg-primary text-white px-4 py-2 rounded-lg w-[140px] border">
+            <button className="bg-primary text-white px-4 py-2 rounded-lg w-[140px] border flex items-center justify-center gap-2">
               Next
+              <Image
+                src={rightArrow}
+                alt="Arrow"
+                className="text-white w-4 h-4"
+              />
             </button>
           </div>
         </div>
         {/* Booking Summary */}
-        <div className="bg-white p-4 md:p-6 w-full border-l-2  border-l-h4Color min-h-[470px]">
-          <Image src={ships} alt="Package Image" className="w-full h-auto object-cover" />
+        <div className="bg-white p-4 md:p-6 w-full border-l-2 border-l-h4Color ">
+          <Image
+            src={ships}
+            alt="Package Image"
+            className="w-full h-auto object-cover"
+          />
           <div className="space-y-4 my-3 text-sm md:text-base lg:text-lg">
             <div className="flex flex-wrap justify-between gap-2">
               <span className="text-h6Color">Reservation Date & Time</span>
