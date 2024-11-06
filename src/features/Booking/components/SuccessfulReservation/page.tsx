@@ -18,7 +18,7 @@ const SuccessfulReservation = () => {
         Manage your bookings <Link href="/" className="underline">here</Link>
       </h5>
 
-      <button className="bg-primary text-white px-4 py-2 rounded-lg w-[140px] border flex items-center justify-center gap-2">
+      <button className="bg-primary text-white px-4 py-2 rounded-lg w-[340px] border flex items-center justify-center gap-2">
         <Link href="/">Back to Home</Link>
       </button>
     </div>

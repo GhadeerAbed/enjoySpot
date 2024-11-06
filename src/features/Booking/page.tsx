@@ -6,8 +6,8 @@ export const Booking = () => {
   return (
     <div>
     {/* <ReservationDetails/> */}
-    <PaymentMethod/>
-    {/* <SuccessfulReservation/> */}
+    {/* <PaymentMethod/> */}
+    <SuccessfulReservation/>
       
     </div>
   )
