@@ -1,11 +1,6 @@
 "use client";
 import {
   Button,
-  Desert,
-  Helicopter,
-  Select,
-  WaterSports,
-  Yachts,
 } from "@/components/page";
 import { API_SERVICES_URLS } from "@/data/page";
 import { useSWRHook } from "@/hooks/page";
