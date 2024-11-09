@@ -62,7 +62,7 @@ export const Activities = () => {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 520,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -72,7 +72,7 @@ export const Activities = () => {
   };
 
   return (
-    <section className="mt-20  lg:mx-[100px] mx-5">
+    <section className="mt-20 max-w-7xl mx-auto max-sm:mx-5">
       <h1 className="text-center text-xl uppercase text-secondary py-2 font-Kalnia">
         Explore
       </h1>
@@ -84,7 +84,7 @@ export const Activities = () => {
         <div className=" md:mx-20 mx-10 mt-20">
           <Slider {...settings} >
             {activities.map((activity) => (
-              <div key={activity.id} className="px-4 py-12 ">
+              <div key={activity.id} className="px-2 py-12 ">
                 <Card activity={activity} />
               </div>
             ))}

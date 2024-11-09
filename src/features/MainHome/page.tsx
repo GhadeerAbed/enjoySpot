@@ -1,19 +1,24 @@
-import React from 'react'
-import { Activities, Blog, ContactBanner, ExpoloreMore, Hero, PackagesSection } from './components/page'
-
+import React from "react";
+import {
+  Activities,
+  Blog,
+  ContactBanner,
+  ExploreMore,
+  Hero,
+  PackagesSection,
+} from "./components/page";
 
 export const MainHome = () => {
   return (
-    <div>
-      <Hero/>
-      <Activities/>
-      <PackagesSection/>
-      <Blog/>
-      <ContactBanner/>
-     <div className="lg:mx-[100px] mb-10"><ExpoloreMore/></div>
-      
-    </div>
-  )
-}
+    <>
+      <Hero />
+      <Activities />
+      <PackagesSection />
+      <Blog />
+      <ContactBanner />
+      <ExploreMore />
+    </>
+  );
+};
 
-export default MainHome 
+export default MainHome;

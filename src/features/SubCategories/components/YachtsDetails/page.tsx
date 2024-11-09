@@ -39,7 +39,7 @@ import {
   zoom,
 } from "../../../../../public/images/page";
 import { review } from "@/data/layoutData/reviews";
-import { ExpoloreMore } from "@/features/MainHome/components/page";
+import { ExploreMore } from "@/features/MainHome/components/page";
 import { Button } from "@/components/page";
 
 export const YachtsDetails = () => {
@@ -601,7 +601,7 @@ export const YachtsDetails = () => {
         </div> */}
       {/* </div> */}
       <div className=" lg:w-2/3 xs:w-full hidden ss:inline">
-        <ExpoloreMore />
+        <ExploreMore />
       </div>
     </section>
   );

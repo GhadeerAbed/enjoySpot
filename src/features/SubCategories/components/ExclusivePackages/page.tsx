@@ -11,7 +11,7 @@ import {
 } from "../../../../../public/images/page";
 import { Button } from "@/components/page";
 import { exclusivDatas } from "@/data/layoutData/exclusive";
-import { ExpoloreMore } from "@/features/MainHome/components/page";
+import { ExploreMore } from "@/features/MainHome/components/page";
 
 export const ExculsivePackages = () => {
   return (
@@ -134,7 +134,7 @@ export const ExculsivePackages = () => {
       ))}
 
       <div className="   hidden ss:inline">
-        <ExpoloreMore />
+        <ExploreMore />
       </div>
     </section>
   );

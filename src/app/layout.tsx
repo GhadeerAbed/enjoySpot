@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import "./globals.css";
 import { Metadata } from "next";
+import { getLangDir } from "rtl-detect";
 
 export const metadata: Metadata = {
   title: "EnjoySpot: Book Yachts, Desert Safaris & Watersports in the UAE",
@@ -17,11 +18,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const locale = await getLocale();
-
+  const direction = getLangDir(locale);
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} dir={direction}>
       <body>
         <NextIntlClientProvider messages={messages}>
           <Navbar />

@@ -6,7 +6,7 @@ import Auth from "@/features/Auth/page";
 export default function Home() {
   return (
     <main>
-      {/* <MainHome /> */}
+      <MainHome />
       {/* <NotFound/> */}
       {/* <SubCategory/> */}
       {/* <Booking/> */}

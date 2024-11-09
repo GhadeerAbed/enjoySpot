@@ -13,7 +13,7 @@ import {
 } from "../../../../../public/images/page";
 import { bestDeals } from "@/data/layoutData/bestDeals";
 import CardDeals from "@/components/CardDeals/page";
-import { ExpoloreMore } from "@/features/MainHome/components/page";
+import { ExploreMore } from "@/features/MainHome/components/page";
 
 const BestDeals = () => {
   return (
@@ -189,7 +189,7 @@ const BestDeals = () => {
       </section>
 
       <section className="">
-        <ExpoloreMore />
+        <ExploreMore />
       </section>
     </section>
   );

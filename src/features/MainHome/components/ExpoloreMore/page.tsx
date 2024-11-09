@@ -1,8 +1,8 @@
-export const ExpoloreMore = () => {
+export const ExploreMore = () => {
   return (
     <>
-      <div>
-        <h2 className="font-bold text-2xl text-primary my-7">Explore More</h2>
+      <div className="max-w-7xl mx-auto pb-10">
+        <h2 className="font-bold text-2xl text-primary ">Explore More</h2>
         <div className="flex flex-wrap text-h6Color py-2 space-y-2">
           {Array(24).fill('').map((_, index) => (
             <div key={index} className="border-r px-4 mt-[8px]">
@@ -15,7 +15,7 @@ export const ExpoloreMore = () => {
   );
 };
 
-export default ExpoloreMore;
+export default ExploreMore;
 
 
   // const exploreTopics = Array.from(
