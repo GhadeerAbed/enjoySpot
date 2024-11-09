@@ -1,6 +1,7 @@
 import { Booking, MainHome, SubCategory } from "@/features/page";
 import NotFound from "./not-found";
 import User from "@/features/User/page";
+import Auth from "@/features/Auth/page";
 
 export default function Home() {
   return (
@@ -8,7 +9,8 @@ export default function Home() {
       {/* <MainHome /> */}
       {/* <NotFound/> */}
       {/* <SubCategory/> */}
-      <Booking/>
+      {/* <Booking/> */}
+      <Auth/> 
     </main>
   );
 }
