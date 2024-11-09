@@ -5,13 +5,14 @@ import { fetcherParametersType, fetcherType } from "../types/page";
 import axios from "axios";
 import { API_ENDPOINT, URL_PATHS } from "../../../data/page";
 import { getAuthData } from "../../../utils/page";
-import { useAuth } from "@/components/page";
 import { useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 
 const useFetcher = () => {
   const authData = getAuthData(); 
   const accessToken = authData?.token || "";
   const router = useRouter();
+  const locale = useLocale(); 
   const fetcher: fetcherType = async ([
     url,
     method,
@@ -23,7 +24,7 @@ const useFetcher = () => {
         url,
         method,
         ...options,
-        headers: { Authorization: `Bearer ${accessToken}` },
+        headers: { Authorization: `Bearer ${accessToken}` , "Accept-Language": locale },
       });
       return response.data;
     } catch (error) {

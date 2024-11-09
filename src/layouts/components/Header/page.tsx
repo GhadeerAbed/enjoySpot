@@ -3,28 +3,29 @@ import {
   Button,
   Desert,
   Helicopter,
+  Select,
   WaterSports,
   Yachts,
 } from "@/components/page";
+import { API_SERVICES_URLS } from "@/data/page";
+import { useSWRHook } from "@/hooks/page";
 import Image from "next/image";
 import Link from "next/link";
 
-
 export const Header = () => {
+  const { data } = useSWRHook(API_SERVICES_URLS.GET_ALL_LISTING_TYPES);
+  const listingTypes = data?.isSuccess ? data.data : [];
   return (
     <header className="bg-white/30 backdrop-blur-lg shadow-borderShadow">
       <div className=" mx-20  pt-4 pb-2 flex justify-between items-center">
-        <div className="flex items-center space-x-3">
-          <Image
-            src="logo.svg"
-            alt="Logo"
-            width={180}
-            height={160}
-            className="object-cover"
-          />
-        </div>
-        <div className="flex items-center space-x-4">
-          {/* Login Button */}
+        <Image
+          src="logo.svg"
+          alt="Logo"
+          width={180}
+          height={160}
+          className="object-cover"
+        />
+        <div className="flex">
           <Button buttonSize={"small"} className="  px-10">
             Login
           </Button>
@@ -32,34 +33,26 @@ export const Header = () => {
       </div>
 
       <nav className="flex justify-center items-center gap-10 text-secondary pb-6">
-        <Link
-          href="#"
-          className="hover:text-h1Color flex flex-col justify-center items-center"
-        >
-          <Yachts />
-          Yachts
-        </Link>
-        <Link
-          href="#"
-          className="hover:text-h1Color flex flex-col justify-center items-center"
-        >
-          <WaterSports />
-          <span className="pt-1">WaterSports</span>
-        </Link>
-        <Link
-          href="#"
-          className="hover:text-h1Color flex flex-col justify-center items-center"
-        >
-          <Helicopter />
-          <span className="pt-[6px]">Helicopter</span>
-        </Link>
-        <Link
-          href="#"
-          className="hover:text-h1Color flex flex-col justify-center items-center"
-        >
-          <Desert />
-          Desert
-        </Link>
+        {listingTypes.map((item: any) => {
+          const modifiedIcon = item.webIcon.replace(
+            /fill=".*?"/g,
+            'fill="currentColor"'
+          );
+
+          return (
+            <Link
+              key={item.id}
+              href={item.name}
+              className="flex items-center flex-col gap-2 group"
+            >
+              <div
+                className="icon group-hover:text-[#00ADEE]"
+                dangerouslySetInnerHTML={{ __html: modifiedIcon }}
+              />
+              <p className="group-hover:text-[#00ADEE]">{item.name}</p>
+            </Link>
+          );
+        })}
       </nav>
     </header>
   );

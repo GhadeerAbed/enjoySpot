@@ -5,7 +5,7 @@ import User from "@/features/User/page";
 export default function Home() {
   return (
     <main>
-      {/* <MainHome /> */}
+      <MainHome />
       {/* <NotFound/> */}
       {/* <SubCategory/> */}
     </main>

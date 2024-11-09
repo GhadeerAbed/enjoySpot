@@ -20,7 +20,8 @@ import {
   Bars3CenterLeftIcon as SidebarIcon,
   ExclamationTriangleIcon as ExclamationTriangleIconOutline,
   CloudArrowUpIcon as CloudIcon,
-  CheckCircleIcon as CircleCheck
+  CheckCircleIcon as CircleCheck,
+  ChevronDownIcon as ChevronDownIcon
 } from "@heroicons/react/24/outline";
 
 export {
@@ -41,5 +42,6 @@ export {
   MagnifyingGlassIconOutline,
   CloudIcon,
   CircleCheck,
-  SidebarIcon
+  SidebarIcon,
+  ChevronDownIcon
 };
