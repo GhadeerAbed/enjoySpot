@@ -5,6 +5,7 @@ const SubCategoryPage = ({params}:{params:{secondaryname:string}}) => {
   return (
     <div>
       {params.secondaryname}
+      
     </div>
   )
 }
