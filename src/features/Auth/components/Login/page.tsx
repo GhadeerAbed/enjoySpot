@@ -3,23 +3,40 @@ import Image from "next/image";
 import { Button, Checkbox, Input } from "../../../../components/page";
 import { useForm } from "react-hook-form";
 
-import { FORM_VALIDATION } from "../../../../data/page";
+import { API_SERVICES_URLS, FORM_VALIDATION } from "../../../../data/page";
 import { getFieldHelperText } from "../../../../utils/page";
 import { useState } from "react";
 
 import Link from "next/link";
 import { apple, google, user } from "../../../../../public/images/page";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { SignInFormInputsType } from "../../types/page";
 
 export const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm();
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+} = useForm<SignInFormInputsType>();
 
-  // const onSubmit = handleSubmit(async (data) => {});
+      const [errorMessage, setErrorMessage] = useState<string | null>(null);
+      const router = useRouter();
 
+      const onSubmit = handleSubmit(async (data) => {
+        try {
+          const response = await axios.post(API_SERVICES_URLS.SIGN_IN, data);
+          if (response.status === 200) {
+            console.log("Login successful", response.data);
+            localStorage.setItem("authData", JSON.stringify(response.data.data));
+            
+            router.push("/dashboard");
+          }
+        } catch (error: any) {
+          console.error("Login failed", error.response?.data || error.message);
+          setErrorMessage("Invalid Log In Credentials");
+        }
+});
   return (
     // <form className="  w-full " onSubmit={onSubmit}>
     <div className="min-h-screen w-full flex items-center justify-center">
