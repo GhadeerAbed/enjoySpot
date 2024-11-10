@@ -1,7 +1,4 @@
-export * from './Helicopter/page'
-export * from './Yachts/page'
-export * from './WaterSports/page'
-export * from './Desert/page'
+
 export * from './Sharing/page'
 export * from './Blackyacht/page'
 export * from './Fishing/page'
