@@ -8,6 +8,8 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  images: {
+    domains: ['enjoyspot.runasp.net'],
+  },
 };
-
 export default withNextIntl(nextConfig);

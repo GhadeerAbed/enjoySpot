@@ -16,6 +16,7 @@ const MainCategoryPage = ({ params }: { params: { mainname: string } }) => {
     <div>
       {params.mainname} page
       <SubCategories id={mainId} name={params.mainname}/>
+      
     </div>
   )
 }
