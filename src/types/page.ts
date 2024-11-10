@@ -1,3 +1,6 @@
+import { SizeVariantsType } from "@/components/types/page";
+import { HTMLProps, ReactNode } from "react";
+
 export type TableProps = {
   createdAt?: string;
   activitySubject?: string;
@@ -126,4 +129,24 @@ export interface  Booking{
   location: string;
   duration: string;
   time: string;
+}
+
+
+type CommonFormElementsType = {
+  label?: ReactNode;
+  helperText?: ReactNode;
+  error?: boolean;
+  withoutHelperText?: boolean;
+};
+
+
+export interface SelectProps
+  extends Omit<HTMLProps<HTMLSelectElement>, "label">,
+    CommonFormElementsType {
+  selectClassName?: string;
+  labelClassName?: string;
+  // selectSize?: SizeVariantsType;
+  optionClassName?:string;
+  options: any[]; //{ value: string; label: string }
+  onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
