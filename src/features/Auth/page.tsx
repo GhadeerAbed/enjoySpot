@@ -4,7 +4,7 @@ import { Register } from "./components/Register/page";
 const Auth = () => {
   return (
     <div className="flex">
-      {/* <Login /> */}
+      <Login />
       <Register />
     </div>
   );

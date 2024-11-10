@@ -1,4 +1,4 @@
-
+"use client";
 import { useMemo, useState, useCallback } from "react";
 import { EyeIconMini, EyeSlashIconMini } from "../../lib/@heroicons/page";
 import type { SizeVariantsType } from "../types/page";

@@ -1,7 +1,5 @@
 "use client";
-import {
-  Button,
-} from "@/components/page";
+import { Button } from "@/components/page";
 import { API_SERVICES_URLS } from "@/data/page";
 import { useSWRHook } from "@/hooks/page";
 import Image from "next/image";
@@ -9,6 +7,7 @@ import Link from "next/link";
 
 export const Header = () => {
   const { data } = useSWRHook(API_SERVICES_URLS.GET_ALL_LISTING_TYPES);
+  // console.log(data)
   const listingTypes = data?.isSuccess ? data.data : [];
   return (
     <header className="bg-white/30 backdrop-blur-lg shadow-borderShadow">
@@ -29,11 +28,11 @@ export const Header = () => {
 
       <nav className="flex justify-center items-center gap-10 text-secondary pb-6">
         {listingTypes.map((item: any) => {
-          const modifiedIcon = item.webIcon.replace(
-            /fill=".*?"/g,
-            'fill="currentColor"'
+          const modifiedIcon = item.webIcon.replace(  //thats is only for color change
+            /fill=".*?"/g, // regex to find fill attribute [any character start with fill and end with ?]
+            'fill="currentColor"' // Replace fill attribute with currentColor[secondary]
           );
-
+          // console.log(listingTypes)
           return (
             <Link
               key={item.id}

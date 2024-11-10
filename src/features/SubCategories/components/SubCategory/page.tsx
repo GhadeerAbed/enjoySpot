@@ -6,6 +6,7 @@ import React from "react";
 
 export const SubCategoryTypes = ({id , name}:{id:any ; name:string}) => {
   const { data } = useSWRHook(API_SERVICES_URLS.GET_ALL_LISTING_SUB_TYPES(id));
+  console.log(data)
   const listingSubTypes = data?.isSuccess ? data.data : [];
   return (
     <div>

@@ -24,16 +24,18 @@ export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     CommonFormElementsType,
     IconsVariantsType {
+  label?: string; // Ensure label is a string
   inputClassName?: string;
   inputSize?: SizeVariantsType;
+  variant?: "default" | "floating";
   labelClassName?: string;
   focusableLabel?: boolean;
   handleEndIcon?: Function;
   endIconClassName?: string;
   startIconClassName?: string;
-  mask?:any
-  
+  mask?: any;
 }
+
 
 export interface SelectWithFeaturesProps
   extends React.InputHTMLAttributes<HTMLInputElement>,

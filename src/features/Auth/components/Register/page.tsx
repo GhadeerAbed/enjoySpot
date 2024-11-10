@@ -13,35 +13,35 @@ import axios from "axios";
 // import { getFieldHelperText } from "@/utils/page";
 
 export const Register = () => {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors, isSubmitting },
-    } = useForm<SignInFormInputsType>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<SignInFormInputsType>();
 
-          const [errorMessage, setErrorMessage] = useState<string | null>(null);
-          const router = useRouter();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const router = useRouter();
 
-          const onSubmit = handleSubmit(async (data) => {
-            try {
-              const response = await axios.post(API_SERVICES_URLS.SIGN_UP, data);
-              if (response.status === 200) {
-                console.log("Login successful", response.data);
-                localStorage.setItem("authData", JSON.stringify(response.data.data));
-                
-                router.push("/dashboard");
-              }
-            } catch (error: any) {
-              console.error("Login failed", error.response?.data || error.message);
-              setErrorMessage("Invalid Log In Credentials");
-            }
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      const response = await axios.post(API_SERVICES_URLS.SIGN_UP, data);
+      if (response.status === 200) {
+        console.log("Login successful", response.data);
+        localStorage.setItem("authData", JSON.stringify(response.data.data));
+
+        router.push("/dashboard");
+      }
+    } catch (error: any) {
+      console.error("Login failed", error.response?.data || error.message);
+      setErrorMessage("Invalid Log In Credentials");
+    }
   });
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center">
       <form
         className="w-[500px] rounded-lg shadow py-10 px-[40px] my-10 flex-col items-center justify-center"
-        onSubmit={ onSubmit}
+        onSubmit={onSubmit}
       >
         <h1 className="font-Kalnia text-3xl font-bold text-primary">
           Create Account
@@ -49,95 +49,56 @@ export const Register = () => {
         <h1 className="my-3 text-primary">Start an unforgettable Vacation</h1>
         <div className="">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-2 ">
-            <label
-              htmlFor="firstname"
-              className="relative block overflow-hidden border-b border-h4Color bg-transparent pt-3 focus-within:border-blue-600"
-            >
-              <input
-                type="text"
-                id="firstname"
-                placeholder="firstname"
-                {...register("firstname", { required: true })}
-                defaultValue={""}
-                className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-              />
-              <span className="absolute start-0 top-2 -translate-y-1/2 text-xs text-h4Color text-h6color transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
-                First Name
-              </span>
-            </label>
+          <Input
+              label="First Name"
+              type="text"
+              variant="floating"
+              {...register("firstname", { required: true })}
+              error={!!errors.firstname}
+              placeholder="First Name"
+            />
 
-            <label
-              htmlFor="lastName"
-              className="relative block overflow-hidden border-b border-h4Color bg-transparent pt-3 focus-within:border-blue-600"
-            >
-              <input
-                type="text"
-                id="lastName"
-                placeholder="Name"
-                defaultValue={""}
-                {...register("lastname", { required: true })}
-                className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-              />
-              <span className="absolute start-0 top-2 -translate-y-1/2 text-xs text-h4Color transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
-                Last Name
-              </span>
-            </label>
+            <Input
+              label="Last Name"
+              type="text"
+              variant="floating"
+              {...register("lastname", { required: true })}
+              error={!!errors.lastname}
+              placeholder="Last Name"
+            />
           </div>
-          <label
-            htmlFor="email"
-            className="relative block overflow-hidden border-b border-h4Color bg-transparent pt-6 focus-within:border-blue-600"
-          >
-            <input
-                type="email"
-                id="email"
-              placeholder="Email"
-              defaultValue={""}
-              {...register("email", FORM_VALIDATION.email)}
-              className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-            />
-            <span className="absolute start-0 top-2 -translate-y-1/2 text-xs text-h4Color text-h6color transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
-              Email
-            </span>
-          </label>
 
-          <label
-            htmlFor="phone"
-            className="relative block overflow-hidden border-b border-h4Color bg-transparent pt-6 focus-within:border-blue-600"
-          >
-            <input
-              type="number"
-              id="phone"
-              placeholder="Phone"
-              defaultValue={""}
-              {...register("phone", { required: true })}
-              className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-            />
-            <span className="absolute start-0 top-2 -translate-y-1/2 text-xs text-h4Color text-h6color transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
-              Phone
-            </span>
-          </label>
+          <Input
+            label="Email"
+            type="email"
+            variant="floating"
+            {...register("email", FORM_VALIDATION.email)}
+            error={!!errors.email}
+            placeholder="Email"
+          />
 
-          <label
-            htmlFor="password"
-            className="relative block overflow-hidden border-b border-h4Color bg-transparent pt-6 focus-within:border-blue-600"
-          >
-            <input
-              type="password"
-              id="password"
-              placeholder="Password"
-              defaultValue={""}
-              {...register("password", { required: true })}
-              className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-            />
-            <span className="absolute start-0 top-2 -translate-y-1/2 text-xs text-h4Color text-h6color transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
-              Enter Password
-            </span>
-          </label>
+          <Input
+            label="Phone"
+            type="number"
+            variant="floating"
+            {...register("phone", { required: true })}
+            error={!!errors.phone}
+            placeholder="Phone"
+          />
+
+          <Input
+            label="Password"
+            type="password"
+            variant="floating"
+            {...register("password", FORM_VALIDATION.password)}
+            error={!!errors.password}
+            placeholder="Password"
+          />
 
           <div className="flex items-center font-abel my-5">
-            <div className="flex items-center text-darkSecondary text-[15px] gap-1 justify-center">
-              <Checkbox {...register("agree")} className="mr-1" /> I agree to
-              the
+          <div className="flex items-center text-darkSecondary text-[15px] gap-1 justify-center">
+              <Checkbox {...register("agree")} className="mr-1 text-primary" /> I
+              agree to
               <Link
                 href="/terms-and-conditions"
                 className="flex items-center text-primary underline font-bold font-Sans"
