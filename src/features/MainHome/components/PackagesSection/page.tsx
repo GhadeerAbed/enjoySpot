@@ -33,62 +33,63 @@ export const PackagesSection = () => {
   ];
 
   return (
-    <section className="my-[150px] bg-blue-50 flex flex-row max-custom2:flex-col justify-around items-center   custom2:h-[350px] px-10 py-2">
+    <section className=" my-[150px] bg-blue-50  px-10 py-2">
       {/* Header section */}
+      <div className="max-w-7xl mx-auto flex flex-row max-custom2:flex-col justify-around items-center   custom2:h-[350px]">
       <div>
-        <h1 className="uppercase text-xl font-Sans text-primary">Our packages</h1>
-        <h2 className="text-5xl  font-medium font-Kalnia text-primary w-[400px] py-1">CHOOSE WHAT YOU ENJOY MOST</h2>
+        <h1 className="uppercase text-xl font-Sans text-primary">
+          Our packages
+        </h1>
+        <h2 className="text-5xl  font-medium font-Kalnia text-primary w-[400px] py-1">
+          CHOOSE WHAT YOU ENJOY MOST
+        </h2>
         <p className="text-primary w-[400px]">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
-        <Button className="mt-4 ">
-          Explore All
-        </Button>
+        <Button className="mt-4 ">Explore All</Button>
       </div>
 
       {/* Grid of packages */}
-       {/* Grid of packages */}
-  <div className="grid grid-cols-3 gap-4 lg:w-[700px] xs:w-[500px] max-custom2:mt-10">
+      {/* Grid of packages */}
+      <div className="grid grid-cols-3 gap-4 lg:w-[700px] xs:w-[500px] max-custom2:mt-10">
+        <div className="col-span-1">
+          <PackageCard
+            key={packages[0].id}
+            imageSrc={packages[0].imageSrc}
+            title={packages[0].title}
+            price={packages[0].price}
+          />
+        </div>
 
-  <div className="col-span-1">
-    <PackageCard
-      key={packages[0].id}
-      imageSrc={packages[0].imageSrc}
-      title={packages[0].title}
-      price={packages[0].price}
-    />
-  </div>
+        <div className="col-span-2">
+          <PackageCard
+            key={packages[1].id}
+            imageSrc={packages[1].imageSrc}
+            title={packages[1].title}
+            price={packages[1].price}
+          />
+        </div>
 
-  <div className="col-span-2">
-    <PackageCard
-      key={packages[1].id}
-      imageSrc={packages[1].imageSrc}
-      title={packages[1].title}
-      price={packages[1].price}
-    />
-  </div>
+        <div className="col-span-2">
+          <PackageCard
+            key={packages[2].id}
+            imageSrc={packages[2].imageSrc}
+            title={packages[2].title}
+            price={packages[2].price}
+          />
+        </div>
 
-  <div className="col-span-2">
-    <PackageCard
-      key={packages[2].id}
-      imageSrc={packages[2].imageSrc}
-      title={packages[2].title}
-      price={packages[2].price}
-    />
-  </div>
-
-  <div className="col-span-1">
-    <PackageCard
-      key={packages[3].id}
-      imageSrc={packages[3].imageSrc}
-      title={packages[3].title}
-      price={packages[3].price}
-    />
-  </div>
-
-</div>
-
+        <div className="col-span-1">
+          <PackageCard
+            key={packages[3].id}
+            imageSrc={packages[3].imageSrc}
+            title={packages[3].title}
+            price={packages[3].price}
+          />
+        </div>
+      </div>
+      </div>
     </section>
   );
 };

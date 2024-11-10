@@ -10,7 +10,7 @@ export default function Home() {
       {/* <NotFound/> */}
       {/* <SubCategory/> */}
       {/* <Booking/> */}
-      <Auth/> 
+      {/* <Auth/>  */}
     </main>
   );
 }
