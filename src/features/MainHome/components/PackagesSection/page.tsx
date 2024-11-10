@@ -37,13 +37,13 @@ export const PackagesSection = () => {
       {/* Header section */}
       <div className="max-w-7xl mx-auto flex flex-row max-custom2:flex-col justify-around items-center   custom2:h-[350px]">
       <div>
-        <h1 className="uppercase text-xl font-Sans text-primary">
+        <h1 className="uppercase sm:text-xl text-lg font-Sans text-primary">
           Our packages
         </h1>
-        <h2 className="text-5xl  font-medium font-Kalnia text-primary w-[400px] py-1">
+        <h2 className="sm:text-5xl text-2xl font-medium font-Kalnia text-primary max-w-[400px] py-1">
           CHOOSE WHAT YOU ENJOY MOST
         </h2>
-        <p className="text-primary w-[400px]">
+        <p className="text-primary max-w-[400px]">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
@@ -52,7 +52,7 @@ export const PackagesSection = () => {
 
       {/* Grid of packages */}
       {/* Grid of packages */}
-      <div className="grid grid-cols-3 gap-4 lg:w-[700px] xs:w-[500px] max-custom2:mt-10">
+      <div className="grid ss:grid-cols-3 grid-cols-1 gap-4 lg:max-w-[700px] xs:max-w-[410px] max-custom2:mt-10">
         <div className="col-span-1">
           <PackageCard
             key={packages[0].id}
@@ -62,7 +62,7 @@ export const PackagesSection = () => {
           />
         </div>
 
-        <div className="col-span-2">
+        <div className="ss:col-span-2 col-span-1">
           <PackageCard
             key={packages[1].id}
             imageSrc={packages[1].imageSrc}
@@ -71,7 +71,7 @@ export const PackagesSection = () => {
           />
         </div>
 
-        <div className="col-span-2">
+        <div className="ss:col-span-2 col-span-1">
           <PackageCard
             key={packages[2].id}
             imageSrc={packages[2].imageSrc}

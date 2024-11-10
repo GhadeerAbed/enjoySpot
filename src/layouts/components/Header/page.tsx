@@ -4,6 +4,7 @@ import { API_SERVICES_URLS } from "@/data/page";
 import { useSWRHook } from "@/hooks/page";
 import Image from "next/image";
 import Link from "next/link";
+import { profile } from "../../../../public/images/page";
 
 export const Header = () => {
   const { data } = useSWRHook(API_SERVICES_URLS.GET_ALL_LISTING_TYPES);
@@ -11,7 +12,7 @@ export const Header = () => {
   const listingTypes = data?.isSuccess ? data.data : [];
   return (
     <header className="bg-white/30 backdrop-blur-lg shadow-borderShadow">
-      <div className=" mx-20  pt-4 pb-2 flex justify-between items-center">
+      <div className="lg:mx-20 mx-5  pt-4 pb-2 flex justify-between items-center">
         <Image
           src="logo.svg"
           alt="Logo"
@@ -20,30 +21,30 @@ export const Header = () => {
           className="object-cover"
         />
         <div className="flex">
-          <Button buttonSize={"small"} className="  px-10">
+          <Button buttonSize={"small"} className=" hidden ss:flex px-10">
             Login
           </Button>
+          <Image src={profile} alt="profile" width={27} height={27} className="flex ss:hidden"/>
         </div>
       </div>
 
-      <nav className="flex justify-center items-center gap-10 text-secondary pb-6">
+      <nav className="flex justify-center items-center ss:gap-10 gap-4 text-secondary pb-6 mt-5">
         {listingTypes.map((item: any) => {
-          const modifiedIcon = item.webIcon.replace(  //thats is only for color change
-            /fill=".*?"/g, // regex to find fill attribute [any character start with fill and end with ?]
-            'fill="currentColor"' // Replace fill attribute with currentColor[secondary]
+          const modifiedIcon = item.webIcon.replace( 
+            /fill=".*?"/g, 
+            'fill="currentColor"' 
           );
-          // console.log(listingTypes)
           return (
             <Link
               key={item.id}
               href={item.name}
-              className="flex items-center flex-col gap-2 group"
+              className="flex items-center flex-col gap-2 group "
             >
               <div
                 className="icon group-hover:text-[#00ADEE]"
                 dangerouslySetInnerHTML={{ __html: modifiedIcon }}
               />
-              <p className="group-hover:text-[#00ADEE]">{item.name}</p>
+              <p className="group-hover:text-[#00ADEE] max-ss:text-sm ">{item.name}</p>
             </Link>
           );
         })}

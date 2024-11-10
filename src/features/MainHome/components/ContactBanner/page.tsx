@@ -4,31 +4,29 @@ import { Hero2, hero3, leftArrow } from "../../../../../public/images/page";
 import { Button } from "@/components/page";
 export const ContactBanner = () => {
   return (
-    <section className="my-20  flex items-center w-full   relative  ">
+    <section className="my-20   flex items-center relative max-sm:mx-5 ">
       <Image
         src={Hero2}
         alt="hero"
         width={1260}
-        height={1260}
-        className=" w-full "
+        height={400}
+        className=" w-full max-sm:rounded-xl max-sm:h-[350px] object-cover"
       />
       <div className="absolute inset-0 ">
         <Image
           src={hero3}
           alt="hero"
           width={1260}
-          height={1260}
-          className="w-full "
+          height={400}
+          className="w-full h-full max-sm:rounded-xl object-cover "
         />
       </div>
-
-      {/* remove m-10  */}
       <div className="absolute  z-40  ml-24">
-        <strong className=" lg:text-5xl sm:text-2xl text-xl  text-white font-Sans  font-bold">
+        <strong className=" lg:text-5x  text-3xl  text-white font-Sans  font-bold">
           Need Help On
         </strong>
 
-        <h1 className="lg:text-5xl sm:text-2xl text-xl  text-white  py-2 font-Sans font-bold">
+        <h1 className="lg:text-5xl text-3xl   text-white  py-2 font-Sans font-bold">
           Online Booking ?
         </h1>
 

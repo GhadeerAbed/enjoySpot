@@ -28,7 +28,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="mt-10 relative max-w-7xl mx-auto max-[1290px]:mx-10">
+    <section className="mt-10 relative max-w-7xl mx-auto max-[1290px]:mx-10 max-md:mx-5">
       <Slider {...settings}>
         {sliderItems.map((item: any, index: number) => (
           <div key={index} className="">
