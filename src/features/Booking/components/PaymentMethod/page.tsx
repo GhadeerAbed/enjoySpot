@@ -76,9 +76,9 @@ export const PaymentMethod = () => {
               Free cancellation before 9:00 AM on October 9 (tour local time)
             </h2>
             <p className="text-h6Color text-[12px] my-4">
-              By clicking "Complete Booking", you acknowledge that you have read
-              and are bound by EnjoySpot's Terms & Privacy and Cookies
-              Statement; Viator's Terms; plus the tour operator's rules &
+              By clicking &quot;Complete Booking&quot;, you acknowledge that you have read
+              and are bound by EnjoySpot&apos;s Terms & Privacy and Cookies
+              Statement; Viator&apos;s Terms; plus the tour operator&apos;s rules &
               regulations (see listing for more details).
             </p>
           </div>
