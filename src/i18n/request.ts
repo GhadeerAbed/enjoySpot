@@ -11,9 +11,9 @@ export default getRequestConfig(async () => {
 
   const locale = cookieLanguage
     ? cookieLanguage
-    : acceptLanguage?.includes("ar")
-    ? "ar"
-    : "en";
+    : acceptLanguage?.includes("en")
+    ? "en"
+    : "ar";
 
   return {
     locale: locale || "en", // default to 'ar'
