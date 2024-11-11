@@ -35,12 +35,12 @@ export const PackagesSection = () => {
   return (
     <section className=" my-[150px] bg-blue-50  px-10 py-2">
       {/* Header section */}
-      <div className="max-w-7xl mx-auto flex flex-row max-custom2:flex-col justify-around items-center   custom2:h-[350px]">
+      <div className="max-w-7xl mx-auto flex flex-row max-custom2:flex-col justify-around items-center   custom2:h-[350px] max-custom2:px-5">
       <div>
         <h1 className="uppercase sm:text-xl text-lg font-Sans text-primary">
           Our packages
         </h1>
-        <h2 className="sm:text-5xl text-2xl font-medium font-Kalnia text-primary max-w-[400px] py-1">
+        <h2 className="sm:text-5xl text-2xl font-medium font-Kalnia text-primary custom2:max-w-[400px] py-1">
           CHOOSE WHAT YOU ENJOY MOST
         </h2>
         <p className="text-primary max-w-[400px]">
@@ -52,7 +52,7 @@ export const PackagesSection = () => {
 
       {/* Grid of packages */}
       {/* Grid of packages */}
-      <div className="grid ss:grid-cols-3 grid-cols-1 gap-4 lg:max-w-[700px] xs:max-w-[410px] max-custom2:mt-10">
+      <div className="grid ss:grid-cols-3 grid-cols-1 gap-4 lg:max-w-[700px]  max-custom2:mt-10">
         <div className="col-span-1">
           <PackageCard
             key={packages[0].id}

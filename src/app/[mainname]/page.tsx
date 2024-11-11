@@ -5,9 +5,7 @@ import { useSWRHook } from '@/hooks/page';
 import React from 'react'
 
 const MainCategoryPage = ({ params }: { params: { mainname: string } }) => {
-  console.log(params)  // let we see the params yachts
   const { data } = useSWRHook(API_SERVICES_URLS.GET_ALL_LISTING_TYPES);
-  console.log(data)
   const listingTypes = data?.isSuccess ? data.data : [];
   const mainCategoryId = listingTypes.find((item: { name: string }) => item.name === params.mainname);
   const mainId = mainCategoryId ? mainCategoryId.id : null; 

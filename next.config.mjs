@@ -9,7 +9,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ['enjoyspot.runasp.net'],
+    domains: ['enjoyspot.premiumasp.net'],
   },
 };
 export default withNextIntl(nextConfig);

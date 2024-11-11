@@ -67,7 +67,7 @@ export const Blog = () => {
   };
 
   return (
-    <section className="mt-20 max-w-7xl mx-auto max-sm:mx-5">
+    <section className="mt-20 max-w-7xl mx-auto max-md:mx-5">
       <h1 className="text-center text-xl uppercase  py-2 font-Kalnia">
         DISCOVER MORE
       </h1>

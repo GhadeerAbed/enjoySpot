@@ -23,19 +23,9 @@ export const Header = () => {
 
   const { data } = useSWRHook(API_SERVICES_URLS.GET_ALL_LISTING_TYPES);
   const { data: currencyData } = useSWRHook(
-    API_SERVICES_URLS.GET_All_currencies
-    // ,
-    // {
-    //   headers: {
-    //     Authorization: `Bearer ${accessToken}`,
-    //     Accept: "application/json",
-    //     "Accept-Language": "en",
-    //   },
-    // }
-  );
-  console.log(currencyData);
+    API_SERVICES_URLS.GET_All_currencies)
+
   const currencies = currencyData?.isSuccess ? currencyData.data : [];
-  console.log(currencies);
   const listingTypes = data?.isSuccess ? data.data : [];
 
   const handleCurrencyClick = () => {

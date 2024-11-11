@@ -35,11 +35,11 @@ export const Hero = () => {
             <div className="relative">
               {/* Hero Image */}
               <Image
-                src={`http://enjoyspot.runasp.net` + item.imagePath}
+                src={`https://enjoyspot.premiumasp.net` + item.imagePath}
                 alt={`slider-image-${index}`}
                 width={1200}
                 height={450}
-                className="rounded-xl w-full h-[450px] object-cover max-sm:h-[300px] "
+                className="rounded-xl w-full h-[450px] object-cover max-md:h-[350px] "
                 priority={true}
               />
 
@@ -53,7 +53,7 @@ export const Hero = () => {
                 </h1>
 
                 {/* Book Now Button */}
-                <Button className="bg-white text-primary flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 rounded font-bold cursor-pointer">
+                <Button className="bg-white text-primary flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 rounded font-bold cursor-pointer ">
                   <span>{item.button}</span>
                   {/* Left Arrow Image */}
                   <Image

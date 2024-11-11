@@ -12,7 +12,7 @@ const PrevArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-0 transform -translate-y-1/2 -left-10 max-md:left-0 z-10 cursor-pointer"
+      className="absolute top-0 transform -translate-y-1/2 -left-10 max-sm:left-0 z-10 cursor-pointer"
       onClick={onClick}
     >
       <Image src={leftSlide} alt="leftArrow" width={24} height={24} />
@@ -25,7 +25,7 @@ const NextArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-0 transform -translate-y-1/2 -right-10 max-md:right-0 z-10 cursor-pointer"
+      className="absolute top-0 transform -translate-y-1/2 -right-10 max-sm:right-0 z-10 cursor-pointer"
       onClick={onClick}
     >
       <Image src={rightSlide} alt="rightArrow" width={24} height={24} />
@@ -99,7 +99,7 @@ export const Activities = () => {
         MOST POPULAR ACTIVITIES
       </h2>
 
-      <div className="relative md:mx-20  mt-20">
+      <div className="relative sm:mx-20  mt-20">
         {/* Fade effect on the right */}
         <div className="absolute top-0 right-0 h-full w-8 bg-gradient-to-l from-white pointer-events-none z-10"></div>
 
