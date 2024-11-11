@@ -27,7 +27,7 @@ const useFetcher = () => {
         headers: { Authorization: `Bearer ${accessToken}` , "Accept-Language": locale },
       });
       return response.data;
-    } catch (error) {
+    } catch (error:any) {
       if (error.response?.status === 401) {
         localStorage.removeItem("authData");
         router.push("/");

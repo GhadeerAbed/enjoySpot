@@ -82,7 +82,7 @@ export const Activities = () => {
         },
       },
     ],
-    afterChange: (currentSlide) => {
+    afterChange: (currentSlide: number) => {
       // Hide the scroll hint if the user has started scrolling
       if (currentSlide > 0) {
         setShowScrollHint(false);
