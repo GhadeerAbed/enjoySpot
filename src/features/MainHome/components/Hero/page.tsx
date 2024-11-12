@@ -9,6 +9,7 @@ import { useSWRHook } from "@/hooks/page";
 
 export const Hero = () => {
   const { data, error } = useSWRHook(API_SERVICES_URLS.HOME_SLIDER);
+  console.log(data)
   if (error) return <div>Error loading slider data</div>;
   if (!data) return <div>Loading...</div>;
 

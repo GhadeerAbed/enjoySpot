@@ -49,7 +49,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         classes.input =
           "peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm";
         classes.label =
-          "absolute start-0 top-2 -translate-y-1/2 text-xs text-h4Color transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs";
+          "absolute start-0 top-2  text-xs text-h4Color transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs";
       } else {
         // Default styling
         classes.inputContainer = `flex-1 mb-3 relative text-gray-dark ${
