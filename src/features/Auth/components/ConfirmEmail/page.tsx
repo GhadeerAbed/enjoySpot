@@ -13,7 +13,7 @@ export const NewPassword = () => {
         <div className="p-10">
           <h1 className="text-4xl font-bold text-primary font-Kalnia">
             New Password
-          </h1>
+          </h1> 
           <p className="text-sm text-primary my-5">Enter a New Password</p>
           <div className="flex flex-col items-center justify-center">
             <div className="w-full max-w-md relative space-y-4 my-4">

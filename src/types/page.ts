@@ -78,6 +78,12 @@ export interface Activity {
   people: string;
 }
 
+export interface LanguageType {
+  id: number;
+  name: string;
+  code:string;
+}
+
 export interface Article{
   id: number;
   name: string;
