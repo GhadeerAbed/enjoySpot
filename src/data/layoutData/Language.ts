@@ -2,7 +2,7 @@ import { LanguageType } from "@/types/page"
 
 export const Language:LanguageType[]= [
     {
-        id: 1,
+      id: 1,
       name: "English",
       code: "en"
     },

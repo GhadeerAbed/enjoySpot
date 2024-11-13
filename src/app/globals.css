@@ -184,3 +184,22 @@ th {
   border-radius: 4px; /* Optional: rounded corners */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: shadow effect */
 }
+
+
+.dropdown-language::-webkit-scrollbar {
+  width: 8px; 
+}
+
+.dropdown-language::-webkit-scrollbar-track {
+  background: rgba(91, 126, 155, 0.18);
+  border-radius: 10px; 
+}
+
+.dropdown-language::-webkit-scrollbar-thumb {
+  background-color:rgba(91, 126, 155, 0.8);
+  border-radius: 10px; /* Rounded corners */
+}
+
+.dropdown-language::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(91, 126, 155, 0.8);
+}

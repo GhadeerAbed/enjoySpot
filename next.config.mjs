@@ -1,4 +1,3 @@
-
 import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin();
@@ -9,7 +8,12 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ['enjoyspot.premiumasp.net'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "enjoyspot.premiumasp.net",
+      },
+    ],
   },
 };
 export default withNextIntl(nextConfig);
