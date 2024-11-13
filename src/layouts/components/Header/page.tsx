@@ -7,24 +7,23 @@ import Link from "next/link";
 import { blueArrowDown, EmFlag, profile } from "../../../../public/images/page";
 import { useState } from "react";
 import { getAuthData } from "@/utils/page";
+import { Language } from "@/data/layoutData/Language";
 
 export const Header = () => {
-  const languages = [
-    { id: 1, name: "English" },
-    { id: 2, name: "Arabic" },
-    // Add more languages as needed
-  ];
-
   const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+
+  const [selectedCurrency, setSelectedCurrency] = useState<any>(null);
+  const [selectedCurrencies, setSelectedCurrencies] = useState<any[]>([]);
 
   const authData = getAuthData();
   const accessToken = authData?.token;
 
   const { data } = useSWRHook(API_SERVICES_URLS.GET_ALL_LISTING_TYPES);
   const { data: currencyData } = useSWRHook(
-    API_SERVICES_URLS.GET_All_currencies)
-
+    API_SERVICES_URLS.GET_All_currencies
+  );
+  console.log(currencyData);
   const currencies = currencyData?.isSuccess ? currencyData.data : [];
   const listingTypes = data?.isSuccess ? data.data : [];
 
@@ -34,6 +33,16 @@ export const Header = () => {
 
   const handleLanguageClick = () => {
     setIsLanguageOpen(!isLanguageOpen);
+  };
+
+  const toggleCurrencySelection = (currency: any) => {
+    setSelectedCurrencies((prev) => {
+      if (prev.some((c) => c.id === currency.id)) {
+        return prev.filter((c) => c.id !== currency.id);
+      } else {
+        return [...prev, currency];
+      }
+    });
   };
 
   return (
@@ -58,12 +67,15 @@ export const Header = () => {
               </div>
 
               {isLanguageOpen && (
-                <div className="absolute top-full mt-2 bg-white shadow-lg p-4 rounded-lg py-2 w-40 z-10">
+                <div className="absolute top-full mt-2 bg-white shadow-lg p-4 rounded-lg py-2 w-40 z-50 transition-transform transform scale-100 max-h-40 overflow-y-auto">
                   <div className="text-primary font-semibold">Languages:</div>
-                  {languages.map((language) => (
+                  {Language.map((language) => (
                     <div
                       key={language.id}
-                      className=" p-1  hover:bg-gray-100 hover:rounded-full cursor-pointer flex items-center justify-center "
+                      className="p-1 hover:bg-gray-100 hover:rounded-full cursor-pointer flex items-center justify-between"
+                      onClick={() => {
+                        setIsLanguageOpen(false);
+                      }}
                     >
                       <span>{language.name}</span>
                     </div>
@@ -72,29 +84,50 @@ export const Header = () => {
               )}
             </div>{" "}
             <div className="border-l-2 border-h4Color"></div>
-            {/* Currency dropdown - updated */}
             <div className="flex items-center relative">
               <div
                 className="flex items-center cursor-pointer"
                 onClick={handleCurrencyClick}
               >
-                <div className="text-h4Color rounded-full w-8 h-8 border border-h4Color flex items-center justify-center">
-                  {/* {currencies[0]?.image || "$"} */}
+                <div className="flex space-x-2">
+                  {" "}
+                  {selectedCurrencies.length > 0 ? (
+                    selectedCurrencies.map((currency) => (
+                      <Image
+                        key={currency.id}
+                        src={`https://enjoyspot.premiumasp.net${currency.countryFlagImagePath}`}
+                        width={40}
+                        height={40}
+                        alt="currency"
+                        className="rounded-full"
+                      />
+                    ))
+                  ) : (
+                    <div className="h-8 w-8 bg-h5Color rounded-full border"></div>
+                  )}
                 </div>
                 <Image src={blueArrowDown} alt="down-arrow" />
               </div>
 
               {isCurrencyOpen && (
-                <div className="absolute top-full mt-2 bg-white shadow-lg p-4 rounded-lg py-2 w-40 z-10">
+                <div className="absolute top-full mt-2 bg-white shadow-lg p-4 rounded-lg py-2 w-40 z-30 transition-transform transform scale-100">
                   <div className="text-primary font-semibold">Currencies:</div>
                   {currencies.map((currency: any) => (
                     <div
                       key={currency.id}
-                      className="px-4 py-2 space-x-2  hover:bg-gray-100 hover:rounded-full cursor-pointer flex items-center"
+                      className="px-4 py-2 space-x-2 hover:bg-gray-100 hover:rounded-full cursor-pointer flex items-center"
+                      onClick={() => {
+                        toggleCurrencySelection(currency);
+                      }}
                     >
-                      <div className="text-h4Color rounded-full w-8 h-8 border border-h4Color flex items-center justify-center">
-                        {/* {currency.image} */}
-                        <Image src={EmFlag} alt="currency" />
+                      <div className="text-h4Color rounded-full border border-h4Color flex items-center justify-center">
+                        <Image
+                          src={`https://enjoyspot.premiumasp.net${currency.countryFlagImagePath}`}
+                          width={40}
+                          height={40}
+                          alt="currency"
+                          className="rounded-full"
+                        />
                       </div>
                       <span className="mr-2">{currency.name}</span>
                     </div>

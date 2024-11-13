@@ -1,4 +1,5 @@
 "use client";
+import FilterSection from "@/components/Fillter/page";
 import { Button } from "@/components/page";
 import { Input } from "@/components/page";
 import React, { useState } from "react";
@@ -20,7 +21,7 @@ export const OTP = () => {
 
   return (
     <div>
-      <div className=" my-10 w-full  flex items-center justify-center">
+      {/* <div className=" my-10 w-full  flex items-center justify-center">
         <div className="h-[341px] w-[500px] bg-white rounded-lg shadow-lg">
           <div className="p-10">
             <h1 className="text-4xl font-bold text-primary font-Kalnia">
@@ -48,7 +49,8 @@ export const OTP = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      <FilterSection />
     </div>
   );
 };

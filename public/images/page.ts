@@ -103,7 +103,11 @@ import snapchat from './snapchat.svg'
 import tictoc from './tictoc.svg'
 import profile from './profile.svg'
 import  blueArrowDown from './blueArrowDown.svg'
+import Harbor1 from './Harbor1.svg'
+import cabin from './cabin.svg'
+import sizeIcon from './sizeIcon.svg'
+import priceIcon from './priceIcon.svg'
 
-export {profile,flag,birds,check,tictoc ,snapchat,rightSide,checkBlack,lefttSide,smallEma,rightSideG,lefttSideG,duration,menu,masterCard,visa,whatsapp1,hour,pen,insta,facebook1,dislike,like,vistor,bird,gradBlue,mosPopular,pana,owelCover,test2,linearGrd,emptyStars,dining,yachtExclusive,helicoptarExclusive,fastYachts,exclusiveBanner,maps,coach,bathroom,bed,zoom,harbor,dashboard,user,table,yacht1,toggleMenu,sort,activity,dataTime,arrowDown,Guest,room1,roof3,roof2,roof ,bestDeal,rightArrow,hero3 ,arrowBlue ,Hero2,USD,arrowUpR,seats ,test3,convert,faceUser,stars,timer,AED,ladder,grill,chair,umbarla,whatsapp,Facebook,Instagram ,EmFlag,frFlag,indFlag,usFlag,trFlag, hero ,leftArrow ,pepole , location , star ,test ,rightSlide ,leftSlide,ships,jetski,jetCar,packages,parasilling,bananaBoat,donutBoat,extra,flyBorad,eye,loadDot,google,apple,blueArrowDown}
+export {profile,flag,birds,check,tictoc ,snapchat,rightSide,checkBlack,lefttSide,smallEma,rightSideG,lefttSideG,duration,menu,masterCard,visa,whatsapp1,hour,pen,insta,facebook1,dislike,like,vistor,bird,gradBlue,mosPopular,pana,owelCover,test2,linearGrd,emptyStars,dining,yachtExclusive,helicoptarExclusive,fastYachts,exclusiveBanner,maps,coach,bathroom,bed,zoom,harbor,dashboard,user,table,yacht1,toggleMenu,sort,activity,dataTime,arrowDown,Guest,room1,roof3,roof2,roof ,bestDeal,rightArrow,hero3 ,arrowBlue ,Hero2,USD,arrowUpR,seats ,test3,convert,faceUser,stars,timer,AED,ladder,grill,chair,umbarla,whatsapp,Facebook,Instagram ,EmFlag,frFlag,indFlag,usFlag,trFlag, hero ,leftArrow ,pepole , location , star ,test ,rightSlide ,leftSlide,ships,jetski,jetCar,packages,parasilling,bananaBoat,donutBoat,extra,flyBorad,eye,loadDot,google,apple,blueArrowDown,Harbor1,cabin,sizeIcon,priceIcon}
 
 
