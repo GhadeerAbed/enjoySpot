@@ -1,5 +1,5 @@
-"use client";
-import React, { useState } from "react";
+'use client';
+import React, { useState, useEffect } from "react";
 import {
   Listbox,
   ListboxButton,
@@ -9,28 +9,42 @@ import {
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
 import Image from "next/image";
+
 export const CurrenciesSelector = ({ data }: { data: any }) => {
-  const [selected, setSelected] = useState(data[0]);
+  const [selected, setSelected] = useState(data.length > 0 ? data[0] : null);
+
+  useEffect(() => {
+    if (data.length > 0 && !selected) {
+      setSelected(data[0]);
+    }
+  }, [data, selected]);
+
   return (
     <div>
       <Listbox value={selected} onChange={setSelected}>
         <ListboxButton
           className={clsx(
-            "relative block w-full rounded-lg capitalize py-1.5 pr-8 pl-3 text-left  text-primary font-semibold",
+            "relative block w-full rounded-lg capitalize py-1.5 pr-8 pl-3 text-left text-primary font-semibold",
             "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-primary"
           )}
         >
-          <Image
-            src={`https://enjoyspot.premiumasp.net${selected.countryFlagImagePath}`}
-            width={40}
-            height={40}
-            alt="currency"
-             className=" w-6 h-6 rounded-full"
-          />
-          <ChevronDownIcon
-            className="group  absolute top-2.5 right-2.5 size-4 fill-primary font-semibold cursor-pointer"
-            aria-hidden="true"
-          />
+          {selected ? (
+            <>
+              <Image
+                src={`https://enjoyspot.premiumasp.net${selected.countryFlagImagePath}`}
+                width={40}
+                height={40}
+                alt="currency"
+                className="w-6 h-6 rounded-full"
+              />
+              <ChevronDownIcon
+                className="group absolute top-2.5 right-2.5 size-4 fill-primary font-semibold cursor-pointer"
+                aria-hidden="true"
+              />
+            </>
+          ) : (
+            <span className="text-gray-500">No currency available</span>
+          )}
         </ListboxButton>
         <ListboxOptions
           anchor="bottom"
@@ -42,20 +56,19 @@ export const CurrenciesSelector = ({ data }: { data: any }) => {
         >
           {data.map((person: any) => (
             <ListboxOption
-              key={person.name}
+              key={person.id}
               value={person}
-              className="group flex cursor-pointer items-center gap-2 rounded-lg py-1.5 px-3 select-none data-[focus]:bg-white "
+              className="group flex cursor-pointer items-center gap-2 rounded-lg py-1.5 px-3 select-none data-[focus]:bg-white"
             >
               <CheckIcon className="invisible size-4 fill-primary group-data-[selected]:visible" />
               <Image
-                key={person.id}
                 src={`https://enjoyspot.premiumasp.net${person.countryFlagImagePath}`}
                 width={40}
                 height={40}
                 alt="currency"
-                className=" w-6 h-6 rounded-full"
+                className="w-6 h-6 rounded-full"
               />
-              <div className=" text-primary whitespace-nowrap">
+              <div className="text-primary whitespace-nowrap">
                 {person.name}
               </div>
             </ListboxOption>
