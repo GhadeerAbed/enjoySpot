@@ -74,8 +74,11 @@ export interface Activity {
   price: string;
   rating: string;
   imageUrl: string;
-  location: string;
-  people: string;
+  location?: string;
+  guest?:number;
+  people?: string;
+  cabins?:number;
+  size?:number
 }
 
 export interface LanguageType {

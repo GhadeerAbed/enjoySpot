@@ -12,8 +12,8 @@ const MainCategoryPage = ({ params }: { params: { mainname: string } }) => {
 
   return (
     <div>
-      {params.mainname} page
       <SubCategories id={mainId} name={params.mainname}/>
+      {params.mainname} page
       
     </div>
   )

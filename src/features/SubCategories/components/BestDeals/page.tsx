@@ -17,7 +17,7 @@ import { ExploreMore } from "@/features/MainHome/components/page";
 
 const BestDeals = () => {
   return (
-    <section className="mx-[100px]">
+    <section className="lg:mx-[100px] xs:mx-[30px]">
       {/* -------------  {Banner}------------------------ */}
       <section className="mt-10 flex justify-center relative ">
         <Image
