@@ -3,9 +3,9 @@ export const ExploreMore = () => {
     <>
       <div className="max-w-7xl mx-auto pb-10 max-sm:mx-5">
         <h2 className="font-bold text-2xl text-primary ">Explore More</h2>
-        <div className="flex flex-wrap text-h6Color py-2 space-y-2">
+        <div className="flex flex-wrap text-h6Color py-2 space-y-2 ">
           {Array(24).fill('').map((_, index) => (
-            <div key={index} className="border-r px-4 mt-[8px]">
+            <div key={index} className="border-r px-4 mt-[8px] rounded">
               Explore Topic
             </div>
           ))}
