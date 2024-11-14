@@ -1,13 +1,23 @@
 "use client";
 import CardYachts from "@/components/CardYachtsSub/page";
-import React from "react";
+import React, { useState } from "react";
 import { useSWRHook } from "@/hooks/page";
 import { API_SERVICES_URLS } from "@/data/page";
-import { arrowDown, dataTime, Guest ,location, sort, toggleMenu } from "../../../../../public/images/page";
+import {
+  arrowDown,
+  dataTime,
+  Guest,
+  location,
+  sort,
+  toggleMenu,
+} from "../../../../../public/images/page";
 import Image from "next/image";
 import { Button } from "@headlessui/react";
+import { Pagination } from "@/components/page";
 
 export const CategoryList = ({ id }: { id?: any }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
   const { data: activitiesResponse } = useSWRHook(
     API_SERVICES_URLS.GET_ALL_LISTINGS(id)
   );
@@ -17,10 +27,16 @@ export const CategoryList = ({ id }: { id?: any }) => {
   }
 
   const activities = activitiesResponse.data.data;
+  const totalEntries = activitiesResponse.data.totalRecords;
+  const totalPages = Math.ceil(totalEntries / pageSize);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div>
-       <div className="flex justify-center items-center lg:shadow-none xs:shadow-md border-b">
+      <div className="flex justify-center items-center lg:shadow-none xs:shadow-md border-b">
         <div className="flex justify-center items-center lg:w-[910px] xs:w-[500px] py-6 mt-5 mb-2">
           <div className="flex gap-4 sm:gap-8 items-center">
             <div className="relative w-full sm:w-auto">
@@ -109,29 +125,33 @@ export const CategoryList = ({ id }: { id?: any }) => {
           </div>
         </div>
       </div>
-      <div className="flex justify-end  mt-5 space-x-3 lg:mx-10 xs:mx-3 ">
+      <div className="flex justify-end gap-3 my-3">
         <Image
           src={toggleMenu}
           alt=""
           width={34}
           height={34}
-          className="cursor-pointer "
         />
         <Image
           src={sort}
           alt=""
           width={34}
           height={34}
-          className=" cursor-pointer  "
         />
       </div>
-    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 custom2:grid-cols-3 gap-6 w-full">
-      {activities.map((activity: any) => (
-        <div key={activity.id} className="py-5">
-          <CardYachts activity={activity} />
-        </div>
-      ))}
-    </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 custom2:grid-cols-3 gap-6 w-full">
+        {activities.map((activity: any) => (
+          <div key={activity.id} >
+            <CardYachts activity={activity} />
+          </div>
+        ))}
+      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        totalEntries={totalEntries}
+      />
     </div>
   );
 };

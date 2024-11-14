@@ -5,7 +5,7 @@ import { Facebook, Instagram, snapchat, tictoc, whatsapp } from "../../../../pub
 
 export const ContactFooter = () => {
   return (
-    <footer className="bg-primary py-10">
+    <footer className="bg-primary py-10 mt-5">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:justify-between text-white space-y-6 lg:space-y-0 ">
         
         {/* Logo Section */}
