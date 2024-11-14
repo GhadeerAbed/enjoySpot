@@ -9,7 +9,7 @@ export const SubCategoryTypes = ({ id, name }: { id: any; name: string }) => {
   const listingSubTypes = data?.isSuccess ? data.data : [];
   return (
     <div>
-      <div className="flex justify-center items-center gap-10 text-secondary pb-6">
+      <div className="flex justify-center items-center gap-10 text-secondary  mt-6">
         {listingSubTypes.map((item: any) => {
           let modifiedIcon = item.webIcon;
           if (/stroke=".*?"/.test(modifiedIcon)) {

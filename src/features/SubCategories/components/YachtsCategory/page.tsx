@@ -2,9 +2,8 @@
 import Image from "next/image";
 import React from "react";
 import {
-  activity,
+
   arrowDown,
-  bestDeal,
   dataTime,
   Guest,
   location,
@@ -12,11 +11,9 @@ import {
   toggleMenu,
 } from "../../../../../public/images/page";
 import { activities } from "@/data/layoutData/activite";
-
-// import { ExploreMore } from "@/features/MainHome/components/page";
 import CardYachts from "@/components/CardYachtsSub/page";
 import Pagination from "@/components/Pagination/page";
-import ExploreMore from "@/features/MainHome/components/ExpoloreMore/page";
+
 
 const YachtsCategory = () => {
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -176,10 +173,6 @@ const YachtsCategory = () => {
       </section>
 
       
-      {/* -----------------------------------------expolore more---------------------------------- */}
-      <section className="my-16">
-        <ExploreMore />
-      </section>
     </div>
   );
 };

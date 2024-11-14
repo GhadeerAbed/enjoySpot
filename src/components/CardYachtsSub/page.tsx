@@ -18,13 +18,14 @@ const CardYachts = ({ activity }: { activity: Activity }) => {
 
   return (
     <div className="lg:w-[305px] ">
-      <div className="p-2 shadow-cardShadow  rounded-[20px]">
+      <div className="p-3 shadow-cardShadow  rounded-xl">
         <a href="#" className="relative">
           <div className="absolute bottom-0 right-0 border-l-0 rounded-t-lg  w-24 h-[88px]  bg-white">
             <div className="relative">
               <div className="absolute mt-2 mr-2 right-0 rounded-[12px] w-20 h-20 bg-h1Color text-white text-center">
                 <div className="flex flex-col justify-center mt-2">
                   <h2 className="text-lg font-bold">{activity.price}</h2>
+                  <p>AED/H</p>
                 </div>
               </div>
             </div>
@@ -47,7 +48,7 @@ const CardYachts = ({ activity }: { activity: Activity }) => {
 
           <div className="flex items-center justify-center space-x-2">
             <div className="text-sm font-sans font-bold text-primary">
-              {activity.rating}
+              {activity.rating}/5
             </div>
             <Image src={star} alt="people" width={18} height={18} />
           </div>
@@ -56,7 +57,7 @@ const CardYachts = ({ activity }: { activity: Activity }) => {
         <div className="flex  items-center my-2 ">
           <div className="flex items-center space-x-2 lg:pr-3 border-r border-h6Color lg:px-1 xs:px-1">
             <Image src={Guest} alt="people" width={18} height={18} />
-            <span className="text-h6Color xs:text-[10px] lg:text-lg">{activity.guest} Guests</span>
+            <span className="text-h6Color xs:text-[10px] lg:text-[15px]">{activity.guest} Guests</span>
           </div>
 
           <div className="flex items-center space-x-2 lg:pl-3 border-r lg:px-1 xs:px-1">
@@ -69,8 +70,8 @@ const CardYachts = ({ activity }: { activity: Activity }) => {
           </div>
         </div>
 
-        <div className="flex justify-between  m-2 ">
-          <Button className="lg:w-[75%] xs:w-[75%] text-primary bg-white hover:bg-primary hover:text-white "  >
+        <div className="flex space-x-2 py-2">
+          <Button className=" text-primary bg-white w-full border-secondary"  >
             Book Now
           </Button>
           <Image  src={convert} alt="convert" />
