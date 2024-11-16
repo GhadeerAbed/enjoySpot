@@ -15,12 +15,18 @@ import Image from "next/image";
 import { Button } from "@headlessui/react";
 import { Pagination } from "@/components/page";
 
-export const CategoryList = ({ id }: { id?: any }) => {
+export const CategoryList = ({ id , id1}: { id?: any ,id1?:any }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
-  const { data: activitiesResponse } = useSWRHook(
-    API_SERVICES_URLS.GET_ALL_LISTINGS(id)
-  );
+
+  const constructApiUrl = () => {
+    let url = `${API_SERVICES_URLS.GET_ALL_LISTINGS}?PageNumber=${currentPage}&PageSize=${pageSize}`;
+    if (id) url += `&listingTypeId=${id}`;
+    if (id1) url += `&listingCategoryId=${id1}`;
+    return url;
+  };
+
+  const { data: activitiesResponse } = useSWRHook(constructApiUrl());
 
   if (!activitiesResponse || !activitiesResponse.isSuccess) {
     return <div>Loading...</div>;

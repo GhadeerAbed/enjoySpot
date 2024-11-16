@@ -103,7 +103,7 @@ export const Blog = () => {
       <div className="mt-20  ">
         <Slider {...settings}>
           {posts.map((post,index) => (
-            <div key={index} className="px-2 py-10">
+            <div key={index} className="lg:px-3 px-2 py-10">
               <CardBlog post={post} />
             </div>
           ))}

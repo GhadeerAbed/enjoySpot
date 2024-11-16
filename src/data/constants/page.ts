@@ -12,5 +12,5 @@ export const API_SERVICES_URLS = {
   VERIFY_CODE: "/api/v1/auth/verifyResetCodeWithinLogin",
   RESET_PASSWORD: "/api/v1/auth/resetPasswordWithinLogin",
   UPDATE_AGENCY:(id:string) => `/api/v1/users/updateAgency/${id}`,
-  GET_ALL_LISTINGS:(id:string) =>`/listings/getAll?ListingTypeId=${id}`,
+  GET_ALL_LISTINGS:`/listings/getAll`,
 };

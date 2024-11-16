@@ -1,19 +1,13 @@
 import React from "react";
-import BestDeals from "./components/BestDeals/page";
-import Details from "./components/YachtsDetails/page";
-import ExculsivePackages from "./components/ExclusivePackages/page";
-import DubaiBirds from "./components/DubaiBirds/page";
-import { CategoryList } from "./components/page";
+import { CategoryList, SubCategoryTypes } from "./components/page";
 
-export const SubCategory = () => {
+export const SubCategory = ({id , name ,id1}:{id?:any ; name?:string ;id1?:any}) => {
   return (
     <div>
-      {/* <ExculsivePackages/> */}
-      {/* <BestDeals/>
-      <ExculsivePackages/> */}
-      {/* <DubaiBirds/> */}
-      {/* <YachtsCategory /> */}
-      
+      <div className="max-w-7xl mx-auto">
+        <SubCategoryTypes id={id} name={name} />
+        <CategoryList id={id} id1={id1} />
+      </div>
     </div>
   );
 };
