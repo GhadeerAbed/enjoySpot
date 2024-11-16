@@ -1,23 +1,22 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { Activity } from "../../types/page";
 import {
   arrowBlue,
-  test2,
 } from "../../../public/images/page";
+import Link from "next/link";
 
-export const CardBlog = ({ activity }: { activity: Activity }) => {
-  if (!activity) return null;
+export const CardBlog = ({ post }: { post: any }) => {
+  if (!post) return null;
 
   return (
     <>
       <div className="p-3 shadow-cardShadow rounded-lg overflow-hidden relative bg-white">
         {/* Main Image */}
         <a href="#" className="block relative">
-          <Image
+          <img
             alt="Activity Image"
-            src={test2}
+            src={post.thumbnail}
             className="h-48 w-full  object-cover" 
             width={500}
             height={400}
@@ -26,22 +25,23 @@ export const CardBlog = ({ activity }: { activity: Activity }) => {
 
         {/* Title */}
         <div className="mt-3">
-          <div className="font-bold font-sans text-xl text-primary">
-            {activity.name}
+          <div className="font-bold font-sans  text-primary line-clamp-2">
+            {post.title}
           </div>
         </div>
 
         {/* Date and Time */}
         <div className="flex  mt-2 max-sm:flex-col">
           <span className="text-h6Color text-sm">2 days ago, 5 min</span>
-          <span className="bg-gray-100 text-xs rounded-full px-2 text-center  sm:mx-1 w-20 ">
-            Category 1
+          <span className="bg-gray-100 text-xs rounded-full px-2 text-center  sm:mx-1 whitespace-nowrap ">
+            {post.category}
           </span>
         </div>
 
         {/* Arrow Icon */}
-        <div className="w-12 h-12  rounded-tl-full absolute bottom-0 right-0 shadow-lg">
-          <div className="relative">
+        <div className="w-12 h-12  rounded-tl-full absolute bottom-0 right-0 shadow-lg cursor-pointer">
+          <div  className="relative">
+            <Link  href={post.link}>
             <Image
               src={arrowBlue}
               width={70}
@@ -49,6 +49,7 @@ export const CardBlog = ({ activity }: { activity: Activity }) => {
               alt=""
               className="absolute left-0 top-1 mx-1"
             />
+            </Link>
           </div>
         </div>
       </div>

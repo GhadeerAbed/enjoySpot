@@ -1,11 +1,14 @@
-"use client";
+"use client"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { activities } from "@/data/layoutData/activite";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { leftSlide, rightSlide } from "../../../../../public/images/page";
 import { CardBlog } from "@/components/page";
+
+
 
 const PrevArrow = (props: any) => {
   const { onClick } = props;
@@ -32,6 +35,28 @@ const NextArrow = (props: any) => {
   );
 };
 export const Blog = () => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch("https://myspot.enjoyspot.com/wp-json/custom-api/v1/popular-posts");
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setPosts(data);
+      } catch (error) {
+        console.error("Failed to fetch posts:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
   const settings = {
     // dots: true,
     infinite: true,
@@ -77,9 +102,9 @@ export const Blog = () => {
 
       <div className="mt-20  ">
         <Slider {...settings}>
-          {activities.map((activity) => (
-            <div key={activity.id} className="px-2 py-10">
-              <CardBlog activity={activity} />
+          {posts.map((post,index) => (
+            <div key={index} className="px-2 py-10">
+              <CardBlog post={post} />
             </div>
           ))}
         </Slider>
@@ -95,3 +120,11 @@ export const Blog = () => {
 };
 
 export default Blog;
+
+
+
+
+
+
+
+
