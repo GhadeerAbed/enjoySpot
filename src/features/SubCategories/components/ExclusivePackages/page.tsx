@@ -64,7 +64,7 @@ export const ExculsivePackages = () => {
       {/* --------------------Cards-------------- */}
 
       
-      {packages.slice(1, 10).map((offer: any, id: any) => (
+      {packages.map((offer: any, id: any) => (
         <div
           key={id}
           className="grid xs:grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 gap-1 justify-center my-10 w-full relative"
