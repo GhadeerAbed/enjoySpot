@@ -4,6 +4,7 @@ export const API_SERVICES_URLS = {
     `/listingCategories/getAll?listingTypeId=${id}`,
   HOME_SLIDER: "/siteConfigurations/getSiteConfigurationDetails",
   GET_All_currencies: "/currencies/getAll",
+  GET_All_packages: "/listingPackages/getAll",
   // GET_All_nationalities:'/nationalities/getAll',
   // GET_All_cities:'/cities/getAll',
   SIGN_UP: "/api/v1/auth/register",
