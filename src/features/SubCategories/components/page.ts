@@ -1,6 +1,5 @@
 export * from './BestDeals/page'
 export * from './YachtsDetails/page'
 export * from './ExclusivePackages/page'
-export * from './DubaiBirds/page'
 export * from './SubCategory/page'
 export * from './CategoryList/page'

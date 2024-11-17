@@ -8,7 +8,7 @@ import { useSWRHook } from "@/hooks/page";
 import { API_SERVICES_URLS } from "@/data/page";
 import { exclusiveBanner, leftArrow, sort } from "../../../../../public/images/page";
 
-export const ExculsivePackages = () => {
+export const ExclusivePackages = () => {
   const { data } = useSWRHook(API_SERVICES_URLS.GET_All_packages);
 
   const packages = data?.isSuccess ? data?.data?.data : [];
@@ -128,4 +128,4 @@ export const ExculsivePackages = () => {
   );
 };
 
-export default ExculsivePackages;
+export default ExclusivePackages;
