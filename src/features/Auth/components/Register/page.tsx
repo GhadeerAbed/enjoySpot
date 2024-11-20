@@ -40,7 +40,7 @@ export const Register = () => {
   return (
     <div className="min-h-screen w-full flex items-center justify-center">
       <form
-        className="w-[500px] rounded-lg shadow py-10 px-[40px] my-10 flex-col items-center justify-center"
+        className="w-full max-w-[500px] rounded-lg shadow py-10 px-5 my-10 flex-col items-center justify-center"
         onSubmit={onSubmit}
       >
         <h1 className="font-Kalnia text-3xl font-bold text-primary">
@@ -48,8 +48,8 @@ export const Register = () => {
         </h1>
         <h1 className="my-3 text-primary">Start an unforgettable Vacation</h1>
         <div className="">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-2 ">
-          <Input
+          <div className="grid grid-cols-1 gap-5 mt-2 ">
+            <Input
               label="First Name"
               type="text"
               variant="floating"
@@ -96,9 +96,13 @@ export const Register = () => {
           />
 
           <div className="flex items-center font-abel my-5">
-          <div className="flex items-center text-darkSecondary text-[15px] gap-1 justify-center">
-              <Checkbox {...register("agree")} className="mr-1 text-primary" /> I
-              agree to
+            <div className="flex items-center text-darkSecondary text-[12px] sm:text-[15px] gap-1 justify-center">
+              {" "}
+              <Checkbox
+                {...register("agree")}
+                className="mr-1 text-primary"
+              />{" "}
+              I agree to
               <Link
                 href="/terms-and-conditions"
                 className="flex items-center text-primary underline font-bold font-Sans"
@@ -124,31 +128,35 @@ export const Register = () => {
             Send OTP
           </Button>
 
-          <div className="flex justify-between items-center font-Sans">
-            <div className="">
+          <div className="flex my-10 justify-between items-center font-Sans gap-5 lg:flex-row">
+            <div className="w-[163px] lg:w-[200px]">
+              {/* Adjusts width based on screen size */}
               <Button
-                className="bg-white text-primary w-[200px] font-abel border border-primary"
+                className="bg-white text-primary border border-primary font-abel h-[45px] w-full text-xs sm:text-sm px-2 flex items-center justify-center" // Adjusted text size for small screens
                 type="submit"
                 buttonLoadingProps={{ loadingText: "Registering..." }}
                 loading={isSubmitting}
               >
                 <div className="flex items-center gap-2">
                   <Image src={google} alt="google" width={20} height={20} />
-                  Sign up with Google
+                  <span className="truncate ">Sign up with Google</span>{" "}
+                  {/* Truncate long text */}
                 </div>
               </Button>
             </div>
 
-            <div className="">
+            <div className="w-[163px] lg:w-[200px]">
+              {/* Adjusts width based on screen size */}
               <Button
-                className="bg-white border border-primary text-primary w-[200px] font-abel my-10"
+                className="bg-white text-primary border border-primary font-abel lg:text-[15px] h-[45px] w-full text-xs sm:text-sm px-2 flex items-center justify-center" // Adjusted text size for small screens
                 type="submit"
                 buttonLoadingProps={{ loadingText: "Registering..." }}
                 loading={isSubmitting}
               >
                 <div className="flex items-center gap-2">
                   <Image src={apple} alt="apple" width={20} height={20} />
-                  Sign up with Apple
+                  <span className="truncate">Sign up with Apple</span>{" "}
+                  {/* Truncate long text */}
                 </div>
               </Button>
             </div>

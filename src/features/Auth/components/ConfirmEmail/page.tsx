@@ -3,7 +3,7 @@ import Input from "@/components/Input/page";
 import { Button } from "@/components/page";
 import React, { useState } from "react";
 
-export const NewPassword = () => {
+export const ConfirmEmail = () => {
   // Add state for password
   const [password, setPassword] = useState("");
 
@@ -43,4 +43,4 @@ export const NewPassword = () => {
   );
 };
 
-export default NewPassword;
+export default ConfirmEmail;

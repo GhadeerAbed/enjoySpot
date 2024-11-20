@@ -40,11 +40,14 @@ export const Login = () => {
     }
   });
 
+  
+
+
   return (
     <div className="min-h-screen w-full flex items-center justify-center">
-      <form className="w-[500px] rounded-lg shadow py-10 px-[40px] mt-10 flex-col items-center justify-center">
-        <h1 className="font-Kalnia text-3xl font-bold text-primary">Login</h1>
-        <h1 className="my-3 text-primary">Enjoy an unforgettable Vacation</h1>
+      <form className="w-full max-w-[375px] rounded-lg shadow py-10 px-[20px] mt-10 flex-col items-center justify-center">
+        <h1 className="font-Kalnia text-3xl font-bold text-primary text-center">Login</h1>
+        <h1 className="my-3 text-primary text-center">Enjoy an unforgettable Vacation</h1>
 
         <div className="">
           <Input
@@ -91,27 +94,40 @@ export const Login = () => {
           </Button>
 
           {/* Social login buttons */}
-          <div className="flex justify-between items-center font-Sans my-5">
-            <Button
-              className="bg-white text-primary w-[200px] font-abel border border-primary"
-              loading={isSubmitting}
-            >
-              <div className="flex items-center gap-2">
-                <Image src={google} alt="google" width={20} height={20} />
-                Login with Google
-              </div>
-            </Button>
+         <div className="flex my-10 justify-between items-center font-Sans gap-5 lg:flex-row">
+         <div className="w-[163px] lg:w-[200px]">
+          
+           <Button
+             className="bg-white text-primary border border-primary font-abel h-[45px] w-full text-xs sm:text-sm px-2 flex items-center justify-center" // Adjusted text size for small screens
+             type="submit"
+             buttonLoadingProps={{ loadingText: "Registering..." }}
+             loading={isSubmitting}
+           >
+             <div className="flex items-center gap-2">
+               <Image src={google} alt="google" width={20} height={20} />
+               <span className="truncate ">Login with Google</span>{" "}
+              
+             </div>
+           </Button>
+         </div>
 
-            <Button
-              className="bg-white border border-primary text-primary w-[200px] font-abel"
-              loading={isSubmitting}
-            >
-              <div className="flex items-center gap-2">
-                <Image src={apple} alt="apple" width={20} height={20} />
-                Login with Apple
-              </div>
-            </Button>
-          </div>
+         <div className="w-[163px] lg:w-[200px]">
+          
+           <Button
+             className="bg-white text-primary border border-primary font-abel lg:text-[15px] h-[45px] w-full text-xs sm:text-sm px-2 flex items-center justify-center" // Adjusted text size for small screens
+             type="submit"
+             buttonLoadingProps={{ loadingText: "Registering..." }}
+             loading={isSubmitting}
+           >
+             <div className="flex items-center gap-2">
+               <Image src={apple} alt="apple" width={20} height={20} />
+               <span className="truncate">Login with Apple</span>{" "}
+          
+             </div>
+           </Button>
+         </div>
+       </div>
+
 
           {/* Divider */}
           <div className="flex items-center justify-center gap-4 ">
@@ -140,5 +156,7 @@ export const Login = () => {
     </div>
   );
 };
+
+
 
 export default Login;
