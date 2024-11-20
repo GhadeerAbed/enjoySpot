@@ -34,6 +34,7 @@ export interface InputProps
   endIconClassName?: string;
   startIconClassName?: string;
   mask?: any;
+  selectClassName?: string;
 }
 
 

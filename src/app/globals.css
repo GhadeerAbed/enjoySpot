@@ -203,3 +203,6 @@ th {
 .dropdown-language::-webkit-scrollbar-thumb:hover {
   background-color: rgba(91, 126, 155, 0.8);
 }
+.form-control{
+  outline: none ;
+}

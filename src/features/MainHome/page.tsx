@@ -7,6 +7,7 @@ import {
   Hero,
   PackagesSection,
 } from "./components/page";
+import WeatherDashboard from "./components/WeatherDashboard/page";
 
 export const MainHome = () => {
   return (
@@ -16,6 +17,7 @@ export const MainHome = () => {
       <PackagesSection />
       <Blog />
       <ContactBanner />
+      <WeatherDashboard />
       <ExploreMore />
     </>
   );
