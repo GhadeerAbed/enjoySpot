@@ -99,15 +99,15 @@ export const CategoryList = ({ id , id1}: { id?: any ,id1?:any }) => {
                     />
                   </span>
                 </summary>
-                <div className="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2">
+                {/* <div className="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2">
                   <div className="w-full sm:w-96 rounded border border-gray-200 bg-white p-4">
                     <input
-                      type="datetime-local"
+                      type=""
                       className="w-full border p-2 rounded-md"
                       placeholder="Select Date & Time"
                     />
                   </div>
-                </div>
+                </div> */}
               </details>
             </div>
 
