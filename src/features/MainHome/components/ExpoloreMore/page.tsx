@@ -1,7 +1,7 @@
 export const ExploreMore = () => {
   return (
     <>
-      <div className="max-w-7xl mx-auto pb-10 max-sm:mx-5">
+      <div className="max-w-7xl mx-auto  max-sm:mx-5 my-10">
         <h2 className="font-bold text-2xl text-primary ">Explore More</h2>
         <div className="flex flex-wrap text-h6Color py-2 space-y-2 ">
           {Array(24).fill('').map((_, index) => (
