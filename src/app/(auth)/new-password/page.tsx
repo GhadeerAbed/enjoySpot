@@ -1,4 +1,4 @@
-import { NewPassword } from '@/features/Auth/components/ConfirmEmail/page';
+import NewPassword from '@/features/Auth/components/NewPassword/page';
 import React from 'react';
 
 const NewPasswordPage = () => {
