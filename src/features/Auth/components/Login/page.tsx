@@ -1,162 +1,155 @@
-// Login Component
-
 "use client";
 import Image from "next/image";
-import { Button, Checkbox, Input } from "../../../../components/page";
+import {
+  Button,
+  Checkbox,
+  Input,
+  MainInput,
+} from "../../../../components/page";
 import { useForm } from "react-hook-form";
-
-import { API_SERVICES_URLS, FORM_VALIDATION } from "../../../../data/page";
-import { getFieldHelperText } from "../../../../utils/page";
+import { API_SERVICES_URLS } from "../../../../data/page";
 import { useState } from "react";
-
 import Link from "next/link";
 import { apple, google } from "../../../../../public/images/page";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import { SignInFormInputsType } from "../../types/page";
+import { useSWRMutationHook } from "@/hooks/page";
 
 export const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<SignInFormInputsType>();
 
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const router = useRouter();
 
+  const { customTrigger, isMutating } = useSWRMutationHook(
+    API_SERVICES_URLS.SIGN_IN,
+    "POST"
+  );
+
   const onSubmit = handleSubmit(async (data) => {
     try {
-      const response = await axios.post(API_SERVICES_URLS.SIGN_IN, data);
-      if (response.status === 200) {
-        console.log("Login successful", response.data);
-        localStorage.setItem("authData", JSON.stringify(response.data.data));
+      const response = await customTrigger(data);
 
-        router.push("/dashboard");
+      if (response.status === 200 && response.data?.isSuccess) {
+        const { isAuthenticated, token, userName, roles, supportedLanguages } =
+          response.data.data;
+
+        if (isAuthenticated) {
+          localStorage.setItem(
+            "authData",
+            JSON.stringify({
+              token,
+              userName,
+              roles,
+              supportedLanguages,
+            })
+          );
+
+          console.log("Login successful:", response.data.data);
+          router.push("/dashboard"); // Redirect to dashboard
+        } else {
+          setErrorMessage("Authentication failed. Please try again.");
+        }
+      } else {
+        throw new Error(response.data.message || "Unexpected error occurred");
       }
     } catch (error: any) {
-      console.error("Login failed", error.response?.data || error.message);
-      setErrorMessage("Invalid Log In Credentials");
+      console.error("Login failed:", error.response?.data || error.message);
+      setErrorMessage("Invalid Login Credentials");
     }
   });
 
-  
-
-
   return (
     <div className="min-h-screen w-full flex items-center justify-center">
-      <form className="w-full max-w-[375px] rounded-lg shadow py-10 px-[20px] mt-10 flex-col items-center justify-center">
-        <h1 className="font-Kalnia text-3xl font-bold text-primary text-center">Login</h1>
-        <h1 className="my-3 text-primary text-center">Enjoy an unforgettable Vacation</h1>
+      <div className="w-full max-w-[450px] rounded-lg shadow-lg py-6 px-10">
+        <form onSubmit={onSubmit}>
+          <h1 className="font-Kalnia text-3xl font-bold text-primary">Login</h1>
+          <h1 className="text-primary text-lg mb-3">
+            Start an unforgettable Vacation
+          </h1>
 
-        <div className="">
-          <Input
-            label="Email"
-            type="email"
-            variant="floating"
-            {...register("email", FORM_VALIDATION.email)}
-            error={!!errors.email}
-            placeholder="Email"
-            helperText={getFieldHelperText(
-              "error",
-              errors.email?.message as string
-            )}
+          <MainInput
+            type="text"
+            {...register("userName", { required: "User Name is required" })}
+            error={!!errors.userName}
+            placeholder="User Name"
+            className="!mb-5"
           />
-
-          <Input
-            label="Password"
+          <MainInput
             type="password"
-            variant="floating"
-            {...register("password", FORM_VALIDATION.password)}
+            {...register("password", {
+              required: "Password is required",
+              minLength: {
+                value: 6,
+                message: "Password must be at least 6 characters",
+              },
+            })}
             error={!!errors.password}
-            // helperText={getFieldHelperText(errors.password?.message as string)}
+            placeholder="Password"
+            className="!mt-3"
           />
 
-          <div className="flex justify-between items-center font-Sans my-5">
-            <div className="flex items-center text-darkSecondary text-[14px]">
+          <div className="flex justify-between items-center text-primary text-sm my-5">
+            <div className="flex items-center">
               <Checkbox /> <span className="px-2">Remember me</span>
             </div>
-            <Link
-              href={"#"}
-              className="text-primary font-Sans text-[14px] underline"
-            >
+            <Link href={"#"} className="underline">
               Forget Password?
             </Link>
           </div>
 
+          {errorMessage && (
+            <p className="text-red-500 text-sm text-center">{errorMessage}</p>
+          )}
+
           <Button
             className="bg-primary text-white w-full font-abel mt-10"
             type="submit"
-            buttonLoadingProps={{ loadingText: "Login In..." }}
-            loading={isSubmitting}
+            buttonLoadingProps={{ loadingText: "Logging In..." }}
+            loading={isMutating}
           >
-            Login
+            LOGIN
           </Button>
+        </form>
 
-          {/* Social login buttons */}
-         <div className="flex my-10 justify-between items-center font-Sans gap-5 lg:flex-row">
-         <div className="w-[163px] lg:w-[200px]">
-          
-           <Button
-             className="bg-white text-primary border border-primary font-abel h-[45px] w-full text-xs sm:text-sm px-2 flex items-center justify-center" // Adjusted text size for small screens
-             type="submit"
-             buttonLoadingProps={{ loadingText: "Registering..." }}
-             loading={isSubmitting}
-           >
-             <div className="flex items-center gap-2">
-               <Image src={google} alt="google" width={20} height={20} />
-               <span className="truncate ">Login with Google</span>{" "}
-              
-             </div>
-           </Button>
-         </div>
-
-         <div className="w-[163px] lg:w-[200px]">
-          
-           <Button
-             className="bg-white text-primary border border-primary font-abel lg:text-[15px] h-[45px] w-full text-xs sm:text-sm px-2 flex items-center justify-center" // Adjusted text size for small screens
-             type="submit"
-             buttonLoadingProps={{ loadingText: "Registering..." }}
-             loading={isSubmitting}
-           >
-             <div className="flex items-center gap-2">
-               <Image src={apple} alt="apple" width={20} height={20} />
-               <span className="truncate">Login with Apple</span>{" "}
-          
-             </div>
-           </Button>
-         </div>
-       </div>
-
-
-          {/* Divider */}
-          <div className="flex items-center justify-center gap-4 ">
-            <div className="h-[1px] w-full bg-h4Color"></div>
-            <span className="text-darkSecondary text-[14px] whitespace-nowrap">
-              Or
-            </span>
-            <div className="h-[1px] w-full bg-h4Color"></div>
-          </div>
-
-          {/* Signup button */}
+        <div className="my-8 grid sm:grid-cols-2 gap-4 grid-cols-1">
           <Button
-            className="bg-white text-primary w-full border border-primary font-abel my-10"
-            loading={isSubmitting}
+            className="bg-white text-primary border border-primary"
+            type="button"
           >
-            Create an Account
+            <div className="flex items-center gap-2">
+              <Image src={google} alt="google" width={20} height={20} />
+              <span className="truncate">Login with Google</span>
+            </div>
           </Button>
 
-          {errorMessage && (
-            <div className="mt-5 text-sm text-red-500 text-center">
-              {errorMessage}
+          <Button
+            className="bg-white text-primary border border-primary"
+            type="button"
+          >
+            <div className="flex items-center gap-2">
+              <Image src={apple} alt="apple" width={20} height={20} />
+              <span className="truncate">Login with Apple</span>
             </div>
-          )}
+          </Button>
         </div>
-      </form>
+
+        <div className="flex items-center justify-center gap-4">
+          <div className="h-[1px] w-full bg-h4Color"></div>
+          <span className="text-h4Color text-sm font-medium">Or</span>
+          <div className="h-[1px] w-full bg-h4Color"></div>
+        </div>
+
+        <Button className="bg-white text-primary w-full border-primary my-8">
+          Create an Account
+        </Button>
+      </div>
     </div>
   );
 };
-
-
 
 export default Login;
