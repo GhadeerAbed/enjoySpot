@@ -94,7 +94,7 @@ th {
 .checkbox {
   display: grid;
   font-size: 1rem;
-  color: #BF534E;
+  color: #25466A;
 }
 
 .checkbox__input {
@@ -131,7 +131,7 @@ th {
 }
 
 .checkbox__input input:checked + .checkbox__control {
-  border-color: #BF534E;
+  border-color: #25466A;
   background-color: white;
 }
 

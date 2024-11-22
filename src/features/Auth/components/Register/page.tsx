@@ -1,189 +1,156 @@
 "use client";
 import Image from "next/image";
-import { Button, Checkbox, Input } from "../../../../components/page";
-import { useForm } from "react-hook-form";
+import { Button, Checkbox, MainInput } from "../../../../components/page";
+import { useForm, Controller } from "react-hook-form";
 import Link from "next/link";
 import { apple, google } from "../../../../../public/images/page";
-import { useState } from "react";
 import { SignInFormInputsType } from "../../types/page";
-import { useAuth } from "@/components/AuthProvider/page";
 import { useRouter } from "next/navigation";
-import { API_SERVICES_URLS, FORM_VALIDATION } from "@/data/page";
-import axios from "axios";
-// import { getFieldHelperText } from "@/utils/page";
+import { API_SERVICES_URLS } from "@/data/page";
+import PhoneInputWithSearch from "@/components/PhoneInput/page";
+import { useSWRMutationHook } from "@/hooks/page";
 
 export const Register = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    control,
+    setValue,
   } = useForm<SignInFormInputsType>();
 
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const router = useRouter();
-
-  const onSubmit = handleSubmit(async (data) => {
+  const { customTrigger, isMutating } = useSWRMutationHook(
+    API_SERVICES_URLS.SIGN_UP,
+    "POST"
+  );
+  const onSubmit = async (data: SignInFormInputsType) => {
     try {
-      const response = await axios.post(API_SERVICES_URLS.SIGN_UP, data);
+      const response = await customTrigger(data);
+      console.log(response);
       if (response.status === 200) {
-        console.log("Login successful", response.data);
-        localStorage.setItem("authData", JSON.stringify(response.data.data));
-
-        router.push("/dashboard");
+        router.push("/login");
       }
     } catch (error: any) {
-      console.error("Login failed", error.response?.data || error.message);
-      setErrorMessage("Invalid Log In Credentials");
+      console.error("Registration failed", error.message);
     }
-  });
+  };
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center">
-      <form
-        className="w-full max-w-[500px] rounded-lg shadow py-10 px-5 my-10 flex-col items-center justify-center"
-        onSubmit={onSubmit}
-      >
-        <h1 className="font-Kalnia text-3xl font-bold text-primary">
-          Create Account
-        </h1>
-        <h1 className="my-3 text-primary">Start an unforgettable Vacation</h1>
-        <div className="">
-          <div className="grid grid-cols-1 gap-5 mt-2 ">
-            <Input
-              label="First Name"
-              type="text"
-              variant="floating"
-              {...register("firstname", { required: true })}
-              error={!!errors.firstname}
-              placeholder="First Name"
-            />
+      <div className="w-full max-w-[450px] rounded-lg shadow-lg py-6 px-10">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <h1 className="font-Kalnia text-3xl font-bold text-primary">
+            Create Account
+          </h1>
+          <h1 className="text-primary text-lg mb-3">
+            Start an unforgettable Vacation
+          </h1>
 
-            <Input
-              label="Last Name"
+          <div className="grid sm:grid-cols-2 gap-5 mt-2">
+            <MainInput
               type="text"
-              variant="floating"
-              {...register("lastname", { required: true })}
-              error={!!errors.lastname}
+              {...register("firstName", { required: "First Name is required" })}
+              placeholder="First Name"
+              error={!!errors.firstName}
+            />
+            <MainInput
+              type="text"
+              {...register("lastName", { required: "Last Name is required" })}
               placeholder="Last Name"
+              error={!!errors.lastName}
             />
           </div>
 
-          <Input
-            label="Email"
+          <MainInput
             type="email"
-            variant="floating"
-            {...register("email", FORM_VALIDATION.email)}
+            {...register("email", { required: "Email is required" })}
             error={!!errors.email}
             placeholder="Email"
+            className="!mb-5"
           />
 
-          <Input
-            label="Phone"
-            type="number"
-            variant="floating"
-            {...register("phone", { required: true })}
-            error={!!errors.phone}
-            placeholder="Phone"
+          <Controller
+            name="phoneNumber"
+            control={control}
+            render={({ field }) => (
+              <PhoneInputWithSearch {...field} setValue={setValue} />
+            )}
           />
 
-          <Input
-            label="Password"
+          <MainInput
             type="password"
-            variant="floating"
-            {...register("password", FORM_VALIDATION.password)}
+            {...register("password", {
+              required: "Password is required",
+              minLength: {
+                value: 6,
+                message: "Password must be at least 6 characters",
+              },
+            })}
             error={!!errors.password}
             placeholder="Password"
+            className="!mt-3"
           />
 
-          <div className="flex items-center font-abel my-5">
-            <div className="flex items-center text-darkSecondary text-[12px] sm:text-[15px] gap-1 justify-center">
-              {" "}
-              <Checkbox
-                {...register("agree")}
-                className="mr-1 text-primary"
-              />{" "}
-              I agree to
-              <Link
-                href="/terms-and-conditions"
-                className="flex items-center text-primary underline font-bold font-Sans"
-              >
-                <span className=""> Terms & Conditions</span>
-              </Link>
-              <span className="">,</span>
-              <Link
-                href="/privacy-policy"
-                className="flex underline font-bold items-center font-Sans text-primary"
-              >
-                <span className=""> Privacy Policy</span>
-              </Link>
-            </div>
+          <div className="flex items-center text-sm my-7 text-primary">
+            <Checkbox className="mr-1" />I agree to
+            <Link
+              href="/terms-and-conditions"
+              className="underline font-medium px-1"
+            >
+              Terms & Conditions
+            </Link>
+            ,
+            <Link href="/privacy-policy" className="underline font-medium px-1">
+              Privacy Policy
+            </Link>
           </div>
 
           <Button
-            className="bg-primary text-white w-full font-abel mt-10"
+            className="bg-primary text-white w-full mt-8"
             type="submit"
             buttonLoadingProps={{ loadingText: "Registering..." }}
             loading={isSubmitting}
           >
-            Send OTP
+            REGISTER
           </Button>
+        </form>
 
-          <div className="flex my-10 justify-between items-center font-Sans gap-5 lg:flex-row">
-            <div className="w-[163px] lg:w-[200px]">
-              {/* Adjusts width based on screen size */}
-              <Button
-                className="bg-white text-primary border border-primary font-abel h-[45px] w-full text-xs sm:text-sm px-2 flex items-center justify-center" // Adjusted text size for small screens
-                type="submit"
-                buttonLoadingProps={{ loadingText: "Registering..." }}
-                loading={isSubmitting}
-              >
-                <div className="flex items-center gap-2">
-                  <Image src={google} alt="google" width={20} height={20} />
-                  <span className="truncate ">Sign up with Google</span>{" "}
-                  {/* Truncate long text */}
-                </div>
-              </Button>
-            </div>
-
-            <div className="w-[163px] lg:w-[200px]">
-              {/* Adjusts width based on screen size */}
-              <Button
-                className="bg-white text-primary border border-primary font-abel lg:text-[15px] h-[45px] w-full text-xs sm:text-sm px-2 flex items-center justify-center" // Adjusted text size for small screens
-                type="submit"
-                buttonLoadingProps={{ loadingText: "Registering..." }}
-                loading={isSubmitting}
-              >
-                <div className="flex items-center gap-2">
-                  <Image src={apple} alt="apple" width={20} height={20} />
-                  <span className="truncate">Sign up with Apple</span>{" "}
-                  {/* Truncate long text */}
-                </div>
-              </Button>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center gap-4">
-            <div className="h-[1px] w-full bg-h4Color"></div>
-            <span className="text-darkSecondary text-[14px] whitespace-nowrap">
-              Or
-            </span>
-            <div className="h-[1px] w-full bg-h4Color"></div>
-          </div>
-
-          <div className="flex items-center justify-center gap-1 font-bold font-Sans text-primary mt-5">
-            Already have an account?
-            <Link href="/login">
-              <span className="underline text-primary font-bold">Login</span>
+        <div className="grid sm:grid-cols-2 gap-5 mt-10">
+          <Button
+            className="bg-white text-primary border-primary"
+            type="button"
+            buttonSize="small"
+          >
+            <Link href="" className="flex gap-1">
+              <Image src={google} alt="google" />
+              <span>Sign up with Google</span>
             </Link>
-          </div>
-
-          {errorMessage && (
-            <div className="mt-5 text-sm text-red-500 text-center">
-              {errorMessage}
-            </div>
-          )}
+          </Button>
+          <Button
+            className="bg-white text-primary border-primary"
+            type="button"
+          >
+            <Link href="" className="flex gap-1">
+              <Image src={apple} alt="apple" width={20} height={20} />
+              <span>Sign up with Apple</span>
+            </Link>
+          </Button>
         </div>
-      </form>
+
+        <div className="flex items-center justify-center gap-4 mt-8 mb-5">
+          <div className="h-[1px] w-full bg-h4Color"></div>
+          <span className="text-h4Color text-sm font-medium">Or</span>
+          <div className="h-[1px] w-full bg-h4Color"></div>
+        </div>
+
+        <div className="flex items-center justify-center gap-1 text-primary">
+          Already have an account?
+          <Link href="/login">
+            <span className="underline font-semibold">Login</span>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
