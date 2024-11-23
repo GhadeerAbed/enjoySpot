@@ -183,73 +183,7 @@ export const YachtsDetails = () => {
           </p>
         </div>
       </div>
-      {/* ------------------{amenities static}----------- */}
-      {/* <div className="">
-          <div className="text-l font-bold flex ml-4 ">
-            <h2 className="text-l font-bold border-r pr-10 text-gray-500 hover:text-primary">
-              Details
-            </h2>
-            <h2 className="text-l font-bold border-r px-10  text-gray-500 hover:text-primary">
-              Amenities
-            </h2>
-            <h2 className="text-l font-bold border-r px-10 text-gray-500 hover:text-primary">
-              Suitable For
-            </h2>
-            <h2 className="text-l font-bold px-10 text-gray-500 hover:text-primary">
-              Complimentary Items
-            </h2>
-          </div>
-
-        <div className="gap-4 my-3 mx-4 w-1/2">
-          <h1 className="font-bold text-primary">Interior Amenities</h1>
-          <div className="grid grid-cols-5 gap-4 my-4 justify-items-center">
-            <div className="border rounded-lg bg-gray-200 text-center w-[100px] h-[80px] flex flex-col justify-center items-center">
-              <Image src={coach} alt="Lounge Area" width={40} height={40} />
-              <p className="text-sm text-gray-700 mt-2">Lounge Area</p>
-            </div>
-            <div className="border rounded-lg bg-gray-200 text-center w-[100px] h-[80px] flex flex-col justify-center items-center">
-              <Image src={bed} alt="Master Suite" width={40} height={40} />
-              <p className="text-sm text-gray-700 mt-2">Master Suite</p>
-            </div>
-            <div className="border rounded-lg bg-gray-200 text-center w-[100px] h-[80px] flex flex-col justify-center items-center">
-              <Image src={bathroom} alt="Bathroom" width={40} height={40} />
-              <p className="text-sm text-gray-700 mt-2">Bathroom</p>
-            </div>
-            <div className="border rounded-lg bg-gray-200 text-center w-[100px] h-[80px] flex flex-col justify-center items-center">
-              <Image src={dining} alt="Dining Room" width={40} height={40} />
-              <p className="text-sm text-gray-700 mt-2">Dining Room</p>
-            </div>
-            <a className="underline rounded-lg text-center flex justify-center items-center px-2 h-[80px] w-[100px]  text-primary font-bold hover:text-blue-800">
-              View More
-            </a>
-          </div>
-        </div>
-
-        <div className="gap-4 my-3 mx-4 w-1/2">
-          <h1 className="font-bold text-primary">Exterior Amenities</h1>
-          <div className="grid grid-cols-5 gap-4 my-4 justify-items-center">
-            <div className="border rounded-lg bg-gray-200 text-center w-[100px] h-[80px] flex flex-col justify-center items-center">
-              <Image src={umbarla} alt="Sun Deck" width={40} height={40} />
-              <p className="text-sm text-gray-700 mt-2">Sun Deck</p>
-            </div>
-            <div className="border rounded-lg bg-gray-200 text-center w-[100px] h-[80px] flex flex-col justify-center items-center">
-              <Image src={chair} alt="Outdoor Dining" width={40} height={40} />
-              <p className="text-sm text-gray-700 mt-2">Outdoor Dining</p>
-            </div>
-            <div className="border rounded-lg bg-gray-200 text-center w-[100px] h-[80px] flex flex-col justify-center items-center">
-              <Image src={grill} alt="Barbecue/Grill" width={40} height={40} />
-              <p className="text-sm text-gray-700 mt-2">Barbecue/Grill</p>
-            </div>
-            <div className="border rounded-lg bg-gray-200 text-center w-[100px] h-[80px] flex flex-col justify-center items-center">
-              <Image src={ladder} alt="Swimming Pool" width={40} height={40} />
-              <p className="text-sm text-gray-700 mt-2">Swimming Pool</p>
-            </div>
-            <a className="underline text-center flex justify-center items-center px-2 h-[80px] w-[100px]  text-primary font-bold hover:text-blue-800">
-              View More
-            </a>
-          </div>
-        </div>
-      </div> */}
+      
       {/* Dynamic Amenities Tab */} {/* remove in static */}
       <div>
         <div className="text-xl  flex  font-sans lg:w-2/3 ">
@@ -584,23 +518,7 @@ export const YachtsDetails = () => {
           ))}
         </div>
       </div>
-      {/* Explore More Section */}
-      {/* <div className="mt-10 w-3/4 mb-5 font-San"> */}
-      {/* <h3 className="text-lg text-primary font-semibold mb-4">
-          Explore more
-        </h3> */}
-      {/* <div className="grid grid-cols-7 gap-4 ">
-          {exploreTopics.map((topic, index) => (
-            <button
-              key={index}
-              className=" hover:bg-h6Color hover:rounded-lg border-r"
-            >
-              {topic}
-            </button>
-          ))}
-        </div> */}
-      {/* </div> */}
-      <div className=" lg:w-2/3 xs:w-full hidden ss:inline">
+          <div className=" lg:w-2/3 xs:w-full hidden ss:inline">
         <ExploreMore />
       </div>
     </section>
