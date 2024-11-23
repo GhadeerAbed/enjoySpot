@@ -3,7 +3,7 @@ import { cookies, headers } from "next/headers";
 
 
 export default getRequestConfig(async () => {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const cookieLanguage = cookieStore.get("language")?.value;
   const acceptLanguage = cookieStore.has("language")
     ? cookieLanguage

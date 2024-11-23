@@ -78,7 +78,8 @@ export interface Activity {
   guest?:number;
   people?: string;
   cabins?:number;
-  size?:number
+  size?:number;
+  listingTypeName?:string
 }
 
 export interface LanguageType {

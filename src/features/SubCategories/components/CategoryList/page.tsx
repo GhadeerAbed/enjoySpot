@@ -1,8 +1,13 @@
 "use client";
-import CardYachts from "@/components/CardYachtsSub/page";
+
 import React, { useState } from "react";
 import { useSWRHook } from "@/hooks/page";
 import { API_SERVICES_URLS } from "@/data/page";
+import Image from "next/image";
+import { Button } from "@headlessui/react";
+import CardYachts from "@/components/CardYachtsSub/page";
+import { Pagination } from "@/components/page";
+import FilterSection from "./Fillter/page";
 import {
   arrowDown,
   dataTime,
@@ -11,17 +16,18 @@ import {
   sort,
   toggleMenu,
 } from "../../../../../public/images/page";
-import Image from "next/image";
-import { Button } from "@headlessui/react";
-import { Pagination } from "@/components/page";
-import FilterSection from "./Fillter/page";
 
-export const CategoryList = ({ id , id1}: { id?: any ,id1?:any }) => {
+interface CategoryListProps {
+  id?: string;
+  id1?: string;
+}
+
+export const CategoryList: React.FC<CategoryListProps> = ({ id, id1 }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [isFilterVisible, setIsFilterVisible] = useState(false); // State for FilterSection visibility
-
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
   const pageSize = 10;
 
+  // Construct API URL
   const constructApiUrl = () => {
     let url = `${API_SERVICES_URLS.GET_ALL_LISTINGS}?PageNumber=${currentPage}&PageSize=${pageSize}`;
     if (id) url += `&listingTypeId=${id}`;
@@ -29,16 +35,19 @@ export const CategoryList = ({ id , id1}: { id?: any ,id1?:any }) => {
     return url;
   };
 
-  const { data: activitiesResponse } = useSWRHook(constructApiUrl());
+  const { data: activitiesResponse, error } = useSWRHook(constructApiUrl());
 
-  const filterSection = activitiesResponse?.isSuccess
-    ? activitiesResponse.data?.data
-    : [];
-
-  if (!activitiesResponse || !activitiesResponse.isSuccess) {
+  // Handle Loading State
+  if (!activitiesResponse && !error) {
     return <div>Loading...</div>;
   }
 
+  // Handle Error State
+  if (error || !activitiesResponse?.isSuccess) {
+    return <div>Failed to load activities. Please try again later.</div>;
+  }
+
+  // Extract data from response
   const activities = activitiesResponse.data.data;
   const totalEntries = activitiesResponse.data.totalRecords;
   const totalPages = Math.ceil(totalEntries / pageSize);
@@ -83,12 +92,12 @@ export const CategoryList = ({ id , id1}: { id?: any ,id1?:any }) => {
                 </div>
               </details>
             </div>
+
             {/* Other Dropdowns */}
             <div className="relative w-full sm:w-auto px-0 sm:px-5">
-              {/* Date & Time */}
               <details className="group [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex cursor-pointer items-center gap-2 border-r border-gray-200 pb-1 text-h6Color transition hover:border-h6Color">
-                  <Image src={dataTime} width={18} height={18} alt="location" />
+                  <Image src={dataTime} width={18} height={18} alt="dataTime" />
                   <span className="text-h6Color pr-10">Date&Time</span>
                   <span className="transition group-open:-rotate-180 pr-3">
                     <Image
@@ -99,15 +108,6 @@ export const CategoryList = ({ id , id1}: { id?: any ,id1?:any }) => {
                     />
                   </span>
                 </summary>
-                {/* <div className="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2">
-                  <div className="w-full sm:w-96 rounded border border-gray-200 bg-white p-4">
-                    <input
-                      type=""
-                      className="w-full border p-2 rounded-md"
-                      placeholder="Select Date & Time"
-                    />
-                  </div>
-                </div> */}
               </details>
             </div>
 
@@ -129,22 +129,18 @@ export const CategoryList = ({ id , id1}: { id?: any ,id1?:any }) => {
           width={34}
           height={34}
           className="cursor-pointer"
-          onClick={toggleFilterVisibility} 
+          onClick={toggleFilterVisibility}
         />
         <div
           className={`absolute right-[5%] top-5 mt-5 sm:w-auto rounded-lg shadow-lg z-50 border border-gray-300 bg-white transition-all duration-300 ${
             isFilterVisible ? "block" : "hidden"
           }`}
-          style={{ height: "auto" }} 
         >
           <FilterSection />
         </div>
-        <Image src={sort} alt="" width={34} height={34} />
+        <Image src={sort} alt="sort" width={34} height={34} />
       </div>
 
-
-
-      {/* Activities Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 custom2:grid-cols-3 gap-6 w-full">
         {activities.map((activity: any) => (
           <div key={activity.id}>
@@ -154,12 +150,14 @@ export const CategoryList = ({ id , id1}: { id?: any ,id1?:any }) => {
       </div>
 
       {/* Pagination */}
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-        totalEntries={totalEntries}
-      />
+      {activities.length > 0 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          totalEntries={totalEntries}
+        />
+      )}
     </div>
   );
 };

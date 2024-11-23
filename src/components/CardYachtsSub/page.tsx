@@ -12,6 +12,7 @@ import {
   table,
   yachtsRoom,
 } from "../../../public/images/page";
+import Link from "next/link";
 
 const CardYachts = ({ activity }: { activity: Activity }) => {
   if (!activity) return null;
@@ -19,7 +20,7 @@ const CardYachts = ({ activity }: { activity: Activity }) => {
   return (
     <div className="lg:w-[305px] ">
       <div className="p-3 shadow-cardShadow  rounded-xl">
-        <a href="#" className="relative">
+        <Link href={`/activities/${activity.id}`} className="relative">
           <div className="absolute bottom-0 right-0 border-l-0 rounded-t-lg  w-24 h-[88px]  bg-white">
             <div className="relative">
               <div className="absolute mt-2 mr-2 right-0 rounded-[12px] w-20 h-20 bg-h1Color text-white text-center">
@@ -39,7 +40,7 @@ const CardYachts = ({ activity }: { activity: Activity }) => {
             width={40}
             height={45}
           />
-        </a>
+        </Link>
 
         <div className="flex justify-between mt-3">
           <div className=" font-bold font-sans text-xl text-primary">
