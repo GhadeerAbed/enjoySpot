@@ -1,12 +1,13 @@
 "use client";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import { activities } from "@/data/layoutData/activite";
+import Slider from "react-slick"
 import Card from "@/components/Card/page";
 import Image from "next/image";
 import { leftSlide, rightSlide } from "../../../../../public/images/page";
 import { useEffect, useState } from "react";
+import { API_SERVICES_URLS } from "@/data/page";
+import { useSWRHook } from "@/hooks/page";
 
 const PrevArrow = (props: any) => {
   const { onClick } = props;
@@ -36,7 +37,8 @@ const NextArrow = (props: any) => {
 export const Activities = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [showScrollHint, setShowScrollHint] = useState(true);
-
+  const {data:activities} = useSWRHook(API_SERVICES_URLS.GET_ALL_LISTINGS)
+  console.log(activities?.data?.data)
   // Check screen size on mount
   useEffect(() => {
     const handleResize = () => {
@@ -105,7 +107,7 @@ export const Activities = () => {
 
         {/* Slider Component */}
         <Slider {...settings}>
-          {activities.map((activity) => (
+          {activities?.data?.data?.map((activity:any) => (
             <div key={activity.id} className="px-2 py-12">
               <Card activity={activity} />
             </div>
@@ -121,7 +123,7 @@ export const Activities = () => {
       </div>
 
       <div className="text-center -mt-3">
-        <a href="#" className="text-primary font-semibold underline">
+        <a href={`/most_populer-activities`} className="text-primary font-semibold underline">
           View All
         </a>
       </div>

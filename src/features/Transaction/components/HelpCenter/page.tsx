@@ -19,7 +19,7 @@ export const HelpCenter = () => {
           HELP CENTER
         </h1>
         <p className="text-center text-lg text-primary font-bold  mt-2">
-          ENJOYMENT MADE SIMPLE — WE'RE HERE TO HELP
+          ENJOYMENT MADE SIMPLE — WE&apos;RE HERE TO HELP
         </p>
         <div className="mt-8 flex justify-center items-center">
           <div className="relative">

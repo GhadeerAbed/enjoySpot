@@ -15,6 +15,7 @@ import { location, pepole ,star ,test} from "../../../public/images/page";
                 <div className="absolute mt-2 mr-2 right-0 rounded-[12px] w-20 h-20 bg-h1Color text-white text-center">
                   <div className="flex flex-col justify-center mt-2">
                     <h2 className="text-lg font-bold">{activity.price}</h2>
+                    <p>AED/H</p>
                   </div>
                 </div>
               </div>
@@ -36,7 +37,7 @@ import { location, pepole ,star ,test} from "../../../public/images/page";
             </div>
 
             <div className="flex items-center justify-center space-x-2">
-              <div className="text-sm font-sans font-bold text-primary">{activity.rating}</div>
+              <div className="text-sm font-sans font-bold text-primary">{activity.rating}/5</div>
               <Image src={star} alt="people" width={18} height={18} />
             </div>
           </div>
@@ -44,12 +45,12 @@ import { location, pepole ,star ,test} from "../../../public/images/page";
           <div className="flex  items-center my-2 ">
             <div className="flex items-center space-x-2 pr-3 border-r border-h6Color">
             <Image src={location} alt="people" width={18} height={18} />
-              <span className="text-h6Color">{activity.location}</span>
+              <span className="text-h6Color">{activity.location}location</span>
             </div>
 
             <div className="flex items-center space-x-2 pl-3">
                 <Image src={pepole} alt="people" width={18} height={18} />
-              <span className="text-h6Color">{activity.people}</span>
+              <span className="text-h6Color">{activity.people}people</span>
             </div>
           </div>
         </div>
