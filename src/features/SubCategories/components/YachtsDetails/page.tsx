@@ -42,11 +42,35 @@ import { review } from "@/data/layoutData/reviews";
 import { ExploreMore } from "@/features/MainHome/components/page";
 import { Button } from "@/components/page";
 
-export const YachtsDetails = () => {
+import React from "react";
+import { API_SERVICES_URLS } from "@/data/page";
+import { useSWRHook } from "@/hooks/page";
+
+export const YachtsDetails  = ({ id }: { id: string }) => {
   const [activeTab, setActiveTab] = useState("details"); // remove on static
+  const { data: listingDetails } = useSWRHook(API_SERVICES_URLS.GET_ALL_LISTINGS_BY_ID(id));
+
+  // Initialize `listing` to null and only assign data if available.
+  const listing = listingDetails?.isSuccess ? listingDetails.data?.data[0] : null;
+
+  // Return loading state if listing data isn't available yet.
+  if (!listing) {
+    return <div>Loading...</div>;
+  }
+
+  // Safely accessing attachments and falling back to placeholders if undefined.
+  const mainImage = listing.attachments[0]?.attachmentPath ? 
+    `https://enjoyspot.premiumasp.net${listing.attachments[0].attachmentPath}` : '/path/to/placeholder/mainImage.jpg';
+
+  const attachmentImages = [
+    { src: listing.attachments[1]?.attachmentPath ? `https://enjoyspot.premiumasp.net${listing.attachments[1].attachmentPath}` : '/path/to/placeholder/image1.jpg', alt: 'Small image 1' },
+    { src: listing.attachments[2]?.attachmentPath ? `https://enjoyspot.premiumasp.net${listing.attachments[2].attachmentPath}` : '/path/to/placeholder/image2.jpg', alt: 'Small image 2' },
+    { src: listing.attachments[3]?.attachmentPath ? `https://enjoyspot.premiumasp.net${listing.attachments[3].attachmentPath}` : '/path/to/placeholder/image3.jpg', alt: 'Small image 3' },
+    { src: listing.attachments[4]?.attachmentPath ? `https://enjoyspot.premiumasp.net${listing.attachments[4].attachmentPath}` : '/path/to/placeholder/image4.jpg', alt: 'Small image 4' },
+  ];
 
   return (
-    <section className="lg:mx-[100px] xs:mx-[30px] ">
+    <section className="lg:mx-[100px] xs:mx-[30px]">
       {/* Banner Yachts Details */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
         {/* Large image on the left */}
@@ -86,7 +110,7 @@ export const YachtsDetails = () => {
           </div>
 
           <Image
-            src={yacht1}
+            src={mainImage}
             alt="Yacht main image"
             layout="fill"
             objectFit="cover"
@@ -96,12 +120,7 @@ export const YachtsDetails = () => {
 
         {/* Smaller images on the right */}
         <div className="grid grid-cols-2 gap-4">
-          {[
-            { src: room1, alt: "Small image 1" },
-            { src: roof2, alt: "Small image 2" },
-            { src: roof, alt: "Small image 3" },
-            { src: roof3, alt: "Small image 4" },
-          ].map((image, index) => (
+          {attachmentImages.map((image, index) => (
             <div className="relative w-full h-40 md:h-46" key={index}>
               <div className="absolute right-2 top-2 z-50">
                 <Image src={zoom} alt="Zoom icon" width={39} height={38} />
@@ -121,9 +140,9 @@ export const YachtsDetails = () => {
       <div className="w-full md:w-1/2  mx-4 font-Sans">
         <div className="flex flex-wrap items-center gap-4 relative">
           <h2 className="text-2xl font-bold text-primary mb-0">
-            Yachts Name 0.1
+            {listing.name}
           </h2>
-          <h2 className="text-xs text-h6Color">4/5 [128 Reviews]</h2>
+          <h2 className="text-xs text-h6Color">{listing.rating}/5 [128 Reviews]</h2>
           <div className="flex items-center">
             <Image src={stars} alt="Rating stars" className="h-4" />
           </div>
@@ -134,14 +153,15 @@ export const YachtsDetails = () => {
 
         <div className="flex flex-wrap items-center gap-4 my-3">
           <h2 className="text-xl font-bold text-primary">
-            2500<span className="text-xs text-primary px-1">AED/H</span>
+            {listing.price}
+            <span className="text-xs text-primary px-1">AED/H</span>
           </h2>
           <h2 className="text-primary bg-cyanColor border rounded-full px-2 py-1 text-xs">
-            Minimum Rental hours: 2 hours
+            Minimum Rental hours: {listing.minimumBookingHours} hours
           </h2>
         </div>
 
-        <div className="flex flex-wrap items-center  gap-6 py-2">
+        <div className="flex flex-wrap items-center gap-6 py-2">
           {[
             { icon: harbor, text: "Mars Al Arab", alt: "Harbor icon" },
             { icon: user, text: "12 Guests", alt: "Guests icon" },
@@ -172,14 +192,7 @@ export const YachtsDetails = () => {
         <div className="my-10">
           <h2 className="text-xl font-bold text-primary hidden ss:inline">Overview</h2>
           <p className="text-h6Color text-xs py-3">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa
-            dolorem cumque blanditiis libero perspiciatis saepe iure,Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Sed odio mollitia
-            perferendis rerum nemo non sit laboriosam nisi, optio voluptatum
-            itaque placeat exercitationem. Odio minima laboriosam debitis!
-            Repellendus, consequuntur tempora! beatae recusandae aut! Quibusdam
-            quisquam repudiandae saepe illum voluptates ad ipsum magni
-            cupiditate iusto.
+            {listing.overview}
           </p>
         </div>
       </div>
@@ -348,9 +361,15 @@ export const YachtsDetails = () => {
         </div>
       </div>
       {/* -------------------Maps-------------- */}
-      <div className="lg:w-[735px] xs:w-full  ">
-        <Image src={maps} alt="mapLocation" />
-      </div>
+      {/* <div className="lg:w-[735px] xs:w-full"> */}
+        {/* <Image 
+          src={`https://maps.googleapis.com/maps/api/staticmap?center=${listing.lat},${listing.long}&zoom=14&size=600x300&markers=color:red%7Clabel:C%7C${listing.lat},${listing.long}&key=YOUR_API_KEY`} 
+          alt="mapLocation" 
+          layout="responsive" 
+          width={600} 
+          height={300} 
+        /> */}
+      {/* </div> */}
       {/* ------------------OurCrew-------------- */}
       <div className="flex mx-4  my-16 items-center font-Sans">
         <div className="font-bold text-primary mr-4">Our Crew Speaks:</div>
