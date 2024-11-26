@@ -21,7 +21,8 @@ import {
   ExclamationTriangleIcon as ExclamationTriangleIconOutline,
   CloudArrowUpIcon as CloudIcon,
   CheckCircleIcon as CircleCheck,
-  ChevronDownIcon as ChevronDownIcon
+  ChevronDownIcon as ChevronDownIcon,
+  MagnifyingGlassPlusIcon as Magnification
 } from "@heroicons/react/24/outline";
 
 export {
@@ -43,5 +44,6 @@ export {
   CloudIcon,
   CircleCheck,
   SidebarIcon,
-  ChevronDownIcon
+  ChevronDownIcon,
+  Magnification
 };

@@ -2,6 +2,7 @@
   import Image from "next/image";
 import { Activity } from '../../types/page';
 import { location, pepole ,star ,test} from "../../../public/images/page";
+import Link from "next/link";
 
   const Card = ({ activity }: { activity: Activity }) => {
     if (!activity) return null;
@@ -9,7 +10,7 @@ import { location, pepole ,star ,test} from "../../../public/images/page";
     return (
       <div className="">
         <div className="p-2 shadow-cardShadow  rounded-lg">
-          <a href="#" className="relative">
+          <Link href={`/activities/${activity.id}`} className="relative">
             <div className="absolute bottom-0 right-0 border-l-0 rounded-t-lg  w-24 h-[88px]  bg-white">
               <div className="relative">
                 <div className="absolute mt-2 mr-2 right-0 rounded-[12px] w-20 h-20 bg-h1Color text-white text-center">
@@ -29,7 +30,7 @@ import { location, pepole ,star ,test} from "../../../public/images/page";
               width={40}
               height={45}
             />
-          </a>
+          </Link>
 
           <div className="flex justify-between mt-3">
             <div className=" font-bold font-sans text-xl text-primary">

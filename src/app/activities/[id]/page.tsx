@@ -1,4 +1,5 @@
-import { YachtsDetails } from "@/features/SubCategories/components/YachtsDetails/page";
+
+import { ListingDetails } from "@/features/SubCategories/components/page";
 import React from "react";
 
 
@@ -6,7 +7,7 @@ const ActivityDetailsPage = async ({ params }: { params: { id: string } }) => {
   const { id } = await params;
   return (
     <div>
-      <YachtsDetails id={id} />
+      <ListingDetails id={id} />
     </div>
   );
 };
