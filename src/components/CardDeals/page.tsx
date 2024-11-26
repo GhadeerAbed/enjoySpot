@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { BestDeal } from "../../types/page";
 import {
   convert,
   gradBlue,
@@ -13,9 +12,9 @@ import {
 import Link from "next/link";
 import { Button } from "../page";
 
-const CardDeals = ({ deal }: { deal: BestDeal }) => {
+const CardDeals = ({ deal }: { deal: any }) => {
   if (!deal) return null;
-
+  console.log(deal.attachments);
   return (
     <div className="">
       <div className="">
@@ -26,12 +25,44 @@ const CardDeals = ({ deal }: { deal: BestDeal }) => {
           </Link>
 
           <div className="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-85 rounded-lg z-10"></div>
+          {/* {deal.} */}
+          {deal.attachments.map((attachment: any, index: number) => {
+            const isImage =
+              attachment.attachmentPath &&
+              attachment.attachmentPath.match(/\.(jpeg|jpg|png|gif)$/i);
+              <Image
+              alt="Activity Image"
+              src={`https://enjoyspot.premiumasp.net${attachment.attachmentPath}`}
+              width={100}
+              height={100}
+              className="border-none shadow-sm rounded-[20px] object-cover w-full"
+            />
 
-          <Image
-            alt="Activity Image"
-            src={test3}
-            className="border-none shadow-sm rounded-[20px] object-cover w-full"
-          />
+            return (
+              <div key={index}>
+                {isImage ? (
+                 
+                  <Image
+                    alt="Activity Image"
+                    src={`https://enjoyspot.premiumasp.net${attachment.attachmentPath}`}
+                    width={100}
+                    height={100}
+                    className="border-none shadow-sm rounded-[20px] object-cover w-full"
+                  />
+                ) : (
+                 
+                  <iframe
+                    width="100%"
+                    height="200"
+                    src={attachment.attachmentPath}
+                    // frameBorder="0"
+                    allowFullScreen
+                    className="rounded-[20px]"
+                  ></iframe>
+                )}
+              </div>
+            );
+          })}
 
           {/* Gradient overlay */}
 
@@ -47,7 +78,7 @@ const CardDeals = ({ deal }: { deal: BestDeal }) => {
 
               {/* priceBefore with line-through */}
               <h2 className="lg:text-lg custom2:text-[20px] font-bold custom:text-[15px] line-through text-h6Color xs:text-[20px]">
-                {deal.priceBefore}
+                {deal.price}
               </h2>
               <h2 className="lg:text-xs custom:text-[10px]   custom2:text-[10px] xs:text-[10px]">
                 AED/H
@@ -85,7 +116,7 @@ const CardDeals = ({ deal }: { deal: BestDeal }) => {
 
           <div className="absolute lg:right-7 lg:bottom-28 xs:right-7 xs:bottom-28 z-10 custom:right-2  custom:bottom-[35%] custom2:right-3  custom2:bottom-[28%]  md:right-10  md:bottom-[24%] ss:right-10  ">
             <h2 className="flex text-white text-xs">
-              {deal.rating}
+              {deal.rating}/5
               <Image
                 src={stars}
                 width={16}
