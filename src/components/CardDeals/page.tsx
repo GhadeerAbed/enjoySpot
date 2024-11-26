@@ -26,7 +26,7 @@ const CardDeals = ({ deal }: { deal: any }) => {
 
           <div className="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-85 rounded-lg z-10"></div>
           {/* {deal.} */}
-          {deal.attachments.map((attachment: any, index: number) => {
+          {/* {deal.attachments.map((attachment: any, index: number) => {
             const isImage =
               attachment.attachmentPath &&
               attachment.attachmentPath.match(/\.(jpeg|jpg|png|gif)$/i);
@@ -62,7 +62,7 @@ const CardDeals = ({ deal }: { deal: any }) => {
                 )}
               </div>
             );
-          })}
+          })} */}
 
           {/* Gradient overlay */}
 
