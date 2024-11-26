@@ -20,7 +20,7 @@ export const ListingDetails = ({ id }: { id: string | number }) => {
     return <p className="text-center text-red-500">No data available.</p>;
 
   const listing = listingDetails.data.data[0];
-
+  console.log(listing);
   // Separate attachments based on type
   const mediaAttachments =
     listing.attachments?.filter(
