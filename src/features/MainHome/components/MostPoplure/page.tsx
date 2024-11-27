@@ -19,6 +19,7 @@ import Card from "@/components/Card/page";
 import CardMost from "@/components/CardMost/page";
 import { useSWRHook } from "@/hooks/page";
 import { API_SERVICES_URLS } from "@/data/page";
+import CardYachts from "@/components/CardYachtsSub/page";
 
 export const MostPoplure = () => {
   const { data } = useSWRHook(API_SERVICES_URLS.GET_ALL_LISTINGS);
@@ -190,10 +191,11 @@ export const MostPoplure = () => {
         />
       </section>
       {/* ---------------- {Deals}-------------- */}
-      <section className="grid grid-cols-1 xs:grid-cols-1  ss:grid-cols-1 custom:grid-cols-2 custom1:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7 py-8 sm:py-12">
+      <section className="grid grid-cols-1  ss:grid-cols-2  custom:grid-cols-2 lg:grid-cols-4 md:grid-cols-3 gap-5 sm:gap-7 py-8 sm:py-12">
         {mostPoplure.map((most: any) => (
           <div key={most.id}>
-            <CardMost activity={most} />
+            <CardYachts activity={most} />
+            {/* <CardMost activity={most} /> */}
           </div>
         ))}
       </section>

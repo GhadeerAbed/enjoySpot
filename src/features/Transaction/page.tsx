@@ -5,6 +5,9 @@ import NoBooking from './components/NoBooking/page'
 import PrivacyPolice from './components/PrivacyPolice/page'
 import TermsACondation from './components/TermsACondation/page'
 import InterConnection from './components/InterConnection/page'
+import ViewPage from './components/ViewPage/page'
+import CancelPage from './components/Cancel/page'
+import ReviewPage from './components/Review/page'
 
 const Transaction = () => {
   return (
@@ -15,6 +18,9 @@ const Transaction = () => {
         <PrivacyPolice />
         <TermsACondation />             
         <InterConnection />
+        <ViewPage />
+        <CancelPage />
+        <ReviewPage />
     </div>  
   )
 }

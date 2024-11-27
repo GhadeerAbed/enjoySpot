@@ -4,4 +4,7 @@ export * from './NoBooking/page'
 export * from './PrivacyPolice/page'
 export * from './TermsACondation/page'
 export * from './InterConnection/page'
+export * from './ViewPage/page'
+export * from './Cancel/page'
+export * from './Review/page'   
 

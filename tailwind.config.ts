@@ -20,18 +20,18 @@ const config: Config = {
         highlight: "#FFDE83",
         blureColor: "#687986",
         packageColor: "#e5f6fc",
-        cyanColor:"#e5f7fd",
-        h5Color:"#f9f9f9",
-        h4Color:"#d6dce4"
-
+        cyanColor: "#e5f7fd",
+        h5Color: "#f9f9f9",
+        h4Color: "#d6dce4",
+        h7Color: "#CE1126",
       },
       fontFamily: {
         Sans: ["Sofia Sans", "sans-serif"],
         decorativeSerif: ["Didot", "Bodoni", "serif"],
         Kalnia: ["kalnia", "sans-serif"],
-        custom: ['Roboto'],
-        abel: ['Abel'], // Abel font
-        asap: ['Asap'], // Asap font
+        custom: ["Roboto"],
+        abel: ["Abel"], // Abel font
+        asap: ["Asap"], // Asap font
       },
       fontSize: {
         midFont: "1.25rem",

@@ -8,7 +8,7 @@ export const booking: Booking[] = [
     day: "07",
     date: "Oct, Mon",
     code: "#710107",
-    status: "UPCOMING",
+    status: "Enjoyed",
     location: "Location ",
     duration: "20 Mins",
     time: "10:30PM",
