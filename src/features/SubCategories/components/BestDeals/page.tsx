@@ -11,13 +11,18 @@ import {
   sort,
   toggleMenu,
 } from "../../../../../public/images/page";
-import { bestDeals } from "@/data/layoutData/bestDeals";
+// import { bestDeals } from "@/data/layoutData/bestDeals";
 import CardDeals from "@/components/CardDeals/page";
 import { ExploreMore } from "@/features/MainHome/components/page";
+import { useSWRHook } from "@/hooks/page";
+import { API_SERVICES_URLS } from "@/data/page";
 
 const BestDeals = () => {
+  const { data, isLoading , error} = useSWRHook(API_SERVICES_URLS.GET_ALL_LISTINGS);
+  const bestDeals = data?.isSuccess ? data?.data?.data : [];
+  console.log(bestDeals);
   return (
-    <section className="lg:mx-[100px] xs:mx-[30px]">
+    <section className="lg:mx-[100px] mx-[20px] sm:mx-[30px]  ">
       {/* -------------  {Banner}------------------------ */}
       <section className="mt-10 flex justify-center relative ">
         <Image
@@ -183,8 +188,8 @@ const BestDeals = () => {
       </section>
       {/* ---------------- {Deals}-------------- */}
       <section className="grid grid-cols-1 xs:grid-cols-1  ss:grid-cols-1 custom:grid-cols-2 custom1:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7 py-8 sm:py-12">
-        {bestDeals.map((deal) => (
-          <CardDeals key={deal.id} deal={deal} />
+        {bestDeals.map((deal:any) => (
+          <CardDeals key={deal.id} deal={deal} loading={isLoading} error={error} />
         ))}
       </section>
 

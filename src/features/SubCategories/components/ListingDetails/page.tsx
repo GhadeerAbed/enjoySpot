@@ -23,7 +23,6 @@ export const ListingDetails = ({ id }: { id: string }) => {
   const sliderRef = useRef<Slider | null>(null);
 
   if (isLoading) return <p className="text-center">Loading...</p>;
-
   const listing = listingDetails.data;
 
   const mediaAttachments =
