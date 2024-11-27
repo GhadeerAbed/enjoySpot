@@ -10,6 +10,7 @@ import {
   AdjustmentsHorizontalIcon as ViewIcon,
   GlobeAltIcon as GlobalIcon,
   MagnifyingGlassIcon as MagnifyingGlassIconOutline,
+  
 } from "@heroicons/react/20/solid";
 import {
   // UserIcon as UserIcon,
@@ -22,7 +23,9 @@ import {
   CloudArrowUpIcon as CloudIcon,
   CheckCircleIcon as CircleCheck,
   ChevronDownIcon as ChevronDownIcon,
-  MagnifyingGlassPlusIcon as Magnification
+  MagnifyingGlassPlusIcon as Magnification,
+  ChevronRightIcon as  ChevronRightIcon ,
+  ChevronLeftIcon as  ChevronLeftIcon ,
 } from "@heroicons/react/24/outline";
 
 export {
@@ -45,5 +48,7 @@ export {
   CircleCheck,
   SidebarIcon,
   ChevronDownIcon,
-  Magnification
+  Magnification,
+  ChevronRightIcon,
+  ChevronLeftIcon
 };

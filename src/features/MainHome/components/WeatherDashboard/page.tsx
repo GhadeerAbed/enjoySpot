@@ -12,7 +12,7 @@ export const WeatherDashboard = () => {
           "https://api.weatherapi.com/v1/forecast.json",
           {
             params: {
-              key: "c0ba69ded7354dd69d894240240510", // Replace with your actual API key
+              key: "c0ba69ded7354dd69d894240240510", 
               q: "Dubai", // Replace with your desired location
               days: 1, // Number of forecast days
               aqi: "no",
