@@ -98,8 +98,8 @@ export const MangeBooking = () => {
                       <li className="px-4 py-2 hover:bg-h5Color">
                         <Link href="/transaction/view-page">View</Link>
                       </li>
-                      <li className="px-4 py-2 hover:bg-h5Color">
-                        <Link href="/transaction/cancel">Cancel Reservation</Link>
+                      <li className="px-4 py-2 hover:bg-h5Color ">
+                        <Link href="/transaction/cancel" className="text-h7Color">Cancel Reservation</Link>
                       </li>
                     </>
                   )}
