@@ -10,7 +10,7 @@ import Image from "next/image";
 import React, { useRef, useState } from "react";
 import Slider from "react-slick";
 import { stars } from "../../../../../public/images/page";
-import { ActivityTimePicker } from "../page";
+import { ActivityMap, ActivityTimePicker } from "../page";
 
 
 export const ListingDetails = ({ id }: { id: string }) => {
@@ -211,6 +211,7 @@ export const ListingDetails = ({ id }: { id: string }) => {
           />
         </div>
       )}
+      <ActivityMap latitude={listing.lat} longitude={listing.long}/>
       <div className="max-w-2xl ">
         {listing.evaluations.map((review: any, index: number) => (
           <div
@@ -239,6 +240,7 @@ export const ListingDetails = ({ id }: { id: string }) => {
           </div>
         ))}
       </div>
+
       <ActivityTimePicker/>
     </div>
   );
