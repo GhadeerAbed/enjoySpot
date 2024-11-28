@@ -12,7 +12,6 @@ import Slider from "react-slick";
 import { stars } from "../../../../../public/images/page";
 import { ActivityMap, ActivityTimePicker } from "../page";
 
-
 export const ListingDetails = ({ id }: { id: string }) => {
   const {
     data: listingDetails,
@@ -169,33 +168,39 @@ export const ListingDetails = ({ id }: { id: string }) => {
           )}
         </div>
       </div>
-
-      {/* Listing Details */}
-      <div className="flex flex-col space-y-3 sm:flex-row sm:justify-between sm:items-start">
-        <div className="space-y-4">
-          <div className="flex items-center">
-            <h1 className="text-4xl font-bold text-primary">{listing.name}</h1>
-            <div className=" text-h6Color flex flex-row px-5 pt-3">
-              <p className="ml-5">{listing.rating}/5 (128 Review)</p>
-              <Image src={stars} alt={"star"} />
+      <div className="flex justify-between">
+        {/* Listing Details */}
+        <div >
+          <div className="flex flex-col space-y-3 sm:flex-row sm:justify-between sm:items-start">
+            <div className="space-y-4">
+              <div className="flex items-center">
+                <h1 className="text-4xl font-bold text-primary">
+                  {listing.name}
+                </h1>
+                <div className=" text-h6Color flex flex-row px-5 pt-3">
+                  <p className="ml-5">{listing.rating}/5 (128 Review)</p>
+                  <Image src={stars} alt={"star"} />
+                </div>
+              </div>
+              <div className="flex gap-6">
+                <p className=" text-primary">
+                  <span className="text-3xl font-bold">{listing.price}</span>{" "}
+                  <span className="font-medium"> AED/Hour</span>
+                </p>
+                <p className="bg-[#00ADEE1A] py-2 px-3 rounded-full text-primary text-sm">
+                  Minimum rental hours: {listing.minimumBookingHours} Hours
+                </p>
+              </div>
             </div>
           </div>
-          <div className="flex gap-6">
-            <p className=" text-primary">
-              <span className="text-3xl font-bold">{listing.price}</span>{" "}
-              <span className="font-medium"> AED/Hour</span>
-            </p>
-            <p className="bg-[#00ADEE1A] py-2 px-3 rounded-full text-primary text-sm">
-              Minimum rental hours: {listing.minimumBookingHours} Hours
-            </p>
+
+          {/* Overview */}
+          <div className="mt-10">
+            <h2 className="text-2xl font-semibold mb-4">Overview</h2>
+            <p className="text-gray-600">{listing.overview}</p>
           </div>
         </div>
-      </div>
-
-      {/* Overview */}
-      <div>
-        <h2 className="text-2xl font-semibold mb-4">Overview</h2>
-        <p className="text-gray-600">{listing.overview}</p>
+        <ActivityTimePicker />
       </div>
 
       {/* Routes Map */}
@@ -205,13 +210,13 @@ export const ListingDetails = ({ id }: { id: string }) => {
           <Image
             src={`https://enjoyspot.premiumasp.net${routesMap.attachmentPath}`}
             alt="Routes Map"
-            width={600}
-            height={400}
+            width={400}
+            height={200}
             className="rounded-lg"
           />
         </div>
       )}
-      <ActivityMap latitude={listing.lat} longitude={listing.long}/>
+      <ActivityMap latitude={listing.lat} longitude={listing.long} />
       <div className="max-w-2xl ">
         {listing.evaluations.map((review: any, index: number) => (
           <div
@@ -240,8 +245,6 @@ export const ListingDetails = ({ id }: { id: string }) => {
           </div>
         ))}
       </div>
-
-      <ActivityTimePicker/>
     </div>
   );
 };

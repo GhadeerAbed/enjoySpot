@@ -109,7 +109,7 @@ export const ActivityTimePicker = ({ minHours = 2 }) => {
   };
 
   return (
-    <div className="max-w-[360px] mx-auto p-4 space-y-6 bg-[#F8F8F8] rounded-lg shadow-lg">
+    <div className="max-w-[360px]  p-4 space-y-6 bg-[#F8F8F8] rounded-lg shadow-lg">
       {/* Display weather data */}
       {weatherData && (
         <div className="text-primary flex justify-evenly items-center">

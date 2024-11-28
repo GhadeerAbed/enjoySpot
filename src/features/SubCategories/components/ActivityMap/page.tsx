@@ -10,7 +10,7 @@ export const ActivityMap = ({ latitude , longitude  }: { latitude: number; longi
   if (!isLoaded) return <p>Loading Map...</p>;
 
   return (
-    <div className="map-container" style={{ height: "400px", width: "100%" }}>
+    <div className="map-container h-[250px] max-w-2xl">
       <GoogleMap
         center={{ lat: latitude, lng: longitude }}
         zoom={12}
