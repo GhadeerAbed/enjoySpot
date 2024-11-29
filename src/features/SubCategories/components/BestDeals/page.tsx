@@ -190,10 +190,10 @@ const BestDeals = () => {
       {/* ---------------- {Deals}-------------- */}
       <section className="grid grid-cols-1 xs:grid-cols-1  ss:grid-cols-1 custom:grid-cols-2 custom1:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7 py-8 sm:py-12">
         {bestDeals.map((deal:any) => (
-          <CardYachts key={deal.id} activity={deal}   />
-                    // <CardDeals key={deal.id} deal={deal} loading={isLoading} error={error} />
+          // <CardYachts key={deal.id} activity={deal}   />
+                    <CardDeals key={deal.id} deal={deal} loading={isLoading} error={error} />
 
-                  ))}
+                   ))}
       </section>
 
       <section className="">
