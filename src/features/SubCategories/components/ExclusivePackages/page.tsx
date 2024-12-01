@@ -98,6 +98,8 @@ export const ExclusivePackages = () => {
               {offer.summary}
             </p>
           </div>
+          {/* {offer.salePrice}
+          {offer.originalPriceAED} AED */}
 
           <div className="absolute bottom-5 right-3 hidden md:block lg:block custom2:block">
             <div className="flex bg-white bg-opacity-50 rounded-full px-3 space-x-5">
@@ -115,6 +117,18 @@ export const ExclusivePackages = () => {
             </div>
             <Button className="bg-white text-primary flex justify-center items-center gap-3  pr-10 pl-5 font-bold mt-2">
               <span>Check Availability</span>
+              <Image src={leftArrow} alt="leftArrow" width={20} height={20} />
+            </Button>
+          </div>
+          <div className="xs:flex font-Sans lg:hidden md:hidden  xs:justify-between  custom2:hidden   my-5  col-span-3 ">
+            <Button className="bg-h5Color w-[35%] text-primary flex justify-center items-center gap-3 font-Sans  pr-10 pl-5 font-bold text-xl mt-2">
+              <span>
+                {offer.priceAfter}
+                <span className="text-[15px] mx-2 ">AED</span>
+              </span>
+            </Button>
+            <Button className="bg-primary w-[60%] text-white flex justify-center items-center gap-3 font-Sans pr-10 pl-5 text-lg mt-2">
+              <span className="font-Sans">Check Availability</span>
               <Image src={leftArrow} alt="leftArrow" width={20} height={20} />
             </Button>
           </div>

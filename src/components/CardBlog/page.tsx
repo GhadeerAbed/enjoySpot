@@ -17,7 +17,7 @@ export const CardBlog = ({ post }: { post: any }) => {
           <img
             alt="Activity Image"
             src={post.thumbnail}
-            className="h-48 w-full  object-cover" 
+            className="h-48 w-full  object-cover rounded-[20px]" 
             width={500}
             height={400}
           />
@@ -33,7 +33,7 @@ export const CardBlog = ({ post }: { post: any }) => {
         {/* Date and Time */}
         <div className="flex  mt-2 max-sm:flex-col">
           <span className="text-h6Color text-sm">2 days ago, 5 min</span>
-          <span className="bg-gray-100 text-xs rounded-full px-2 text-center  sm:mx-1 whitespace-nowrap ">
+          <span className="bg-h5Color text-xs rounded-full mx-auto px-2 text-center  sm:mx-1 whitespace-nowrap ">
             {post.category}
           </span>
         </div>
