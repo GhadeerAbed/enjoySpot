@@ -49,7 +49,9 @@ export const CategoryList: React.FC<CategoryListProps> = ({ id, id1 }) => {
 
   // Extract data from response
   const activities = activitiesResponse.data.data;
+  // console.log(activities);
   const totalEntries = activitiesResponse.data.totalRecords;
+  console.log(totalEntries);
   const totalPages = Math.ceil(totalEntries / pageSize);
 
   const handlePageChange = (page: number) => {

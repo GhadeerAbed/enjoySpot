@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import {
   activity,
   arrowDown,
@@ -18,11 +18,36 @@ import { useSWRHook } from "@/hooks/page";
 import { API_SERVICES_URLS } from "@/data/page";
 import CardYachts from "@/components/CardYachtsSub/page";
 
+import FilterDeals from "./FillterDeal/page";
+import { Pagination } from "@/components/page";
+
 const BestDeals = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  
   const { data, isLoading, error } = useSWRHook(
     API_SERVICES_URLS.GET_ALL_LISTINGS
   );
-  const bestDeals = data?.isSuccess ? data?.data?.data : [];
+
+
+  const bestDeals = data?.isSuccess ? data?.data?.data: [];
+  // ---------------------pagination---------
+  const bestDeal = data?.isSuccess ? data?.data: [];
+const pageSize = 10;
+  const totalEntries = bestDeal.totalRecords;
+  console.log(totalEntries);
+  const totalPages = Math.ceil(totalEntries / pageSize);
+
+  
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+  // -------FilterLogic------
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
+  const toggleFilterVisibility = () => {
+    setIsFilterVisible((prev) => !prev); // Toggle visibility
+  };
+
   console.log(bestDeals);
   return (
     <section className="lg:mx-[100px] mx-[20px] sm:mx-[30px]  ">
@@ -173,29 +198,45 @@ const BestDeals = () => {
       <div className="w-full border-b bg-h6Color "></div>
 
       {/* ------------------------Icons----------------  */}
-      <section className="flex justify-end  mt-5 space-x-1  ">
+      <section className="flex justify-end gap-3 my-3 relative">
         <Image
           src={toggleMenu}
-          alt=""
+          alt="toggle menu"
           width={34}
           height={34}
-          className="cursor-pointer "
+          className="cursor-pointer"
+          onClick={toggleFilterVisibility}
         />
-        <Image
-          src={sort}
-          alt=""
-          width={34}
-          height={34}
-          className=" cursor-pointer  "
-        />
+        <div
+          className={`absolute right-[5%] top-5 mt-5 sm:w-auto rounded-lg shadow-lg z-[100] border border-gray-300 bg-white transition-all duration-300 ${
+            isFilterVisible ? "block" : "hidden"
+          }`}
+        >
+          <FilterDeals />
+        </div>
+        <Image src={sort} alt="sort" width={34} height={34} />
       </section>
       {/* ---------------- {Deals}-------------- */}
       <section className="grid grid-cols-1 xs:grid-cols-1  ss:grid-cols-1 custom:grid-cols-2 custom1:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7 py-8 sm:py-12">
-        {bestDeals.map((deal:any) => (
+        {bestDeals.map((deal: any) => (
           // <CardYachts key={deal.id} activity={deal}   />
-                    <CardDeals key={deal.id} deal={deal} loading={isLoading} error={error} />
-
-                   ))}
+          <CardDeals
+            key={deal.id}
+            deal={deal}
+            loading={isLoading}
+            error={error}
+          />
+        ))}
+      </section>
+      <section>
+        {bestDeals.length > 0 && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+            totalEntries={totalEntries}
+          />
+        )}
       </section>
 
       <section className="">
