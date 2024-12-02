@@ -22,15 +22,20 @@ import { API_SERVICES_URLS } from "@/data/page";
 import CardYachts from "@/components/CardYachtsSub/page";
 import FilterSection from "@/features/SubCategories/components/CategoryList/Fillter/page";
 import { Pagination } from "@/components/page";
+// import SkeletonLoader from "@/components/SkeltonDeals/page";
+import SkeletonCategory from "@/components/SkeltonCategory/page";
+import SkeletonBanner from "@/components/SkeltonBanner/page";
 
 export const MostPoplure = () => {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { data } = useSWRHook(API_SERVICES_URLS.GET_ALL_LISTINGS);
+  const { data, isLoading, error } = useSWRHook(
+    API_SERVICES_URLS.GET_ALL_LISTINGS
+  );
   const mostPoplure = data?.isSuccess ? data?.data?.data : [];
 
-            // Pagination
+  // Pagination
   const mostPop = data?.isSuccess ? data?.data : [];
   console.log(mostPop);
   const pageSize = 10;
@@ -50,26 +55,30 @@ export const MostPoplure = () => {
   return (
     <section className="lg:mx-[100px] xs:mx-[30px]">
       {/* -------------  {Banner}------------------------ */}
-      <section className="mt-10 flex justify-center relative ">
-        <Image
-          src={mostpoplur}
-          alt="bestDeal"
-          width={1240}
-          height={393}
-          className="rounded-xl w-full"
-        />
-        <div className="absolute  lg:top-[30%] xs:top-[20%]  right-10 xs:right-12 custom:right-16 custom2:right-20 z-40">
-          <h1 className="text-xl xs:text-xs custom:text-lg custom2:text-2xl lg:text-5xl font-bold text-highlight  font-Kalnia py-2 custom:py-3 custom2:py-5 ">
-            Top Destinations For,
-          </h1>
-          <h1 className="text-xl xs:text-xs  custom:text-xl custom2:text-2xl lg:text-5xl font-bold text-highlight font-Kalnia">
-            Your Next Vacation,
-          </h1>
-          <h1 className="text-base xs:text-[10px] ss:text-xs custom:text-xs  custom2:text-lg lg:text-[1.4rem] text-white py-3 custom:py-5 opacity-75">
-            Decide Your destination and plan <br />& Your Next Vacation Now
-          </h1>
-        </div>
-      </section>
+      {isLoading ? (
+        <SkeletonBanner />
+      ) : (
+        <section className="mt-10 flex justify-center relative ">
+          <Image
+            src={mostpoplur}
+            alt="bestDeal"
+            width={1240}
+            height={393}
+            className="rounded-xl w-full"
+          />
+          <div className="absolute  lg:top-[30%] xs:top-[20%]  right-10 xs:right-12 custom:right-16 custom2:right-20 z-40">
+            <h1 className="text-xl xs:text-xs custom:text-lg custom2:text-2xl lg:text-5xl font-bold text-highlight  font-Kalnia py-2 custom:py-3 custom2:py-5 ">
+              Top Destinations For,
+            </h1>
+            <h1 className="text-xl xs:text-xs  custom:text-xl custom2:text-2xl lg:text-5xl font-bold text-highlight font-Kalnia">
+              Your Next Vacation,
+            </h1>
+            <h1 className="text-base xs:text-[10px] ss:text-xs custom:text-xs  custom2:text-lg lg:text-[1.4rem] text-white py-3 custom:py-5 opacity-75">
+              Decide Your destination and plan <br />& Your Next Vacation Now
+            </h1>
+          </div>
+        </section>
+      )}
 
       {/* ---------------- {Search}-------------- */}
       <section className="flex justify-center items-center py-6 mt-5 mb-2">
@@ -215,12 +224,15 @@ export const MostPoplure = () => {
       </div>
       {/* ---------------- {Deals}-------------- */}
       <section className="grid grid-cols-1  ss:grid-cols-2  custom:grid-cols-2 lg:grid-cols-4 md:grid-cols-3 gap-5 sm:gap-7 py-8 sm:py-12">
-        {mostPoplure.map((most: any) => (
-          <div key={most.id}>
-            <CardYachts activity={most} />
-            {/* <CardMost activity={most} /> */}
-          </div>
-        ))}
+        {isLoading
+          ? // Show skeleton loaders while loading
+            [...Array(6)].map((_, index) => <SkeletonCategory key={index} />)
+          : mostPoplure.map((most: any) => (
+              <div key={most.id}>
+                <CardYachts activity={most} />
+                {/* <CardMost activity={most} /> */}
+              </div>
+            ))}
       </section>
       <section>
         {mostPoplure.length > 0 && (

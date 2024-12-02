@@ -6,12 +6,13 @@ import { Button } from "@/components/page";
 import { leftArrow } from "../../../../../public/images/page";
 import { API_SERVICES_URLS } from "@/data/page";
 import { useSWRHook } from "@/hooks/page";
+import SkeletonBanner from "@/components/SkeltonBanner/page";
 
 export const Hero = () => {
   const { data, error } = useSWRHook(API_SERVICES_URLS.HOME_SLIDER);
   console.log(data)
   if (error) return <div>Error loading slider data</div>;
-  if (!data) return <div>Loading...</div>;
+  if (!data) return <div><SkeletonBanner/></div>;
 
   const sliderItems = data?.data?.slider?.items || [];
 

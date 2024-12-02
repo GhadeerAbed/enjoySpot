@@ -16,6 +16,8 @@ import {
   sort,
   toggleMenu,
 } from "../../../../../public/images/page";
+import SkeletonCategory from "@/components/SkeltonCategory/page";
+import SkeletonPaCategory from "@/components/SkeltonPageCategory/page";
 
 interface CategoryListProps {
   id?: string;
@@ -35,13 +37,13 @@ export const CategoryList: React.FC<CategoryListProps> = ({ id, id1 }) => {
     return url;
   };
 
-  const { data: activitiesResponse, error } = useSWRHook(constructApiUrl());
+  const { data: activitiesResponse, error, isLoading } = useSWRHook(constructApiUrl());
 
   // Handle Loading State
   if (!activitiesResponse && !error) {
-    return <div>Loading...</div>;
+    return <div><SkeletonPaCategory/></div>;
   }
-
+if(!activitiesResponse) return <SkeletonPaCategory/>
   // Handle Error State
   if (error || !activitiesResponse?.isSuccess) {
     return <div>Failed to load activities. Please try again later.</div>;
@@ -144,7 +146,10 @@ export const CategoryList: React.FC<CategoryListProps> = ({ id, id1 }) => {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 custom2:grid-cols-3 gap-6 w-full">
-        {activities.map((activity: any) => (
+        {isLoading ? (
+          // Show skeleton loaders while loading
+          [...Array(6)].map((_, index) => <SkeletonCategory key={index} />)
+        ) : activities.map((activity: any) => (
           <div key={activity.id}>
             <CardYachts activity={activity} />
           </div>

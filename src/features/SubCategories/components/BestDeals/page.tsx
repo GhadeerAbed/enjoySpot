@@ -20,24 +20,23 @@ import CardYachts from "@/components/CardYachtsSub/page";
 
 import FilterDeals from "./FillterDeal/page";
 import { Pagination } from "@/components/page";
+import SkeletonLoader from "@/components/SkeltonDeals/page";
+import SkeletonBanner from "@/components/SkeltonBanner/page";
 
 const BestDeals = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  
+
   const { data, isLoading, error } = useSWRHook(
     API_SERVICES_URLS.GET_ALL_LISTINGS
   );
 
-
-  const bestDeals = data?.isSuccess ? data?.data?.data: [];
+  const bestDeals = data?.isSuccess ? data?.data?.data : [];
   // ---------------------pagination---------
-  const bestDeal = data?.isSuccess ? data?.data: [];
-const pageSize = 10;
-  const totalEntries = bestDeal.totalRecords;
+  const bestDea = data?.isSuccess ? data?.data : [];
+  const pageSize = 10;
+  const totalEntries = bestDea.totalRecords;
   console.log(totalEntries);
   const totalPages = Math.ceil(totalEntries / pageSize);
-
-  
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -52,7 +51,11 @@ const pageSize = 10;
   return (
     <section className="lg:mx-[100px] mx-[20px] sm:mx-[30px]  ">
       {/* -------------  {Banner}------------------------ */}
+      {isLoading ? (
+        <SkeletonBanner />
+      ) : (
       <section className="mt-10 flex justify-center relative ">
+        
         <Image
           src={bestDeal}
           alt="bestDeal"
@@ -72,7 +75,7 @@ const pageSize = 10;
           </h1>
         </div>
       </section>
-
+      )}
       {/* ---------------- {Search}-------------- */}
       <section className="flex justify-center items-center py-6 mt-5 mb-2">
         <div className="flex flex-wrap gap-4 sm:gap-8 items-center">
@@ -217,17 +220,25 @@ const pageSize = 10;
         <Image src={sort} alt="sort" width={34} height={34} />
       </section>
       {/* ---------------- {Deals}-------------- */}
-      <section className="grid grid-cols-1 xs:grid-cols-1  ss:grid-cols-1 custom:grid-cols-2 custom1:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7 py-8 sm:py-12">
-        {bestDeals.map((deal: any) => (
-          // <CardYachts key={deal.id} activity={deal}   />
-          <CardDeals
-            key={deal.id}
-            deal={deal}
-            loading={isLoading}
-            error={error}
-          />
-        ))}
+      <section className="grid grid-cols-1 xs:grid-cols-1 ss:grid-cols-1 custom:grid-cols-2 custom1:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7 py-8 sm:py-12">
+        {isLoading ? (
+          // Show skeleton loaders while loading
+          [...Array(6)].map((_, index) => <SkeletonLoader key={index} />)
+        ) : bestDeals.length > 0 ? (
+          // Render the deals once data is available
+          bestDeals.map((deal: any) => (
+            <CardDeals
+              key={deal.id}
+              deal={deal}
+              loading={isLoading}
+              error={error}
+            />
+          ))
+        ) : (
+          <p className="text-center col-span-full">No deals found.</p>
+        )}
       </section>
+
       <section>
         {bestDeals.length > 0 && (
           <Pagination
