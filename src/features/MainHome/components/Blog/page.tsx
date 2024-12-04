@@ -7,6 +7,7 @@ import Image from "next/image";
 import { leftSlide, rightSlide } from "../../../../../public/images/page";
 import { CardBlog } from "@/components/page";
 import BlogSkeleton from "@/components/SkeltonBlog/page";
+import Link from "next/link";
 
 const PrevArrow = (props: any) => {
   const { onClick } = props;
@@ -111,9 +112,9 @@ export const Blog = () => {
       </div>
 
       <div className="text-center -mt-3">
-        <a href="#" className="text-primary font-semibold underline">
+        <Link href="#" className="text-primary font-semibold underline">
           View All
-        </a>
+        </Link>
       </div>
       </>
       )}

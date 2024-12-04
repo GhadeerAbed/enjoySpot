@@ -3,7 +3,10 @@ import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import axios from "axios";
+import useSWR from "swr";
 import { Button } from "@/components/page";
+
+const fetcher = (url:any) => axios.get(url).then((res) => res.data);
 
 export const ActivityTimePicker = ({ minHours = 2 }) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(new Date()); // Default to today
@@ -12,7 +15,12 @@ export const ActivityTimePicker = ({ minHours = 2 }) => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [weatherData, setWeatherData] = useState<any>(null);
+
+  // Fetch weather data for the selected date using SWR
+  const { data: weatherData, error: weatherError } = useSWR(
+    selectedDate ? `https://api.weatherapi.com/v1/forecast.json?key=c0ba69ded7354dd69d894240240510&q=Dubai&dt=${selectedDate.toISOString().split("T")[0]}` : null,
+    fetcher
+  );
 
   // Handle hour changes for "from" and "to" inputs
   const handleHourChange = (type: "from" | "to", value: string) => {
@@ -40,39 +48,6 @@ export const ActivityTimePicker = ({ minHours = 2 }) => {
     }
     return 0;
   };
-
-  // Fetch weather data for the selected date
-  const fetchWeatherData = async (date: Date) => {
-    const formattedDate = date.toISOString().split("T")[0]; // Format as YYYY-MM-DD
-
-    try {
-      const response = await axios.get(
-        `https://api.weatherapi.com/v1/forecast.json`,
-        {
-          params: {
-            key: "c0ba69ded7354dd69d894240240510", // Replace with your WeatherAPI key
-            q: "Dubai", // Location
-            dt: formattedDate, // Specific date
-          },
-        }
-      );
-
-      if (response.data?.forecast?.forecastday?.[0]?.day) {
-        setWeatherData(response.data.forecast.forecastday[0].day);
-      } else {
-        setWeatherData(null); // No weather data available
-      }
-    } catch (error) {
-      console.error("Error fetching weather data:", error);
-    }
-  };
-
-  // Fetch weather data whenever the selected date changes
-  useEffect(() => {
-    if (selectedDate) {
-      fetchWeatherData(selectedDate);
-    }
-  }, [selectedDate]);
 
   // Handle the booking process
   const handleBookNow = async () => {
@@ -117,17 +92,17 @@ export const ActivityTimePicker = ({ minHours = 2 }) => {
             <p className="text-sm font-bold">
               {selectedDate?.toLocaleDateString("en-US", { weekday: "long" })}
             </p>
-            <p className="text-4xl font-bold">{weatherData.avgtemp_c}°C</p>
-            <p className="text-sm font-bold">{weatherData.condition.text}</p>
+            <p className="text-4xl font-bold">{weatherData.forecast.forecastday[0].day.avgtemp_c}°C</p>
+            <p className="text-sm font-bold">{weatherData.forecast.forecastday[0].day.condition.text}</p>
           </div>
           <div>
             <div>
               <p className="font-medium text-center">Wind</p>
-              <p className="text-center">{weatherData.maxwind_kph} km/h</p>
+              <p className="text-center">{weatherData.forecast.forecastday[0].day.maxwind_kph} km/h</p>
             </div>
             <div>
               <p className="font-medium text-center">Humidity</p>
-              <p className="text-center">{weatherData.avghumidity}%</p>
+              <p className="text-center">{weatherData.forecast.forecastday[0].day.avghumidity}%</p>
             </div>
           </div>
         </div>
@@ -165,6 +140,7 @@ export const ActivityTimePicker = ({ minHours = 2 }) => {
 
       {/* Error message */}
       {error && <div className="text-center text-sm text-red-500">{error}</div>}
+      {weatherError && <div className="text-center text-sm text-red-500">Error fetching weather data</div>}
 
       {/* Loading and success messages */}
       {loading && (

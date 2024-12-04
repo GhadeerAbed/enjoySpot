@@ -10,8 +10,9 @@ import Image from "next/image";
 import React, { useRef, useState } from "react";
 import Slider from "react-slick";
 import { stars } from "../../../../../public/images/page";
-import { ActivityMap, ActivityTimePicker } from "../page";
+import { ActivityTimePicker } from "../page";
 import SkeletonDetails from "@/components/SkeltonDetails/page";
+import { ActivityMap } from "../ActivityMap/page";
 
 export const ListingDetails = ({ id }: { id: string }) => {
   const {

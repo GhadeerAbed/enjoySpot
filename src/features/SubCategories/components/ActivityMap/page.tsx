@@ -1,23 +1,33 @@
 "use client"
-import React from "react";
-import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+import React, { useMemo } from "react";
+import dynamic from "next/dynamic";
+import { useLoadScript } from "@react-google-maps/api";
 
-export const ActivityMap = ({ latitude , longitude  }: { latitude: number; longitude: number }) => {
+const GoogleMap = dynamic(() => import("@react-google-maps/api").then(mod => mod.GoogleMap), { ssr: false });
+const Marker = dynamic(() => import("@react-google-maps/api").then(mod => mod.Marker), { ssr: false });
+
+interface ActivityMapProps {
+  latitude: number;
+  longitude: number;
+}
+
+export const ActivityMap = ({ latitude, longitude }: ActivityMapProps) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyDcBNvhTn41CVismsIzNM3Fr7ztlE73DRc", // Replace with your API key
   });
+
+  const center = useMemo(() => ({ lat: latitude, lng: longitude }), [latitude, longitude]);
 
   if (!isLoaded) return <p>Loading Map...</p>;
 
   return (
     <div className="map-container h-[250px] max-w-2xl">
       <GoogleMap
-        center={{ lat: latitude, lng: longitude }}
+        center={center}
         zoom={12}
         mapContainerStyle={{ width: "100%", height: "100%" }}
       >
-        {/* Place a marker at the given coordinates */}
-        <Marker position={{ lat: latitude, lng: longitude }} />
+        <Marker position={center} />
       </GoogleMap>
     </div>
   );
