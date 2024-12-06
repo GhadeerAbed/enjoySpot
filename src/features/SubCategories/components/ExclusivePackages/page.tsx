@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import React from "react";
-import { Button } from "@/components/page";
+import React, { useMemo } from "react";
+import dynamic from "next/dynamic";
 import { useSWRHook } from "@/hooks/page";
 import { API_SERVICES_URLS } from "@/data/page";
 import {
@@ -9,12 +9,19 @@ import {
   leftArrow,
   sort,
 } from "../../../../../public/images/page";
+import PackageSkeleton from "@/components/SkeltonPackages/page";
+
+const Button = dynamic(() => import("@/components/page").then(mod => mod.Button), {
+  loading: () => <div className="loading">Loading...</div>,
+});
 
 export const ExclusivePackages = () => {
-  const { data } = useSWRHook(API_SERVICES_URLS.GET_All_packages);
+  const { data,isLoading,error } = useSWRHook(API_SERVICES_URLS.GET_All_packages);
 
-  const packages = data?.isSuccess ? data?.data?.data : [];
+  const packages = useMemo(() => data?.isSuccess ? data?.data?.data : [], [data]);
   console.log(packages);
+
+if(!data) return <PackageSkeleton/>
   return (
     <section className="mt-10 lg:mx-[100px] xs:mx-[30px]">
       {/* --------------------Banner-------------- */}

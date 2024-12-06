@@ -1,15 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { arrowDown } from "../../../public/images/page";
-
-interface DropdownProps {
-  label: string;
-  icon: string;
-  inputType?: string;
-  placeholder?: string;
-  options?: string[]; // Optional dropdown list options
-  customContent?: React.ReactNode; // For custom content inside the dropdown
-}
+import { DropdownProps } from "@/types/page";
 
 const Dropdown: React.FC<DropdownProps> = ({
   label,
@@ -41,7 +33,10 @@ const Dropdown: React.FC<DropdownProps> = ({
             ) : options ? (
               <ul className="list-none">
                 {options.map((option, index) => (
-                  <li key={index} className="py-2 px-4 hover:bg-gray-100 cursor-pointer">
+                  <li
+                    key={index}
+                    className="py-2 px-4 hover:bg-gray-100 cursor-pointer"
+                  >
                     {option}
                   </li>
                 ))}
