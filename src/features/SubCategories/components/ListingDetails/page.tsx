@@ -10,9 +10,10 @@ import Image from "next/image";
 import React, { useRef, useState } from "react";
 import Slider from "react-slick";
 import { stars } from "../../../../../public/images/page";
-import { ActivityTimePicker } from "../page";
 import SkeletonDetails from "@/components/SkeltonDetails/page";
-import { ActivityMap } from "../ActivityMap/page";
+import dynamic from "next/dynamic";
+const ActivityTimePicker = dynamic(() => import("../ActivityTimePicker/page"));
+const ActivityMap = dynamic(() => import("../ActivityMap/page"), { ssr: false });
 
 export const ListingDetails = ({ id }: { id: string }) => {
   const {
