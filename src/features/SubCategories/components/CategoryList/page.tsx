@@ -17,7 +17,7 @@ import {
 } from "../../../../../public/images/page";
 import SkeletonCategory from "@/components/SkeltonCategory/page";
 import SkeletonPaCategory from "@/components/SkeltonPageCategory/page";
-import Dropdown from "@/components/Dropdown/page";
+import Dropdown from "@/components/DropSearchBar/page";
 
 const CardYachts = dynamic(() => import("@/components/CardYachtsSub/page"), {
   loading: () => <SkeletonCategory />,
@@ -74,7 +74,7 @@ export const CategoryList: React.FC<CategoryListProps> = ({ id, id1 }) => {
   };
 
   const toggleFilterVisibility = () => {
-    setIsFilterVisible((prev) => !prev); 
+    setIsFilterVisible((prev) => !prev);
   };
 
   return (

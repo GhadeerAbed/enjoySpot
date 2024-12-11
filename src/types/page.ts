@@ -1,4 +1,5 @@
 import { SizeVariantsType } from "@/components/types/page";
+import { StaticImageData } from "next/image";
 import { HTMLProps, ReactNode } from "react";
 
 export type TableProps = {
@@ -160,6 +161,8 @@ export interface SelectProps
   options: any[]; //{ value: string; label: string }
   onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
+
+
 
 export interface DropdownProps {
   label: string;

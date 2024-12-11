@@ -12,8 +12,10 @@ import { useSWRHook } from "@/hooks/page";
 const CardDeals = dynamic(() => import("@/components/CardDeals/page"));
 const FilterDeals = dynamic(() => import("./FillterDeal/page"), { ssr: false });
 const SkeletonLoader = dynamic(() => import("@/components/SkeltonDeals/page"));
-const ExploreMore = dynamic(() => 
-  import("@/features/MainHome/components/ExpoloreMore/page").then(mod => mod.ExploreMore)
+const ExploreMore = dynamic(() =>
+  import("@/features/MainHome/components/ExpoloreMore/page").then(
+    (mod) => mod.ExploreMore
+  )
 );
 // Static assets
 import {
@@ -26,7 +28,7 @@ import {
   sort,
   toggleMenu,
 } from "../../../../../public/images/page";
-import Dropdown from "@/components/Dropdown/page";
+import Dropdown from "@/components/DropSearchBar/page";
 
 const BestDeals = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -37,12 +39,27 @@ const BestDeals = () => {
     `${API_SERVICES_URLS.GET_ALL_LISTINGS}?page=${currentPage}&pageSize=10`
   );
 
-  const bestDeals = useMemo(() => (data?.isSuccess ? data?.data?.data : []), [data]);
-  const totalEntries = useMemo(() => (data?.isSuccess ? data?.data?.totalRecords : 0), [data]);
-  const totalPages = useMemo(() => Math.ceil(totalEntries / 10), [totalEntries]);
+  const bestDeals = useMemo(
+    () => (data?.isSuccess ? data?.data?.data : []),
+    [data]
+  );
+  const totalEntries = useMemo(
+    () => (data?.isSuccess ? data?.data?.totalRecords : 0),
+    [data]
+  );
+  const totalPages = useMemo(
+    () => Math.ceil(totalEntries / 10),
+    [totalEntries]
+  );
 
-  const handlePageChange = useCallback((page: number) => setCurrentPage(page), []);
-  const toggleFilterVisibility = useCallback(() => setIsFilterVisible((prev) => !prev), []);
+  const handlePageChange = useCallback(
+    (page: number) => setCurrentPage(page),
+    []
+  );
+  const toggleFilterVisibility = useCallback(
+    () => setIsFilterVisible((prev) => !prev),
+    []
+  );
 
   return (
     <section className="lg:mx-[100px] mx-[20px] sm:mx-[30px]">
@@ -60,8 +77,12 @@ const BestDeals = () => {
             loading="lazy"
           />
           <div className="absolute inset-0 lg:top-6 left-10 z-40">
-            <h1 className="text-xl lg:text-5xl font-bold text-highlight py-3">Unlock Adventure,</h1>
-            <h1 className="text-xl lg:text-5xl font-bold text-highlight">Unlock Savings,</h1>
+            <h1 className="text-xl lg:text-5xl font-bold text-highlight py-3">
+              Unlock Adventure,
+            </h1>
+            <h1 className="text-xl lg:text-5xl font-bold text-highlight">
+              Unlock Savings,
+            </h1>
             <h1 className="text-base lg:text-[1.4rem] text-white opacity-75 py-3">
               Best Deals on Yachts, Desert Safaris <br /> & Watersports
             </h1>
@@ -75,11 +96,24 @@ const BestDeals = () => {
           {/* City Dropdown */}
           <Dropdown label="City" icon={location} placeholder="Enter City" />
           {/* Activity Dropdown */}
-          <Dropdown label="Activity" icon={activity} placeholder="Enter Activity" />
+          <Dropdown
+            label="Activity"
+            icon={activity}
+            placeholder="Enter Activity"
+          />
           {/* Date & Time Dropdown */}
-          <Dropdown label="Date & Time" icon={dataTime} inputType="datetime-local" />
+          <Dropdown
+            label="Date & Time"
+            icon={dataTime}
+            inputType="datetime-local"
+          />
           {/* Guest Dropdown */}
-          <Dropdown label="Guest" icon={Guest} inputType="number" placeholder="Enter number of guests" />
+          <Dropdown
+            label="Guest"
+            icon={Guest}
+            inputType="number"
+            placeholder="Enter number of guests"
+          />
           {/* Search Button */}
           <button
             className="bg-primary text-white px-5 sm:px-10 py-2 rounded-lg hover:bg-h1Color transition w-full sm:w-auto"
@@ -112,15 +146,20 @@ const BestDeals = () => {
 
       {/* Deals Section */}
       <section className="grid grid-cols-1 custom:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7 py-8 sm:py-12">
-        {isLoading
-          ? [...Array(6)].map((_, index) => <SkeletonLoader key={index} />)
-          : bestDeals.length > 0
-          ? bestDeals.map((deal: any) => (
-              <CardDeals key={deal.id} deal={deal} loading={isLoading} error={error} />
-            ))
-          : (
-            <p className="text-center col-span-full">No deals found.</p>
-          )}
+        {isLoading ? (
+          [...Array(6)].map((_, index) => <SkeletonLoader key={index} />)
+        ) : bestDeals.length > 0 ? (
+          bestDeals.map((deal: any) => (
+            <CardDeals
+              key={deal.id}
+              deal={deal}
+              loading={isLoading}
+              error={error}
+            />
+          ))
+        ) : (
+          <p className="text-center col-span-full">No deals found.</p>
+        )}
       </section>
 
       {/* Pagination */}
@@ -137,9 +176,5 @@ const BestDeals = () => {
     </section>
   );
 };
-
-
-
-
 
 export default BestDeals;

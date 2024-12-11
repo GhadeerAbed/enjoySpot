@@ -3,35 +3,83 @@ import React, { useState, Suspense } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { ExploreMore } from "../page";
-import { 
-  activity, arrowDown, mostpoplur, dataTime, Guest, location, sort, toggleMenu 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick"; // Import Slider from react-slick
+
+import {
+  activity,
+  arrowDown,
+  mostpoplur,
+  dataTime,
+  Guest,
+  location,
+  sort,
+  toggleMenu,
 } from "../../../../../public/images/page";
 import { useSWRHook } from "@/hooks/page";
 import { API_SERVICES_URLS } from "@/data/page";
 import SkeletonCategory from "@/components/SkeltonCategory/page";
 import SkeletonBanner from "@/components/SkeltonBanner/page";
-import Dropdown from "@/components/Dropdown/page";
+import Dropdown from "@/components/DropSearchBar/page";
+import Button from "@/components/Button/page";
 
-const CardYachts = dynamic(() => import("@/components/CardYachtsSub/page"), { ssr: false });
-const FilterSection = dynamic(() => import("@/features/SubCategories/components/CategoryList/Fillter/page"), { ssr: false });
-const Pagination = dynamic(() => import("@/components/page").then(mod => mod.Pagination), { ssr: false });
+const CardYachts = dynamic(() => import("@/components/CardYachtsSub/page"), {
+  ssr: false,
+});
+const FilterSection = dynamic(
+  () => import("@/features/SubCategories/components/CategoryList/Fillter/page"),
+  { ssr: false }
+);
+const Pagination = dynamic(
+  () => import("@/components/page").then((mod) => mod.Pagination),
+  { ssr: false }
+);
 
 export const MostPoplure = () => {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { data, isLoading, error } = useSWRHook(API_SERVICES_URLS.GET_ALL_LISTINGS);
+  const { data, isLoading, error } = useSWRHook(
+    API_SERVICES_URLS.GET_ALL_LISTINGS
+  );
   const mostPoplure = data?.isSuccess ? data?.data?.data : [];
   const pageSize = 10;
   const totalEntries = data?.isSuccess ? data?.data.totalRecords : 0;
   const totalPages = Math.ceil(totalEntries / pageSize);
 
-  const handlePageChange = (page:any) => {
+  const handlePageChange = (page: any) => {
     setCurrentPage(page);
   };
 
   const toggleFilterVisibility = () => {
-    setIsFilterVisible(prev => !prev);
+    setIsFilterVisible((prev) => !prev);
+  };
+
+  // Responsive settings for the slider
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 1024, // Ensuring it only applies to small screens
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll:3,
+        },
+      },
+      
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+    ],
   };
 
   return (
@@ -64,21 +112,56 @@ export const MostPoplure = () => {
         </section>
       )}
 
-            {/* ---------------------<SearchBar raisuble component>--------------- */}
+      {/* ---------------------<SearchBar component>--------------- */}
 
-<section className="flex justify-center items-center py-6 mt-5 mb-2">
-        <div className="flex flex-wrap gap-4 sm:gap-8 items-center">
-          {/* City Dropdown */}
+      <section className="flex justify-center items-center py-6 mt-5 mb-2">
+        <div className="hidden lg:flex gap-4 sm:gap-8 items-center">
           <Dropdown label="City" icon={location} placeholder="Enter City" />
-          {/* Activity Dropdown */}
-          <Dropdown label="Activity" icon={activity} placeholder="Enter Activity" />
-          {/* Date & Time Dropdown */}
-          <Dropdown label="Date & Time" icon={dataTime} inputType="datetime-local" />
-          {/* Guest Dropdown */}
-          <Dropdown label="Guest" icon={Guest} inputType="number" placeholder="Enter number of guests" />
-          {/* Search Button */}
-          <button
+          <Dropdown
+            label="Activity"
+            icon={activity}
+            placeholder="Enter Activity"
+          />
+          <Dropdown
+            label="Date&Time"
+            icon={dataTime}
+            inputType="datetime-local"
+          />
+          <Dropdown
+            label="Guest"
+            icon={Guest}
+            inputType="number"
+            placeholder="Enter number of guests"
+          />
+          <Button
             className="bg-primary text-white px-5 sm:px-10 py-2 rounded-lg hover:bg-h1Color transition w-full sm:w-auto"
+            type="button"
+          >
+            Search
+          </Button>
+        </div>
+        <div className="lg:hidden w-full">
+          <Slider {...settings} className="w-full">
+          <Dropdown label="City" icon={location} placeholder="Enter City" />
+          <Dropdown
+            label="Activity"
+            icon={activity}
+            placeholder="Enter Activity"
+          />
+          <Dropdown
+            label="Date&Time"
+            icon={dataTime}
+            inputType="datetime-local"
+          />
+          <Dropdown
+            label="Guest"
+            icon={Guest}
+            inputType="number"
+            placeholder="Enter number of guests"
+          />
+          </Slider>
+          <button
+            className="bg-primary text-white px-5 sm:px-10 py-2 mt-3 rounded-lg hover:bg-h1Color transition w-full md:w-auto"
             type="button"
           >
             Search
@@ -86,9 +169,8 @@ export const MostPoplure = () => {
         </div>
       </section>
 
-
-      {/* ------------------------horiesntal line----------------  */}
-      <div className="w-full border-b bg-h6Color "></div>
+      {/* ------------------------Horizontal line----------------  */}
+      <div className="w-full border-b bg-h6Color"></div>
 
       {/* ------------------------Icons----------------  */}
       <div className="flex justify-end gap-3 my-3 relative">
@@ -109,8 +191,9 @@ export const MostPoplure = () => {
         </div>
         <Image src={sort} alt="sort" width={34} height={34} />
       </div>
+
       {/* ---------------- {Deals}-------------- */}
-      <section className="grid grid-cols-1  ss:grid-cols-2  custom:grid-cols-2 lg:grid-cols-4 md:grid-cols-3 gap-5 sm:gap-7 py-8 sm:py-12">
+      <section className="grid grid-cols-1 ss:grid-cols-2 custom:grid-cols-2 lg:grid-cols-4 md:grid-cols-3 gap-5 sm:gap-7 py-8 sm:py-12">
         {isLoading
           ? // Show skeleton loaders while loading
             [...Array(6)].map((_, index) => <SkeletonCategory key={index} />)
