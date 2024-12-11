@@ -20,6 +20,7 @@ export const Header = () => {
   return (
     <header className="bg-white/30 backdrop-blur-lg shadow-borderShadow">
       <div className="lg:mx-20 mx-5  pt-4 pb-2 flex justify-between items-center">
+      <Link href="/">
         <Image
           src="logo.svg"
           alt="Logo"
@@ -27,6 +28,7 @@ export const Header = () => {
           height={160}
           className="object-cover"
         />
+        </Link>
         <div className="flex space-x-2">
           <LanguageSelector />
           <div className="border-l-2 border-h4Color"></div>

@@ -160,3 +160,12 @@ export interface SelectProps
   options: any[]; //{ value: string; label: string }
   onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
+
+export interface DropdownProps {
+  label: string;
+  icon: string;
+  inputType?: string;
+  placeholder?: string;
+  options?: string[]; // Optional dropdown list options
+  customContent?: React.ReactNode; // For custom content inside the dropdown
+}

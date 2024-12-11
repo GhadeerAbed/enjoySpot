@@ -10,7 +10,10 @@ import Image from "next/image";
 import React, { useRef, useState } from "react";
 import Slider from "react-slick";
 import { stars } from "../../../../../public/images/page";
-import { ActivityMap, ActivityTimePicker } from "../page";
+import SkeletonDetails from "@/components/SkeltonDetails/page";
+import dynamic from "next/dynamic";
+const ActivityTimePicker = dynamic(() => import("../ActivityTimePicker/page"));
+const ActivityMap = dynamic(() => import("../ActivityMap/page"), { ssr: false });
 
 export const ListingDetails = ({ id }: { id: string }) => {
   const {
@@ -18,10 +21,15 @@ export const ListingDetails = ({ id }: { id: string }) => {
     isLoading,
     error,
   } = useSWRHook(API_SERVICES_URLS.GET_ALL_LISTINGS_PROFILE_BY_ID(id));
+
   const [currentSlide, setCurrentSlide] = useState(1);
   const sliderRef = useRef<Slider | null>(null);
 
-  if (isLoading) return <p className="text-center">Loading...</p>;
+  // Show a skeleton if data is loading or not available yet
+  if (isLoading || !listingDetails) {
+    return <SkeletonDetails />;
+  }
+
   const listing = listingDetails.data;
 
   const mediaAttachments =
@@ -35,17 +43,9 @@ export const ListingDetails = ({ id }: { id: string }) => {
     (attachment: any) => attachment.attachmentType === "YouTubeVideoIframe"
   );
   const attachmentsLoop = [...mediaAttachments, youtubeVideo].filter(Boolean);
-  const handlePrevClick = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPrev();
-    }
-  };
 
-  const handleNextClick = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickNext();
-    }
-  };
+  const handlePrevClick = () => sliderRef.current?.slickPrev();
+  const handleNextClick = () => sliderRef.current?.slickNext();
   const settings = {
     dots: true,
     infinite: true,
@@ -170,7 +170,7 @@ export const ListingDetails = ({ id }: { id: string }) => {
       </div>
       <div className="flex justify-between">
         {/* Listing Details */}
-        <div >
+        <div>
           <div className="flex flex-col space-y-3 sm:flex-row sm:justify-between sm:items-start">
             <div className="space-y-4">
               <div className="flex items-center">
