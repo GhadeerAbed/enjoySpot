@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import React, { useState, useCallback, useMemo } from "react";
 import SkeletonBanner from "@/components/SkeltonBanner/page";
-import { Pagination } from "@/components/page";
+import { Button, Pagination } from "@/components/page";
 import { API_SERVICES_URLS } from "@/data/page";
 import { useSWRHook } from "@/hooks/page";
 
@@ -17,6 +17,7 @@ const ExploreMore = dynamic(() =>
     (mod) => mod.ExploreMore
   )
 );
+
 // Static assets
 import {
   activity,
@@ -43,10 +44,12 @@ const BestDeals = () => {
     () => (data?.isSuccess ? data?.data?.data : []),
     [data]
   );
+
   const totalEntries = useMemo(
     () => (data?.isSuccess ? data?.data?.totalRecords : 0),
     [data]
   );
+
   const totalPages = useMemo(
     () => Math.ceil(totalEntries / 10),
     [totalEntries]
@@ -56,6 +59,7 @@ const BestDeals = () => {
     (page: number) => setCurrentPage(page),
     []
   );
+
   const toggleFilterVisibility = useCallback(
     () => setIsFilterVisible((prev) => !prev),
     []
@@ -145,18 +149,45 @@ const BestDeals = () => {
       </section>
 
       {/* Deals Section */}
+
       <section className="grid grid-cols-1 custom:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7 py-8 sm:py-12">
         {isLoading ? (
-          [...Array(6)].map((_, index) => <SkeletonLoader key={index} />)
+          [...Array(6)].map((_, index) =>  <SkeletonLoader key={index} />)
         ) : bestDeals.length > 0 ? (
-          bestDeals.map((deal: any) => (
-            <CardDeals
-              key={deal.id}
-              deal={deal}
-              loading={isLoading}
-              error={error}
-            />
-          ))
+          bestDeals.map((deal: any) => {
+            const priceAfter =
+              deal.price && deal.priceDiscountValue
+                ? deal.price - deal.priceDiscountValue
+                : null;
+
+            return (
+              <div key={deal.id} className="">
+                <div className="flex justify-center items-center flex-col">
+                  <CardDeals deal={deal} loading={isLoading} error={error} />
+                  <div className="mt-5 text-primary lg:hidden md:hidden  ">
+                    {priceAfter !== null && (
+                      <div className="flex justify-center items-center">
+                        <h1 className=" font-bold text-4xl ">{priceAfter}</h1>
+                        <span className="mx-1">AED</span>
+                      </div>
+                    )}
+                    <div className="flex justify-center items-center">
+                      <h1 className=" font-bold text-2xl line-through opacity-75">
+                        {" "}
+                        {deal.price}
+                      </h1>
+                      <span className=" mx-1">AED</span>
+                    </div>
+                    {/* priceBefore with line-through */}
+
+                    <Button className=" bg-white text-primary  transition flex justify-center items-center w-[250px]  font-bold mt-2 py-2   ">
+                      <span>Book Now</span>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            );
+          })
         ) : (
           <p className="text-center col-span-full">No deals found.</p>
         )}
