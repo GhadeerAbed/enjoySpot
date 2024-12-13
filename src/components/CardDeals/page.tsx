@@ -113,14 +113,14 @@ const CardDeals = ({
         <div className="absolute lg:hidden md:hidden left-[28%] bottom-[1%]  z-50 rounded-[12px]  w-[70%] max-w-[70%]  h-[135px] text-white  ">
           <h2 className="text-4xl   font-bold text-highlight mx-5 ">{deal.name}</h2>
           <div className=" flex  my-3 ">
-            <h2 className="text-lg  mt-2  flex  ">
-              <Image src={seats} width={18} height={19} alt="seats" />{" "}
+            <h2 className="text-2xl  mt-2  flex  ">
+              <Image src={seats} width={20} height={20} alt="seats" />{" "}
               {deal.seats} Seats
 
             </h2>
             <div className="border-r mx-3  bg-h6Color h-[15px] mt-3 "></div>
-            <h2 className="text-lg  mt-2 flex space-x-2 ">
-              <Image src={timer} width={18} height={19} alt="seats" />{" "}
+            <h2 className="text-2xl  mt-2 flex space-x-2 ">
+              <Image src={timer} width={20} height={20} alt="seats" />{" "}
               {deal.durations} Duration
             </h2>
           </div>

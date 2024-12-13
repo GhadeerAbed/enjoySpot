@@ -150,7 +150,7 @@ const BestDeals = () => {
 
       {/* Deals Section */}
 
-      <section className="grid grid-cols-1 custom:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7 py-8 sm:py-12">
+      <section className="grid grid-cols-1  custom:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7 py-8 sm:py-12">
         {isLoading ? (
           [...Array(6)].map((_, index) =>  <SkeletonLoader key={index} />)
         ) : bestDeals.length > 0 ? (
@@ -161,10 +161,10 @@ const BestDeals = () => {
                 : null;
 
             return (
-              <div key={deal.id} className="">
-                <div className="flex justify-center items-center flex-col">
+              <div key={deal.id} className=" xss:shadow-sm xss:rounded-[20px] ">
+                <div className="flex justify-center items-center flex-col mt-5">
                   <CardDeals deal={deal} loading={isLoading} error={error} />
-                  <div className="mt-5 text-primary lg:hidden md:hidden  ">
+                  <div className="my-5 text-primary lg:hidden md:hidden  ">
                     {priceAfter !== null && (
                       <div className="flex justify-center items-center">
                         <h1 className=" font-bold text-4xl ">{priceAfter}</h1>
